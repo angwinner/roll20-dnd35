@@ -17,6 +17,7 @@ Other features include some responsive web design for one- or two-column format,
 
 <b>Development Plan</b>
 What you see right now is an html mock-up with functional CSS controls. One goal of the project is to have all view controls implemented in CSS. This character sheet's predecessor had some unfortunate Roll20 Attributes that were actually view controls.
+The mock data adds significant bulk to the size of the html file.
 
 Phase 2 will commence with moving the character sheet to Roll20's sandbox and making sure all the attributes work.
 
