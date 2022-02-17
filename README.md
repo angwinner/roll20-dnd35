@@ -15,4 +15,12 @@ This roll-centric approach offers transparency to the users, easy editing withou
 
 Other features include some responsive web design for one- or two-column format, because a narrow window can be handy when sharing screen space with the map window, and a selection of colors for the dice/macro buttons.
 
+<b>Development Plan</b>
+What you see right now is an html mock-up with functional CSS controls. One goal of the project is to have all view controls implemented in CSS. This character sheet's predecessor had some unfortunate Roll20 Attributes that were actually view controls.
+
+Phase 2 will commence with moving the character sheet to Roll20's sandbox and making sure all the attributes work.
+
+Phase 3 is building sheetworker scripts to deal with slicing, dicing, and recombining the adjustment lists using Roll20's repeating sections system. There is some technical risk here depending on whether or not I can get the repeating sections to do what I want.
+
+<b>Acknowldgements</b>
 This character sheet takes its large-scale organization, tab structure, and expand/contract carats from Diana P.'s Version 2.7.9 12/7/20
