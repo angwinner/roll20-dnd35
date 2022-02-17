@@ -22,5 +22,5 @@ Phase 2 will commence with moving the character sheet to Roll20's sandbox and ma
 
 Phase 3 is building sheetworker scripts to deal with slicing, dicing, and recombining the adjustment lists using Roll20's repeating sections system. There is some technical risk here depending on whether or not I can get the repeating sections to do what I want.
 
-<b>Acknowldgements</b>
+<b>Acknowledgements</b>
 This character sheet takes its large-scale organization, tab structure, and expand/contract carats from Diana P.'s Version 2.7.9 12/7/20
