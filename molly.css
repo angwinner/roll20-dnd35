@@ -1,0 +1,828 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+p > br {font-size: inherit;}
+
+img {display: block; width: 100%;}
+div {border: 0px solid lightblue;}
+
+/* ------------ fonts, inputs, labels -------------------- */
+* {
+	font-family: "Raleway", sans-serif;
+	font-weight: 500;
+	font-variant: small-caps;
+	color: black;
+	font-size: 12px;
+}
+
+label {font-size: 10px;overflow: hidden;}
+
+input[type="text"] ~ label {vertical-align: top; padding-top: 2px;} /* label underneath input */
+
+section.pc-header select ~ label {position: relative; top: -4px;}
+
+input[type="radio"] ~ label, input[type="checkbox"] ~ label
+	{font-size: 12px; position: relative; bottom: 4px;}  /* label to right */
+
+/* column headings for grid containers */
+.roll-gc p {font-size: 9px; line-height: 1.0; margin: 5px 0px 2px 0px; display: inline-block;}
+
+
+h2 {font-size: 14px; font-weight: 900; margin: 0.5em 0px 0px 0px;}
+em {font-size: 14px; margin: 0.5em 0px 0px 0px;}
+
+.neg-label {
+	font-family: "Raleway", sans-serif;
+	font-weight: 500;
+	text-align: center;
+	background-color: black;
+	color: white;
+	font-size: 10px;
+	height: 40px;
+	line-height: 1.0;
+	padding: 3px;
+}
+.neg-label::first-line {font-size: 22px; font-weight: 900;}
+
+.neg-label-smaller::first-line {font-size: 20px;  font-weight: 900;}
+.neg-label-smaller{line-height: 1.1;}
+
+.neg-label-one-line {font-size: 16px; height: 30px; position: relative; top: 4px;}
+
+input {
+	font-family: "Shadows Into Light Two", sans-serif;
+	font-variant: normal;
+	height: 1.4em;
+	padding: 0.3em 0 0.3em 0;  /* for descenders */
+	text-align: left;
+	background: white;
+	border: none;
+	border-bottom: 2px solid black;
+}
+
+input[type="number"] {text-align: center}
+
+input.boxed {
+	font-size: 16px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+input.num-box {
+	width: 35px;
+	height: 30px;
+	padding-bottom: 0em;  /* don't need to allow for descenders */
+	text-align: center;
+	font-weight: bold;
+}
+
+input.temp-box {
+	width: 45px;
+	height: 30px;
+	padding-bottom: 0em;
+	text-align: center;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 1px;
+	border-color: lightgray;
+	outline-style: solid;
+	outline-width: 3px;
+	outline-color: lightgray;
+}
+
+input.text-box {
+	width: 95%;
+	height: 1.8em;
+	padding: 0.3em;
+}
+
+button[type="roll"]{
+	width: 40px;
+	height: 40px;
+	background-color: white;
+	background-image: url('blue20_40px.png');
+	background-repeat: no-repeat;
+	background-position: center;
+  	border: none;
+  	padding: 0px;
+  	display: inline-block;
+  	transition: transform 0.3s;
+}
+button[type="roll"]:active {
+	transform: rotate(360deg);
+}
+
+section.pc-header select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	position: relative;
+  	top: -0.3em;
+	width: 95%;
+	font-family: "Shadows Into Light Two", sans-serif;
+	font-variant: normal;
+	font-size: 16px;
+	height: 1.75em;
+	padding: 0px;
+	background: white;
+	border: none;
+	border-bottom: 2px solid black;
+}
+
+.roll-gc input.num-box, .roll-gc input.temp-box {
+	position: relative;
+	top: 4px;
+}
+.roll-gc div { margin-bottom: 5px; }
+
+div.rollmod span + input.boxed {top: -1px;}
+
+.plus {
+	font-size: 30px;
+	position: relative;
+	top: 4px;
+}
+fieldset {text-align: left;}
+
+fieldset > span {white-space: nowrap;}
+
+.showmore1rowgrid {
+	display: grid;
+	grid-template-columns: 20px;
+	grid-template-rows: 20px;
+	grid-template-areas: 'showmore1';
+}
+.showmore2rowgrid {
+	display: grid;
+	grid-template-columns: 20px;
+	grid-template-rows: 20px 20px;
+	grid-template-areas: 
+		'showmore1'
+		'showmore2';
+}
+.showmore3rowgrid {
+	display: grid;
+	grid-template-columns: 20px;
+	grid-template-rows: 20px 25px 25px;
+	grid-template-areas: 
+		'showmore1'
+		'showmore2'
+		'showmore3';
+}
+.showmore1 { grid-area: showmore1; }
+.showmore2 { grid-area: showmore2; }
+.showmore3 { grid-area: showmore3; }
+
+div.macrodetail textarea {font-family: monospace; font-variant: normal; width: 100%;
+	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
+div.helptext textarea {font-family: arial, sans-serif; font-variant: normal; width: 100%;
+	background: url('help20x20.png') no-repeat right top; background-size: 20px 20px;}
+
+
+/* ------------------------styling for specific sections -------------------- */
+
+.pc-header input {
+	font-size: 16px;
+	width: 95%;
+}
+
+.ability-grid-container div.checkname{ padding-top: 6px; text-align: right; }
+
+.adjst-grid > input[type="text"], .attack-adjst-grid > input[type="text"],
+.ac-adjst-grid > input[type="text"] {
+	width: 95%;
+	text-align: center;
+	font-size: 14px;
+}
+fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
+
+/* ------------ general organization -----------------------*/
+div.pc-sheet, div.npc-sheet {display: none;}
+#pc-show:checked ~ div.pc-sheet {display:block;}
+#npc-show:checked ~ div.npc-sheet {display:block;}
+
+
+
+/* -------------- pc narrow layout: 6 columns, minimum 600px  mobile first----------------*/
+
+.pc-header {
+	display:grid;
+	grid-template-columns: repeat(3, 1fr) repeat(3, 100px);
+	grid-template-rows: repeat(4, 50px); /* 35px for 20px input@1.7em + 10px label@1.2em + px padding */
+	grid-template-areas:
+		'fullname fullname displayname logo logo logo'
+		'class-n-lvl class-n-lvl playername logo logo logo'
+		'XP race size age pc-height pc-weight'
+		'alignment deity gender eyes hair skin';
+}
+.logo { grid-area: logo; }
+.pc-fullname { grid-area: fullname; }
+.pc-name { grid-area: displayname; }
+.player-name { grid-area: playername; }
+.class-n-lvl { grid-area: class-n-lvl; }
+.xp { grid-area: XP;}
+.race { grid-area: race; }
+.size { grid-area: size; }
+.alignment { grid-area: alignment; }
+.deity { grid-area: deity; }
+.gender { grid-area: gender; }
+.age { grid-area: age; }
+.pc-height { grid-area: pc-height; }
+.pc-weight { grid-area: pc-weight; }
+.eyes { grid-area: eyes; }
+.hair { grid-area: hair; }
+.skin { grid-area: skin; }
+
+/* --------------------------- pc narrow main tab content --------------------------------*/
+
+.ability-grid-container {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: grid;
+	grid-template-columns: 80px 45px 45px 45px 65px 50px 70px 55px 20px;
+	grid-template-areas:
+		'header header header header header header header header header'
+		'abilityname ablscore ablmodifier abltemp checkname macrobutton checkmod checktemp showablmacro'
+		'scoredetail scoredetail scoredetail scoredetail checkdetail checkdetail checkdetail checkdetail checkdetail'
+		'ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp'
+		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro';
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+.abilityname { grid-area: abilityname; }
+.ablscore { grid-area: ablscore; }
+.ablmodifier { grid-area: ablmodifier; }
+.abltemp { grid-area: abltemp; }
+.checkname { grid-area: checkname;}
+.macrobutton { grid-area: macrobutton; }
+.checkmod { grid-area: checkmod; }
+.checktemp { grid-area: checktemp; }
+.showablmacro { grid-area: showablmacro; text-align: left;}
+.scoredetail { grid-area: scoredetail; display: none; }
+.checkdetail { grid-area: checkdetail; display: none; }
+.ablhelp { grid-area: ablhelp; display: none; }
+.checkmacro { grid-area: checkmacro; display: none; }
+
+.showdetailbox {
+	opacity: 0;
+	cursor: pointer;
+	height: 100%;
+    z-index: 2;
+}
+
+.arrow {
+	z-index: 1;
+	position: absolute;
+	bottom: 2px;
+	height: 18px;
+	width: 18px;
+}
+
+.showscoredetailbox {grid-row: 2; grid-column: 2 / 4;}
+.arrowcollapsed-score {grid-area: ablscore; left: 5px;}
+.arrowexpanded-score {grid-area: ablscore; display: none;}
+
+.showscoredetailbox:checked ~ div.scoredetail {display: block;}
+.showscoredetailbox:checked ~ img.arrowcollapsed-score {display: none;}
+.showscoredetailbox:checked ~ img.arrowexpanded-score {display: block; left: 5px;}
+
+.showcheckdetailbox { grid-row: 2; grid-column: 7; }
+.arrowcollapsed-check {grid-area: checkmod; left: 17px;}
+.arrowexpanded-check {grid-area: checkmod; display: none;}
+	
+.showcheckdetailbox:checked ~ div.checkdetail {display: block;}
+.showcheckdetailbox:checked ~ img.arrowcollapsed-check {display: none;}
+.showcheckdetailbox:checked ~ img.arrowexpanded-check {display: block; left: 17px}
+
+.showablhelpbox {grid-row: 2; grid-column: 9; width: 20px; height: 20px; margin: 0px;}
+.showablhelpbox:checked ~ div.ablhelp {display: block;}
+
+.showablmacrobox {grid-row: 2; grid-column: 9; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
+.showablmacrobox:checked ~ div.checkmacro {display: block;}
+
+.adjst-grid {
+	display: grid;
+	padding: 0px;
+	grid-template-columns: 20px 90px 10px 30px 10px 45px;
+	grid-column-gap: 0px;
+	grid-row-gap: 5px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+
+.save-grid-container {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: grid;
+	grid-template-columns: 120px 50px 70px 55px 20px;
+	grid-template-areas: 
+		'header header header header header'
+		'savename macrobutton savemod savetemp showsavemacro'
+		'savedetail savedetail savedetail savedetail savedetail'
+		'savehelp savehelp savehelp savehelp savehelp'
+		'savemacro savemacro savemacro savemacro savemacro';
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+.savename { grid-area: savename; }
+.macrobutton { grid-area: macrobutton; }
+.savemod { grid-area: savemod; }
+.savetemp { grid-area: savetemp; }
+.showsavemacro { grid-area: showsavemacro; text-align: left;}
+.savedetail { grid-area: savedetail; display: none; }
+.savemacro { grid-area: savemacro; display: none; }
+.savehelp { grid-area: savehelp; display: none; }
+
+.showsavedetailbox { grid-row: 2; grid-column: 3; }
+.arrowcollapsed-save {grid-area: savemod; left: 17px;}
+.arrowexpanded-save {grid-area: savemod; display: none;} 
+	
+.showsavedetailbox:checked ~ div.savedetail {display: block;}
+.showsavedetailbox:checked ~ img.arrowcollapsed-save {display: none;} 
+.showsavedetailbox:checked ~ img.arrowexpanded-save {display: block; left: 17px}
+
+.showsavehelpbox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;}
+.showsavehelpbox:checked ~ div.savehelp {display: block;}
+
+.showsavemacrobox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
+.showsavemacrobox:checked ~ div.savemacro {display: block;}
+
+
+.ac-grid-container-single {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: grid;
+	grid-template-columns: 80px 50px 90px 50px 160px 50px;
+	grid-template-areas:
+		'acname acvalue touchacname touchacvalue flatacname flatacvalue'
+		'acdetail acdetail acdetail acdetail acdetail acdetail';
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+.acname { grid-area: acname; }
+.acvalue { grid-area: acvalue; }
+.touchacname { grid-area: touchacname; }
+.touchacvalue { grid-area: touchacvalue; }
+.flatacname { grid-area: flatacname; }
+.flatacvalue { grid-area: flatacvalue; }
+.acdetail { grid-area: acdetail; display: none; }
+
+.showacdetailbox { grid-row: 1; grid-column: 2; }
+.arrowcollapsed-ac {grid-area: acvalue; left: 8px;}
+.arrowexpanded-ac {grid-area: acvalue; display: none;} 
+	
+.showacdetailbox:checked ~ div.acdetail {display: block;}
+.showacdetailbox:checked ~ img.arrowcollapsed-ac {display: none;} 
+.showacdetailbox:checked ~ img.arrowexpanded-ac {display: block; left: 8px}
+
+.ac-grid-container-split {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: none;
+	grid-template-columns: 80px 50px 90px 50px 160px 50px;
+	grid-template-areas:
+		'm-acname m-acvalue m-touchacname m-touchacvalue m-flatacname m-flatacvalue'
+		'r-acname r-acvalue r-touchacname r-touchacvalue r-flatacname r-flatacvalue'
+		'm-r-acdetail m-r-acdetail m-r-acdetail m-r-acdetail m-r-acdetail m-r-acdetail';
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+.m-acname { grid-area: m-acname; }
+.m-acvalue { grid-area: m-acvalue; }
+.m-touchacname { grid-area: m-touchacname; }
+.m-touchacvalue { grid-area: m-touchacvalue; }
+.m-flatacname { grid-area: m-flatacname; }
+.m-flatacvalue { grid-area: m-flatacvalue; }
+.r-acname { grid-area: r-acname; }
+.r-acvalue { grid-area: r-acvalue; }
+.r-touchacname { grid-area: r-touchacname; }
+.r-touchacvalue { grid-area: r-touchacvalue; }
+.r-flatacname { grid-area: r-flatacname; }
+.r-flatacvalue { grid-area: r-flatacvalue; }
+.m-r-acdetail { grid-area: m-r-acdetail; display: none; }
+
+.show-mr-acdetailbox { grid-row: 1 / span 2; grid-column: 2; }
+.arrowcollapsed-mrac {grid-area: m-acvalue; left: 8px;}
+.arrowexpanded-mrac {grid-area: m-acvalue; display: none;} 
+	
+.show-mr-acdetailbox:checked ~ div.m-r-acdetail {display: block;}
+.show-mr-acdetailbox:checked ~ img.arrowcollapsed-mrac {display: none;} 
+.show-mr-acdetailbox:checked ~ img.arrowexpanded-mrac {display: block; left: 8px}
+
+.ac-adjst-grid {
+	display: grid;
+	padding: 0px;
+	grid-template-columns: 20px 90px 10px 30px 10px 45px 120px 100px;
+	grid-column-gap: 0px;
+	grid-row-gap: 5px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+
+input[id="hidden-condn-helpless"]:checked ~ div.ac-grid-container-single,
+	input[id="hidden-condn-pinned"]:checked ~ div.ac-grid-container-single,
+	input[id="hidden-condn-prone"]:checked ~ div.ac-grid-container-single
+	{display: none;}
+input[id="hidden-condn-helpless"]:checked ~ div.ac-grid-container-split,
+	input[id="hidden-condn-pinned"]:checked ~ div.ac-grid-container-split,
+	input[id="hidden-condn-prone"]:checked ~ div.ac-grid-container-split
+	{display: grid;}
+
+.conceal-grid-container {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: grid;
+	grid-template-columns: 95px 20px 35px 20px 35px 25px 50px 50px 50px 40px 25px;
+	grid-template-rows: 46px auto;
+	grid-template-areas:
+		'conceallabel conceal-20 conceal-20-l conceal-50 conceal-50-l conceal-other conceal-other-l concealother buttonlabel macrobutton showconcealmacro'
+		'concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro';
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+.conceallabel { grid-area: conceallabel; height: 26px; margin-top: 15px;}
+.conceal-20 { grid-area: conceal-20;  height: 26px; margin-top: 10px;}
+.conceal-20-l { grid-area: conceal-20-l; text-align: left; padding-left: 5px; height: 26px; margin-top: 20px;}
+.conceal-50 { grid-area: conceal-50; height: 26px; margin-top: 10px;}
+.conceal-50-l { grid-area: conceal-50-l; text-align: left; padding-left: 5px; height: 26px; margin-top: 20px;}
+.conceal-other { grid-area: conceal-other;  height: 26px; margin-top: 10px;}
+.conceal-other-l { grid-area: conceal-other-l; text-align: left; height: 26px; margin-top: 20px;}
+input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-top: 8px;}
+.buttonlabel { grid-area: buttonlabel; text-align: right; margin-top: 5px; padding-right: 5px;}
+.macrobutton { grid-area: macrobutton; }
+.showconcealmacro { grid-area: showconcealmacro; text-align: left;}
+.concealmacro { grid-area: concealmacro; display: none; }
+.concealmacro  textarea { width:100%; }
+
+.showconcealmacrobox {grid-row: 1; grid-column: 11; width: 90%;}
+.showconcealmacrobox:checked ~ div.concealmacro {display: block;}
+
+.init-grid-container {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: grid;
+	grid-template-columns: 125px 50px 70px 55px 20px;
+	grid-template-rows: auto 46px auto auto;
+	grid-template-areas:
+		'header header header header header'
+		'initlabel macrobutton initmod inittemp showinitmacro'
+		'initdetail initdetail initdetail initdetail initdetail'
+		'inithelp inithelp inithelp inithelp inithelp'
+		'initmacro initmacro initmacro initmacro initmacro';
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+.initlabel { grid-area: initlabel; }
+.macrobutton { grid-area: macrobutton; }
+.initmod { grid-area: initmod; }
+.inittemp { grid-area: inittemp; }
+.showinitmacro { grid-area: showinitmacro; text-align: left; background: aliceblue;}
+.initdetail { grid-area: initdetail; display: none; }
+.inithelp { grid-area: inithelp; display: none; }
+.initmacro { grid-area: initmacro; display: none; }
+
+.showinitdetailbox { grid-row: 2; grid-column: 3; }
+.arrowcollapsed-init {grid-area: initmod; left: 18px;}
+.arrowexpanded-init {grid-area: initmod; display: none;}
+	
+.showinitdetailbox:checked ~ div.initdetail {display: block;}
+.showinitdetailbox:checked ~ img.arrowcollapsed-init {display: none;}
+.showinitdetailbox:checked ~ img.arrowexpanded-init {display: block; left: 18px}
+
+.showinithelpbox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;}
+.showinithelpbox:checked ~ div.inithelp {display: block;}
+.showinitmacrobox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;
+	position: relative; top: 20px;}
+.showinitmacrobox:checked ~ div.initmacro {display: block;}
+
+/* This is the general layout of all the attacks and special attacks, and their adjustments.
+The specific contents of each grid-area vary with the attack chosen */
+.attack-grid-container {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: grid;
+	grid-template-columns: 175px 245px 40px;
+	grid-template-rows: 84px auto auto auto auto auto auto auto auto auto;
+	grid-template-areas:
+		'combatfirstroll combatsecondroll showatkbuttons'
+		'combathelp combathelp combathelp'
+		'critfirstroll critsecondroll showcritbuttons'
+		'critdetail critdetail critdetail'
+		'crithelp crithelp crithelp'
+		'atkdetail atkdetail atkdetail'
+		'hitmacro hitmacro hitmacro'
+		'dmgmacro dmgmacro dmgmacro'
+		'critconfmacro critconfmacro critconfmacro'
+		'critdmgmacro critdmgmacro critdmgmacro';
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+
+.showatkbuttons { grid-area: showatkbuttons; }
+.showcritbuttons { grid-area: showcritbuttons; display: none; }
+
+.critdetail { grid-area: critdetail; display: none;}
+.atkdetail { grid-area: atkdetail; display: block;}
+.hitmacro { grid-area: hitmacro; display: none; }
+.dmgmacro { grid-area: dmgmacro; display: none; }
+.critconfmacro { grid-area: critconfmacro; display: none; }
+.critdmgmacro { grid-area: critdmgmacro; display: none; }
+
+.showcritcontrolbox { grid-area: showatkbuttons; width: 25px; height: 20px ;position: relative; top: 0px;}
+.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
+.showatkmacrosbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 45px;}
+
+.showcritcontrolbox:checked ~ div.crittohitgrid {display: grid;}
+.showcritcontrolbox:checked ~ div.critdamagegrid {display: grid;}
+.showcritcontrolbox:checked ~ div.showcritbuttons {display: block;}
+.showcritcontrolbox:checked ~ input.showcritdetailbox {display: block;}
+.showcritcontrolbox:checked ~ input.showcrithelpbox {display: block;}
+.showcritcontrolbox:checked ~ input.showcritmacrosbox {display: block;}
+
+.atkhelp, .aidanotherhelp, .bullrushhelp, .disarmhelp, .feinthelp, .grapplehelp,
+	.overrunhelp, .sunderhelp, .triphelp
+	{grid-area: combathelp; display: none;}
+input.tbhat[value="melee"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.atkhelp {display: grid}
+input.tbhat[value="ranged"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.atkhelp {display: grid} 
+input.tbhat[value="aid"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.aidanotherhelp {display: grid}
+input.tbhat[value="bull"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.bullrushhelp {display: grid}
+input.tbhat[value="disarm"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.disarmhelp {display: grid}
+input.tbhat[value="feint"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.feinthelp {display: grid}
+input.tbhat[value="grapple"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.grapplehelp {display: grid}
+input.tbhat[value="overrun"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.overrunhelp {display: grid}
+input.tbhat[value="sunder"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.sunderhelp {display: grid}
+input.tbhat[value="trip"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+	.triphelp {display: grid}
+
+.crithelp {grid-area: crithelp; display: none;}
+input.tbhat[value="melee"]:checked ~ .attack-grid-container > .showcrithelpbox:checked ~ 
+	.crithelp {display: grid}
+input.tbhat[value="ranged"]:checked ~ .attack-grid-container > .showcrithelpbox:checked ~ 
+	.crithelp {display: grid}
+input.tbhat[value="sunder"]:checked ~ .attack-grid-container > .showcrithelpbox:checked ~ 
+	.crithelp {display: grid}
+
+.showatkmacrosbox:checked ~ div.hitmacro {display: block;}
+.showatkmacrosbox:checked ~ div.dmgmacro {display: block;}
+
+.showcritdetailbox { grid-area: showcritbuttons; width: 20px; height: 20px ;position: relative; top: 0px;
+	display: none;}
+.showcrithelpbox { grid-area: showcritbuttons; width: 25px; height: 25px; position: relative; top: 20px;
+	display: none;}
+.showcritmacrosbox { grid-area: showcritbuttons; width: 25px; height: 25px; position: relative; top: 45px;
+	display: none;}
+.showcritdetailbox:checked ~ div.critdetail {display: block;}
+
+.showcritmacrosbox:checked ~ div.critconfmacro {display: block;}
+.showcritmacrosbox:checked ~ div.critdmgmacro {display: block;}
+
+/* below are the specific attack layouts */
+/* this grid works for any simple d20 roll, including grapple and opposed STR checks */
+.atktohitgrid { 
+	grid-area: combatfirstroll;
+	display: grid;
+	grid-template-columns: 50px 70px 55px;
+	grid-template-rows: 36px 48px;
+	grid-template-areas:
+		'atkheader atkheader atkheader'
+		'hitbutton hitmod hittemp';
+}
+.hitbutton { grid-area: hitbutton; }
+.hitmod { grid-area: hitmod; }
+.hittemp { grid-area: hittemp; }
+
+/* nope, can't do this
+input.tbhat[value="melee"]:checked ~ .attack-grid-container > .hitbutton > .button {value: "@{tohitmeleemacro}"}
+/* also change src of button to check the selector works */
+
+.atkdamagegrid {
+	grid-area: combatsecondroll;
+	display: grid;
+	grid-template-columns: 70px 50px 70px 55px;
+	grid-template-rows: 36px 48px;
+	grid-template-areas:
+		'atkheader atkheader atkheader atkheader'
+		'critrange dmgbutton dmgmod dmgtemp';
+}
+.critrange { grid-area: critrange; }
+.critrange > input {width: 80%; text-align: center; margin-top: 10px;}
+.dmgbutton { grid-area: dmgbutton; }
+.dmgmod { grid-area: dmgmod; }
+.dmgtemp { grid-area: dmgtemp; }
+
+.crittohitgrid {
+	grid-area: critfirstroll;
+	display: none;
+	grid-template-columns: 50px 70px 55px;
+	grid-template-rows: 36px 48px;
+	grid-template-areas:
+		'critheader critheader critheader'
+		'confbutton hitbonuses confbonus';
+}
+.confbutton { grid-area: confbutton; }
+.hitbonuses { grid-area: hitbonuses; }
+.confbonus { grid-area: confbonus; }
+
+.critdamagegrid {
+	grid-area: critsecondroll;
+	display: none;
+	grid-template-columns: 70px 50px 70px 55px;
+	grid-template-rows: 36px 48px;
+	grid-template-areas:
+		'critheader critheader critheader critheader'
+		'dmgparens dmgparens critmult othercritdmg';
+}
+.dmgparens { grid-area: dmgparens; }
+.critmult { grid-area: critmult; }
+.othercritdmg { grid-area: othercritdmg; }
+
+
+.attack-adjst-grid {
+	display: grid;
+	padding: 0px;
+	grid-template-columns: 20px 120px 10px 35px 10px 50px 50px 50px;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+
+.critdetail {grid-area: critdetail;}
+.crit-adjst-grid {
+	display: grid;
+	padding: 0px;
+	grid-template-columns: 20px 120px 10px 35px 10px 50px 50px 50px 50px;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+
+.bullrushdetail {grid-area: atkdetail; display: block;}
+/* bull rush details include mandatory size adjustment and character-specific adjustments */
+/* don't know if this is going to be a real thing, or if it will be atkdetail updated via Javascript */
+
+
+/* ---------------------- pc medium layout: 9 columns, minimum 900px; --------------------------*/
+
+@media screen and (min-width: 900px) {
+	
+	.pc-header {
+		display:grid;
+		grid-template-columns: repeat(6, 1fr) repeat(3, 100px);
+		grid-template-rows: repeat(3, 50px); /* 35px for 20px input@1.7em + 10px label@1.2em + px padding */ 
+		grid-template-areas:
+			'fullname fullname displayname displayname playername playername logo logo logo'
+			'class-n-lvl class-n-lvl XP XP alignment deity logo logo logo'
+			'race size age pc-height pc-weight gender eyes hair skin';
+	}
+}
+
+
+/* ---------------------- pc wide layout: 12 columns; --------------------------*/
+@media only screen and (min-width: 1200px) {
+}
+/* ----------------------------------------any width ----------------------------------------- */
+
+
+/* ----------------------------------------Tabs (reskinned radio button)---------------------------------- */
+
+div.tabcontent1,
+div.tabcontent2,
+div.tabcontent3,
+div.tabcontent4,
+div.tabcontent5,
+div.tabcontent6,
+div.tabcontent7,
+div.tabcontent8
+{ 
+	display: none;
+}
+
+
+input.pc-tab1:checked ~ div.tabcontent1,
+input.pc-tab2:checked ~ div.tabcontent2,
+input.pc-tab3:checked ~ div.tabcontent3,
+input.pc-tab4:checked ~ div.tabcontent4,
+input.pc-tab4:checked ~ div.tabcontent5,
+input.pc-tab4:checked ~ div.tabcontent6,
+input.pc-tab4:checked ~ div.tabcontent7,
+input.pc-tab4:checked ~ div.tabcontent8,
+input.pc-tab99:checked ~ div.pc-tab99
+{
+    display: block;
+}
+
+input.pc-tab1:checked + span.pc-tab1,
+input.pc-tab2:checked + span.pc-tab2,
+input.pc-tab3:checked + span.pc-tab3,
+input.pc-tab4:checked + span.pc-tab4,
+input.pc-tab99:checked + span.pc-tab99
+{
+	background: gray;
+	color: white;
+}
+
+/* Style the tabs */
+input.pc-tab {opacity: 0; z-index: 9999;}
+span.pc-tab { display: inline-block; }
+
+.pc-tab
+{
+    display: inline-block;
+    text-align: center;
+    margin:  2px;
+    padding: 2px;   
+    height: 24px;    
+    border-top-left-radius: 1em 3em;
+    border-top-right-radius: 1em 3em;
+    border: solid thin gray;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.tab-grid-container {
+	display: grid;
+	text-align: center;
+	font-size: 13px;
+	background: white;
+	color: gray;
+	font-weight: bold;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-areas: 
+		'tab1 tab2 tab3 tab4 tab99' 
+		'tabcontent1 tabcontent1 tabcontent1 tabcontent1 tabcontent1'
+		'tabcontent2 tabcontent2 tabcontent2 tabcontent2 tabcontent2'
+		'tabcontent3 tabcontent3 tabcontent3 tabcontent3 tabcontent3'
+		'tabcontent4 tabcontent4 tabcontent4 tabcontent4 tabcontent4'
+		'tabcontent5 tabcontent5 tabcontent5 tabcontent5 tabcontent5'
+		'tabcontent6 tabcontent6 tabcontent6 tabcontent6 tabcontent6'
+		'tabcontent7 tabcontent7 tabcontent7 tabcontent7 tabcontent7'
+		'tabcontent8 tabcontent8 tabcontent8 tabcontent8 tabcontent8';
+}
+.pc-tab1 { grid-area: tab1; }
+.pc-tab2 { grid-area: tab2; }
+.pc-tab3 { grid-area: tab3; }
+.pc-tab4 { grid-area: tab4; }
+.pc-tab99 { grid-area: tab99; }
+
+.tabcontent1 { grid-area: tabcontent1; }
+.tabcontent2 { grid-area: tabcontent2; }
+.tabcontent3 { grid-area: tabcontent3; }
+.tabcontent4 { grid-area: tabcontent4; }
+.tabcontent5 { grid-area: tabcontent5; }
+.tabcontent6 { grid-area: tabcontent6; }
+.tabcontent7 { grid-area: tabcontent7; }
+.tabcontent8 { grid-area: tabcontent8; }
+
+
+/* -----------------------Skinned checkbox for Arrow toggles (►/▼)----------------------- */
+/* Hide actual checkbox */
+input.arrow[type="checkbox"]{
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 5px;
+    left: 6px;
+    margin: -10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Fake checkbox */
+input.arrow[type="checkbox"] + span::before{
+    margin-right: 4px;
+    line-height: 14px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+
+    content: "►";
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+}
+input.arrow[type="checkbox"]:checked + span::before { content: "▼"; }
+
+/* ------------------------------------------------------------------------------------------*/
+
