@@ -106,407 +106,409 @@
 		
 
 		<div class="pc-tab99 tabcontent1">
-			<div class="ability-grid-container roll-gc">
-				<h2>ABILITIES</h2>
-				<p>ABILITY SCORE</p>
-				<p>ABILITY MODIFIER</p>
-				<p>TEMP SCORE</p>
-				<p></p>
-				<em>Roll It!</em>
-				<p>CHECK MODIFIER</p>
-				<p>TEMP MODIFIER</p>	
-				<p></p>
+			<section class="abilities" style="border: 1px solid lightgreen;">
+				<div class="ability-grid-container roll-gc">
+					<h2>ABILITIES</h2>
+					<p>ABILITY SCORE</p>
+					<p>ABILITY MODIFIER</p>
+					<p>TEMP SCORE</p>
+					<p></p>
+					<em>Roll It!</em>
+					<p>CHECK MODIFIER</p>
+					<p>TEMP MODIFIER</p>	
+					<p></p>
 
-				<div class="neg-label abilityname">STR<br>STRENGTH</div>
-				<div class="ablscore">
-					<input type="text" class="num-box boxed" name="attr_str" value="18" readonly="readonly">
-				</div>
-				<div class="ablmodifier">
-					<input type="text" class="num-box boxed" name="attr_str_mod" value="+4" readonly="readonly">
-				</div>
-				<div class="abltemp">
-					<input type="number" name="attr_str_temp" class="temp-box boxed" value="0">
-				</div>
-				<div class="checkname">STR<br>CHECK</div>
-				<div class="macrobutton">
-					<button type="roll" name="roll_strcheck" title="strcheck" value="@{str-macro}"></button>
-				</div>
-				<div class="checkmod rollmod">
-					<span class="plus">+</span>
-					<input type="text" class="num-box boxed" value="0">
-					<span class="plus">+</span>
-				</div>
-				<div class="checktemp"><input type="number" class="temp-box boxed" value="3"></div>
-				<div class="showablmacro">
-					<img src="help20x20.png" alt="show help"></img>
-					<img src="grey_wrench20x20.png" alt="show macro"></img>
-				</div>
-
-				<!-- these inputs are invisible, see css -->
-				<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
-				
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
-
-				<div class="scoredetail">
-					<fieldset class="repeating_STRadjustments adjst-grid">
-						<legend>Adjustments to Strength</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name">
-						<span>[</span>
-						<input type="text" name="adjst_abbr"placeholder="abbr">
-						<span>]</span>
-						<input type="number" name="adjst_value">
-					</fieldset>
-				</div>
-				<div class="checkdetail">
-					<div style="display: grid; grid-template-columns: auto 235px">
-						<div></div>
-						<fieldset class="repeating_STRCHKadjustments adjst-grid">
-							<legend>Adjustments to Strength Check</legend>
-							<input type="checkbox" name="adjst_active" checked/>
-							<input type="text" name="adjst_desc" placeholder="Marshal's Aura">
-							<span>[</span>
-							<input type="text" name="adjst_abbr" placeholder="MA">
-							<span>]</span>
-							<input type="number" name="adjst_value" placeholder="3">
-						</fieldset>
+					<div class="neg-label abilityname">STR<br>STRENGTH</div>
+					<div class="ablscore">
+						<input type="text" class="num-box boxed" name="attr_str" value="18" readonly="readonly">
 					</div>
-				</div>
-				<div class="ablhelp helptext">
-					<textarea name="abl-str-help" rows="10">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Strength Checks are uncommon. A Marshal's Aura is one example of an effect that improves Strength Checks without improving Strength. If your character receives a bonus to a Strength Check when making a particular Special Attack (i.e. Improved Grapple), select Special Attack --> Grapple from the combat section below and enter the adjustment there.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
-				</div>
-				<div class="checkmacro macrodetail">
-					<textarea name="attr_str-macro">&{template:DnD35StdRoll} {{abilityflag=true}} {{name=@{character_name} }} {{check=Strength check:}} {{checkroll= [[ 1d20 + @{str-mod} + @{str-chk-mod}]] }} {{notes=@{strnote} }} Just putting a whole bunch more stuff in here to see if the text area height adjusts automatically -- I hope it does! P.S. There is no @{str-chk-mod} in the original character sheet.</textarea>
-				</div>
-			</div>
+					<div class="ablmodifier">
+						<input type="text" class="num-box boxed" name="attr_str_mod" value="+4" readonly="readonly">
+					</div>
+					<div class="abltemp">
+						<input type="number" name="attr_str_temp" class="temp-box boxed" value="0">
+					</div>
+					<div class="checkname">STR<br>CHECK</div>
+					<div class="macrobutton">
+						<button type="roll" name="roll_strcheck" title="strcheck" value="@{str-macro}"></button>
+					</div>
+					<div class="checkmod rollmod">
+						<span class="plus">+</span>
+						<input type="text" class="num-box boxed" value="0">
+						<span class="plus">+</span>
+					</div>
+					<div class="checktemp"><input type="number" class="temp-box boxed" value="3"></div>
+					<div class="showablmacro">
+						<img src="help20x20.png" alt="show help"></img>
+						<img src="grey_wrench20x20.png" alt="show macro"></img>
+					</div>
 
-			<div class="ability-grid-container roll-gc">
-				<div class="neg-label abilityname">DEX<br>DEXTERITY</div>
-				<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
-				<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
-				<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="checkname">DEX<br>CHECK</div>
-				<div class="macrobutton">
-					<button type="roll" name="roll_dexcheck" title="dexcheck" value="@{dex-macro}"></button>
-				</div>
-				<div class="checkmod rollmod">
-					<span class="plus">+</span>
-					<input type="text" class="num-box boxed" value="0">
-					<span class="plus">+</span>
-				</div>
-				<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="showablmacro">
-					<img src="help20x20.png" alt="show help"></img>
-					<img src="grey_wrench20x20.png" alt="show macro"></img>
-				</div>
+					<!-- these inputs are invisible, see css -->
+					<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
+					
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
 
-				<!-- these inputs are invisible, see css -->
-				<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
-
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
-
-				<div class="scoredetail">
-					<fieldset class="repeating_DEXadjustments adjst-grid">
-						<legend>Adjustments to Dexterity</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="base score">
-						<span>[</span>
-						<input type="text" name="adjst_abbr"placeholder="base">
-						<span>]</span>
-						<input type="number" name="adjst_value">
-					</fieldset>
-				</div>
-				<div class="checkdetail">
-					<div style="display: grid; grid-template-columns: auto 235px">
-						<div></div>
-						<fieldset class="repeating_DEXCHKadjustments adjst-grid">
-							<legend>Adjustments to Dexterity Check</legend>
+					<div class="scoredetail">
+						<fieldset class="repeating_STRadjustments adjst-grid">
+							<legend>Adjustments to Strength</legend>
 							<input type="checkbox" name="adjst_active" checked/>
-							<input type="text" name="adjst_desc" placeholder="unusual">
+							<input type="text" name="adjst_desc" placeholder="name">
 							<span>[</span>
-							<input type="text" name="adjst_abbr">
+							<input type="text" name="adjst_abbr"placeholder="abbr">
 							<span>]</span>
 							<input type="number" name="adjst_value">
 						</fieldset>
 					</div>
-				</div>
-				<div class="ablhelp helptext">
-					<textarea name="abl-dex-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
-				</div>
-				<div class="checkmacro macrodetail">
-					<textarea name="attr_dex-macro">The Dex Check macro</textarea>
-				</div>
-			</div>
-
-			<div class="ability-grid-container roll-gc">
-				<div class="neg-label abilityname">CON<br>CONSTITUTION</div>
-				<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
-				<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
-				<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="checkname">CON<br>CHECK</div>
-				<div class="macrobutton">
-					<button type="roll" name="roll_concheck" title="concheck" value="@{con-macro}"></button>
-				</div>
-				<div class="checkmod rollmod">
-					<span class="plus">+</span>
-					<input type="text" class="num-box boxed" value="0">
-					<span class="plus">+</span>
-				</div>
-				<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="showablmacro">
-					<img src="help20x20.png" alt="show help"></img>
-					<img src="grey_wrench20x20.png" alt="show macro"></img>
+					<div class="checkdetail">
+						<div style="display: grid; grid-template-columns: auto 235px">
+							<div></div>
+							<fieldset class="repeating_STRCHKadjustments adjst-grid">
+								<legend>Adjustments to Strength Check</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="Marshal's Aura">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="MA">
+								<span>]</span>
+								<input type="number" name="adjst_value" placeholder="3">
+							</fieldset>
+						</div>
+					</div>
+					<div class="ablhelp helptext">
+						<textarea name="abl-str-help" rows="10">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Strength Checks are uncommon. A Marshal's Aura is one example of an effect that improves Strength Checks without improving Strength. If your character receives a bonus to a Strength Check when making a particular Special Attack (i.e. Improved Grapple), select Special Attack --> Grapple from the combat section below and enter the adjustment there.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
+					</div>
+					<div class="checkmacro macrodetail">
+						<textarea name="attr_str-macro">&{template:DnD35StdRoll} {{abilityflag=true}} {{name=@{character_name} }} {{check=Strength check:}} {{checkroll= [[ 1d20 + @{str-mod} + @{str-chk-mod}]] }} {{notes=@{strnote} }} Just putting a whole bunch more stuff in here to see if the text area height adjusts automatically -- I hope it does! P.S. There is no @{str-chk-mod} in the original character sheet.</textarea>
+					</div>
 				</div>
 
-				<!-- these inputs are invisible, see css -->
-				<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
+				<div class="ability-grid-container roll-gc">
+					<div class="neg-label abilityname">DEX<br>DEXTERITY</div>
+					<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
+					<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
+					<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="checkname">DEX<br>CHECK</div>
+					<div class="macrobutton">
+						<button type="roll" name="roll_dexcheck" title="dexcheck" value="@{dex-macro}"></button>
+					</div>
+					<div class="checkmod rollmod">
+						<span class="plus">+</span>
+						<input type="text" class="num-box boxed" value="0">
+						<span class="plus">+</span>
+					</div>
+					<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="showablmacro">
+						<img src="help20x20.png" alt="show help"></img>
+						<img src="grey_wrench20x20.png" alt="show macro"></img>
+					</div>
 
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+					<!-- these inputs are invisible, see css -->
+					<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
 
-				<div class="scoredetail">
-					<fieldset class="repeating_CONadjustments adjst-grid">
-						<legend>Adjustments to Constitution</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="base score">
-						<span>[</span>
-						<input type="text" name="adjst_abbr"placeholder="base">
-						<span>]</span>
-						<input type="number" name="adjst_value">
-					</fieldset>
-				</div>
-				<div class="checkdetail">
-					<div style="display: grid; grid-template-columns: auto 235px">
-						<div></div>
-						<fieldset class="repeating_CONCHKadjustments adjst-grid">
-							<legend>Adjustments to Constitution Check</legend>
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+
+					<div class="scoredetail">
+						<fieldset class="repeating_DEXadjustments adjst-grid">
+							<legend>Adjustments to Dexterity</legend>
 							<input type="checkbox" name="adjst_active" checked/>
-							<input type="text" name="adjst_desc" placeholder="unusual">
+							<input type="text" name="adjst_desc" placeholder="base score">
 							<span>[</span>
-							<input type="text" name="adjst_abbr">
+							<input type="text" name="adjst_abbr"placeholder="base">
 							<span>]</span>
 							<input type="number" name="adjst_value">
 						</fieldset>
 					</div>
-				</div>
-				<div class="ablhelp helptext">
-					<textarea name="abl-con-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
-				</div>
-				<div class="checkmacro macrodetail">
-					<textarea name="attr_con-macro">The Constitution Check macro</textarea>
-				</div>
-			</div>
-
-			<div class="ability-grid-container roll-gc">
-				<div class="neg-label abilityname">INT<br>INTELLIGENCE</div>
-				<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
-				<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
-				<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="checkname">INT<br>CHECK</div>
-				<div class="macrobutton">
-					<button type="roll" name="roll_intcheck" title="intcheck" value="@{int-macro}"></button>
-				</div>
-				<div class="checkmod rollmod">
-					<span class="plus">+</span>
-					<input type="text" class="num-box boxed" value="0">
-					<span class="plus">+</span>
-				</div>
-				<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="showablmacro">
-					<img src="help20x20.png" alt="show help"></img>
-					<img src="grey_wrench20x20.png" alt="show macro"></img>
+					<div class="checkdetail">
+						<div style="display: grid; grid-template-columns: auto 235px">
+							<div></div>
+							<fieldset class="repeating_DEXCHKadjustments adjst-grid">
+								<legend>Adjustments to Dexterity Check</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="unusual">
+								<span>[</span>
+								<input type="text" name="adjst_abbr">
+								<span>]</span>
+								<input type="number" name="adjst_value">
+							</fieldset>
+						</div>
+					</div>
+					<div class="ablhelp helptext">
+						<textarea name="abl-dex-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
+					</div>
+					<div class="checkmacro macrodetail">
+						<textarea name="attr_dex-macro">The Dex Check macro</textarea>
+					</div>
 				</div>
 
-				<!-- these inputs are invisible, see css -->
-				<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
+				<div class="ability-grid-container roll-gc">
+					<div class="neg-label abilityname">CON<br>CONSTITUTION</div>
+					<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
+					<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
+					<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="checkname">CON<br>CHECK</div>
+					<div class="macrobutton">
+						<button type="roll" name="roll_concheck" title="concheck" value="@{con-macro}"></button>
+					</div>
+					<div class="checkmod rollmod">
+						<span class="plus">+</span>
+						<input type="text" class="num-box boxed" value="0">
+						<span class="plus">+</span>
+					</div>
+					<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="showablmacro">
+						<img src="help20x20.png" alt="show help"></img>
+						<img src="grey_wrench20x20.png" alt="show macro"></img>
+					</div>
 
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+					<!-- these inputs are invisible, see css -->
+					<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
 
-				<div class="scoredetail">
-					<fieldset class="repeating_INTadjustments adjst-grid">
-						<legend>Adjustments to Intelligence</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="base score">
-						<span>[</span>
-						<input type="text" name="adjst_abbr"placeholder="base">
-						<span>]</span>
-						<input type="number" name="adjst_value">
-					</fieldset>
-				</div>
-				<div class="checkdetail">
-					<div style="display: grid; grid-template-columns: auto 235px">
-						<div></div>
-						<fieldset class="repeating_INTCHKadjustments adjst-grid">
-							<legend>Adjustments to Intelligence Check</legend>
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+
+					<div class="scoredetail">
+						<fieldset class="repeating_CONadjustments adjst-grid">
+							<legend>Adjustments to Constitution</legend>
 							<input type="checkbox" name="adjst_active" checked/>
-							<input type="text" name="adjst_desc" placeholder="unusual">
+							<input type="text" name="adjst_desc" placeholder="base score">
 							<span>[</span>
-							<input type="text" name="adjst_abbr">
+							<input type="text" name="adjst_abbr"placeholder="base">
 							<span>]</span>
 							<input type="number" name="adjst_value">
 						</fieldset>
 					</div>
-				</div>
-				<div class="ablhelp helptext">
-					<textarea name="abl-int-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
-				</div>
-				<div class="checkmacro macrodetail">
-					<textarea name="attr_int-macro">The Int Check macro</textarea>
-				</div>
-			</div>
-
-			<div class="ability-grid-container roll-gc">
-				<div class="neg-label abilityname">WIS<br>WISDOM</div>
-				<div class="ablscore"><input type="text" class="num-box boxed" value="12"></div>
-				<div class="ablmodifier"><input type="text" class="num-box boxed" value="+1"></div>
-				<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="checkname">WIS<br>CHECK</div>
-				<div class="macrobutton">
-					<button type="roll" name="roll_wischeck" title="wischeck" value="@{wis-macro}"></button>
-				</div>
-				<div class="checkmod rollmod">
-					<span class="plus">+</span>
-					<input type="text" class="num-box boxed" value="0">
-					<span class="plus">+</span>
-				</div>
-				<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="showablmacro">
-					<img src="help20x20.png" alt="show help"></img>
-					<img src="grey_wrench20x20.png" alt="show macro"></img>
+					<div class="checkdetail">
+						<div style="display: grid; grid-template-columns: auto 235px">
+							<div></div>
+							<fieldset class="repeating_CONCHKadjustments adjst-grid">
+								<legend>Adjustments to Constitution Check</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="unusual">
+								<span>[</span>
+								<input type="text" name="adjst_abbr">
+								<span>]</span>
+								<input type="number" name="adjst_value">
+							</fieldset>
+						</div>
+					</div>
+					<div class="ablhelp helptext">
+						<textarea name="abl-con-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
+					</div>
+					<div class="checkmacro macrodetail">
+						<textarea name="attr_con-macro">The Constitution Check macro</textarea>
+					</div>
 				</div>
 
-				<!-- these inputs are invisible, see css -->
-				<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
+				<div class="ability-grid-container roll-gc">
+					<div class="neg-label abilityname">INT<br>INTELLIGENCE</div>
+					<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
+					<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
+					<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="checkname">INT<br>CHECK</div>
+					<div class="macrobutton">
+						<button type="roll" name="roll_intcheck" title="intcheck" value="@{int-macro}"></button>
+					</div>
+					<div class="checkmod rollmod">
+						<span class="plus">+</span>
+						<input type="text" class="num-box boxed" value="0">
+						<span class="plus">+</span>
+					</div>
+					<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="showablmacro">
+						<img src="help20x20.png" alt="show help"></img>
+						<img src="grey_wrench20x20.png" alt="show macro"></img>
+					</div>
 
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+					<!-- these inputs are invisible, see css -->
+					<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
 
-				<div class="scoredetail">
-					<fieldset class="repeating_WISadjustments adjst-grid">
-						<legend>Adjustments to Wisdom</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="base score">
-						<span>[</span>
-						<input type="text" name="adjst_abbr"placeholder="base">
-						<span>]</span>
-						<input type="number" name="adjst_value">
-					</fieldset>
-				</div>
-				<div class="checkdetail">
-					<div style="display: grid; grid-template-columns: auto 235px">
-						<div></div>
-						<fieldset class="repeating_WISCHKadjustments adjst-grid">
-							<legend>Adjustments to Wisdom Check</legend>
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+
+					<div class="scoredetail">
+						<fieldset class="repeating_INTadjustments adjst-grid">
+							<legend>Adjustments to Intelligence</legend>
 							<input type="checkbox" name="adjst_active" checked/>
-							<input type="text" name="adjst_desc" placeholder="unusual">
+							<input type="text" name="adjst_desc" placeholder="base score">
 							<span>[</span>
-							<input type="text" name="adjst_abbr">
+							<input type="text" name="adjst_abbr"placeholder="base">
 							<span>]</span>
 							<input type="number" name="adjst_value">
 						</fieldset>
 					</div>
-				</div>
-				<div class="ablhelp helptext">
-					<textarea name="abl-wis-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
-				</div>
-				<div class="checkmacro macrodetail">
-					<textarea name="attr_wis-macro">The Wis Check macro</textarea>
-				</div>
-			</div>
-
-			<div class="ability-grid-container roll-gc">
-				<div class="neg-label abilityname">CHA<br>CHARISMA</div>
-				<div class="ablscore"><input type="text" class="num-box boxed" value="14"></div>
-				<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
-				<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="checkname">CHA<br>CHECK</div>
-				<div class="macrobutton">
-					<button type="roll" name="roll_chacheck" title="chacheck" value="@{cha-macro}"></button>
-				</div>
-				<div class="checkmod rollmod">
-					<span class="plus">+</span>
-					<input type="text" class="num-box boxed" value="0">
-					<span class="plus">+</span>
-				</div>
-				<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
-				<div class="showablmacro">
-					<img src="help20x20.png" alt="show help"></img>
-					<img src="grey_wrench20x20.png" alt="show macro"></img>
+					<div class="checkdetail">
+						<div style="display: grid; grid-template-columns: auto 235px">
+							<div></div>
+							<fieldset class="repeating_INTCHKadjustments adjst-grid">
+								<legend>Adjustments to Intelligence Check</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="unusual">
+								<span>[</span>
+								<input type="text" name="adjst_abbr">
+								<span>]</span>
+								<input type="number" name="adjst_value">
+							</fieldset>
+						</div>
+					</div>
+					<div class="ablhelp helptext">
+						<textarea name="abl-int-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
+					</div>
+					<div class="checkmacro macrodetail">
+						<textarea name="attr_int-macro">The Int Check macro</textarea>
+					</div>
 				</div>
 
-				<!-- these inputs are invisible, see css -->
-				<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
-				<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
+				<div class="ability-grid-container roll-gc">
+					<div class="neg-label abilityname">WIS<br>WISDOM</div>
+					<div class="ablscore"><input type="text" class="num-box boxed" value="12"></div>
+					<div class="ablmodifier"><input type="text" class="num-box boxed" value="+1"></div>
+					<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="checkname">WIS<br>CHECK</div>
+					<div class="macrobutton">
+						<button type="roll" name="roll_wischeck" title="wischeck" value="@{wis-macro}"></button>
+					</div>
+					<div class="checkmod rollmod">
+						<span class="plus">+</span>
+						<input type="text" class="num-box boxed" value="0">
+						<span class="plus">+</span>
+					</div>
+					<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="showablmacro">
+						<img src="help20x20.png" alt="show help"></img>
+						<img src="grey_wrench20x20.png" alt="show macro"></img>
+					</div>
 
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
-				<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
-				<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+					<!-- these inputs are invisible, see css -->
+					<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
 
-				<div class="scoredetail">
-					<fieldset class="repeating_CHAadjustments adjst-grid">
-						<legend>Adjustments to Charisma</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="base score">
-						<span>[</span>
-						<input type="text" name="adjst_abbr"placeholder="base">
-						<span>]</span>
-						<input type="number" name="adjst_value">
-					</fieldset>
-				</div>
-				<div class="checkdetail">
-					<div style="display: grid; grid-template-columns: auto 235px">
-						<div></div>
-						<fieldset class="repeating_CHACHKadjustments adjst-grid">
-							<legend>Adjustments to Charisma Check</legend>
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+
+					<div class="scoredetail">
+						<fieldset class="repeating_WISadjustments adjst-grid">
+							<legend>Adjustments to Wisdom</legend>
 							<input type="checkbox" name="adjst_active" checked/>
-							<input type="text" name="adjst_desc" placeholder="unusual">
+							<input type="text" name="adjst_desc" placeholder="base score">
 							<span>[</span>
-							<input type="text" name="adjst_abbr">
+							<input type="text" name="adjst_abbr"placeholder="base">
 							<span>]</span>
 							<input type="number" name="adjst_value">
 						</fieldset>
 					</div>
+					<div class="checkdetail">
+						<div style="display: grid; grid-template-columns: auto 235px">
+							<div></div>
+							<fieldset class="repeating_WISCHKadjustments adjst-grid">
+								<legend>Adjustments to Wisdom Check</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="unusual">
+								<span>[</span>
+								<input type="text" name="adjst_abbr">
+								<span>]</span>
+								<input type="number" name="adjst_value">
+							</fieldset>
+						</div>
+					</div>
+					<div class="ablhelp helptext">
+						<textarea name="abl-wis-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
+					</div>
+					<div class="checkmacro macrodetail">
+						<textarea name="attr_wis-macro">The Wis Check macro</textarea>
+					</div>
 				</div>
-				<div class="ablhelp helptext">
-					<textarea name="abl-cha-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
-				</div>
-				<div class="checkmacro macrodetail">
-					<textarea name="attr_cha-macro">The Charisma Check macro</textarea>
-				</div>
-			</div>
 
-			<div class="saves">
+				<div class="ability-grid-container roll-gc">
+					<div class="neg-label abilityname">CHA<br>CHARISMA</div>
+					<div class="ablscore"><input type="text" class="num-box boxed" value="14"></div>
+					<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
+					<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="checkname">CHA<br>CHECK</div>
+					<div class="macrobutton">
+						<button type="roll" name="roll_chacheck" title="chacheck" value="@{cha-macro}"></button>
+					</div>
+					<div class="checkmod rollmod">
+						<span class="plus">+</span>
+						<input type="text" class="num-box boxed" value="0">
+						<span class="plus">+</span>
+					</div>
+					<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
+					<div class="showablmacro">
+						<img src="help20x20.png" alt="show help"></img>
+						<img src="grey_wrench20x20.png" alt="show macro"></img>
+					</div>
+
+					<!-- these inputs are invisible, see css -->
+					<input type="checkbox" class="showdetailbox showscoredetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showcheckdetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablmacrobox" unchecked/>
+					<input type="checkbox" class="showdetailbox showablhelpbox" unchecked/>
+
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-score">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-score">
+					<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-check">
+					<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-check">
+
+					<div class="scoredetail">
+						<fieldset class="repeating_CHAadjustments adjst-grid">
+							<legend>Adjustments to Charisma</legend>
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="base score">
+							<span>[</span>
+							<input type="text" name="adjst_abbr"placeholder="base">
+							<span>]</span>
+							<input type="number" name="adjst_value">
+						</fieldset>
+					</div>
+					<div class="checkdetail">
+						<div style="display: grid; grid-template-columns: auto 235px">
+							<div></div>
+							<fieldset class="repeating_CHACHKadjustments adjst-grid">
+								<legend>Adjustments to Charisma Check</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="unusual">
+								<span>[</span>
+								<input type="text" name="adjst_abbr">
+								<span>]</span>
+								<input type="number" name="adjst_value">
+							</fieldset>
+						</div>
+					</div>
+					<div class="ablhelp helptext">
+						<textarea name="abl-cha-help" rows="6">Adjustments to ability scores include both the character's base score and conditional adjustments such as boosts from items, spells, and Power or a spell of Bull's Strength. If you wish, you may enter the base score as one line item, or break it down into three line items: initial roll or point buy, racial bonus, and level up increases.&#13;&#10;Modifiers to Ability Checks are uncommon.&#13;&#10;Adjustments are only applied if the box on the far left is checked.</textarea>
+					</div>
+					<div class="checkmacro macrodetail">
+						<textarea name="attr_cha-macro">The Charisma Check macro</textarea>
+					</div>
+				</div>
+			</section>
+
+			<section class="saves" style="border: 1px solid yellow;">
 				<div class="save-grid-container roll-gc">
 					<h2>SAVING THROWS</h2>
 					<em>Roll It!</em>
@@ -656,9 +658,9 @@
 						<textarea name="willmacro">will save macro</textarea>
 					</div>
 				</div>
-			</div>
+			</section>
 
-			<div class="HPandAC"  style="text-align: left;">
+			<section class="HPandAC"  style="text-align: left; border: 1px solid cyan;">
 				<h2 style="width: 500px; text-align: center;">HEALTH AND DEFENSE</h2>
 
 				<p style="display: inline-block; width: 104px; text-align: right; margin: 0px;">MAX</p>
@@ -991,9 +993,9 @@
 					</div>
 				</div>
 
-			</div>
+			</section>
 
-			<div class="combat" style="text-align: left;">
+			<section class="combat" style="text-align: left; border: 1px solid red;">
 				<h2 style="width: 500px; text-align: center;">ATTACK</h2>
 
 				<div class="init-grid-container roll-gc">
@@ -1119,292 +1121,294 @@
 
 
 				<div class="meleeranged-atk-gc attack-grid-container roll-gc">
-				<div class="atktohitgrid">
-					<em style="margin: 0;">Roll<br>to Hit!</em>
-					<p><br>ATTACK<br>BONUS</p>
-					<p><br>TEMP<br>BONUS</p>
-					<div class="hitbutton macrobutton">
-						<button type="roll" name="attr_atk-tohit" title="atk-tohit" value="@{tohitmacro}"></button>
+					<div class="atktohitgrid">
+						<em style="margin: 0;">Roll<br>to Hit!</em>
+						<p><br>ATTACK<br>BONUS</p>
+						<p><br>TEMP<br>BONUS</p>
+						<div class="hitbutton macrobutton">
+							<button type="roll" name="attr_atk-tohit" title="atk-tohit" value="@{tohitmacro}"></button>
+						</div>
+						<div class="hitmod rollmod">
+							<span class="plus">+</span>
+							<input type="text" class="num-box boxed" value="0">
+							<span class="plus">+</span>
+						</div>
+						<div class="hittemp"><input type="number" class="temp-box boxed" value="0"></div>
 					</div>
-					<div class="hitmod rollmod">
-						<span class="plus">+</span>
-						<input type="text" class="num-box boxed" value="0">
-						<span class="plus">+</span>
+
+					<div class="atkdamagegrid">
+						<p><br>CRIT<br>RANGE</p>
+						<em style="margin: 0;">Roll<br>Damage!</em>
+						<p><br>DAMAGE<br>BONUS</p>
+						<p><br>TEMP<br>BONUS</p>
+
+						<div class="critrange"><input type="text" class="boxed" value="0"></div>
+					
+						<div class="dmgbutton macrobutton">
+							<button type="roll" style="background-image: url('blue8_40px.png')" name="" title="" value="@{dmgmacro}"></button>
+						</div>
+						<div class="dmgmod rollmod"> 
+							<span class="plus">+</span>
+							<input type="text" class="num-box boxed" value="0">
+							<span class="plus">+</span>
+						</div>
+						<div class="dmgtemp"><input type="number" class="temp-box boxed" value="0"></div>
 					</div>
-					<div class="hittemp"><input type="number" class="temp-box boxed" value="0"></div>
-				</div>
 
-				<div class="atkdamagegrid">
-					<p><br>CRIT<br>RANGE</p>
-					<em style="margin: 0;">Roll<br>Damage!</em>
-					<p><br>DAMAGE<br>BONUS</p>
-					<p><br>TEMP<br>BONUS</p>
-
-					<div class="critrange"><input type="text" class="boxed" value="0"></div>
-				
-					<div class="dmgbutton macrobutton">
-						<button type="roll" style="background-image: url('blue8_40px.png')" name="" title="" value="@{dmgmacro}"></button></div>
-					<div class="dmgmod rollmod"> 
-						<span class="plus">+</span>
-						<input type="text" class="num-box boxed" value="0">
-						<span class="plus">+</span></div>
-					<div class="dmgtemp"><input type="number" class="temp-box boxed" value="0"></div>
-				</div>
-
-				<div class="showatkbuttons">
-					<img src="show_crit2.png" alt="show crit controls" class="showcritimg"></img>
-					<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 6px;"></img>
-					<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 6px;">
-					</img>
-				</div>
-				<!-- these inputs are invisible, see css -->
-				<input type="checkbox" class="showdetailbox showcritcontrolbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showatkhelpbox" unchecked/>	
-				<input type="checkbox" class="showdetailbox showatkmacrosbox" unchecked/>
-
-				<div class="atkhelp helptext">
-					<textarea>Help for Melee or Ranged Attack To-Hit and Attack Damage</textarea>
-				</div>
-
-				<div class="crittohitgrid">
-					<em style="margin: 0;">Roll to<br>Confirm!</em>
-					<p></p>
-					<p style="padding-right: 12px;">CRIT<br>CONFIRM<br>BONUS</p>
-
-					<div class="confbutton macrobutton">
-					<button type="roll" name="attr_something" title="critroll" value="@{critmacro}"></button>
+					<div class="showatkbuttons">
+						<img src="show_crit2.png" alt="show crit controls" class="showcritimg"></img>
+						<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 6px;"></img>
+						<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 6px;">
+						</img>
 					</div>
-					<p class="hitbonuses">
-						<span class="plus">+</span>
-						<span style="display: inline-block; font-size: 9px">ATTACK<br>BONUS</span>
-						<span class="plus">+</span>
-					</p>
-					<div class="confbonus" style="margin-right: 12px;">
-						<input type="text" class="num-box boxed" value="0">
-					</div>
-				</div>
-				<div class="critdamagegrid">
-					<em style="margin: 0;">Roll Crit<br>Damage!</em>
-					<p></p>
-					<p>CRIT<br>MULTIPLIER<br>MINUS ONE</p>
-					<p style="padding-right: 12px;">OTHER<br>CRIT<br>DAMAGE</p>
+					<!-- these inputs are invisible, see css -->
+					<input type="checkbox" class="showdetailbox showcritcontrolbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showatkhelpbox" unchecked/>	
+					<input type="checkbox" class="showdetailbox showatkmacrosbox" unchecked/>
 
-					<div class="dmgparens" style="text-align: left;">
-						<span class="plus" style="top: -8px; letter-spacing: -2px;">(</span>
-						<span class="macrobutton" style="position: relative; top: -20px;">
-							<button type="roll" name="attr_something" title="critdmgroll" value="@{critdmgmacro}" style="width:36px; background-image: url('blue8_40px.png');"></button>
-						</span>
-						<span class="plus" style="top:-8px">+</span>
-						<p style="display: inline-block; font-size: 9px; text-align: center;">
-							DAMAGE<br>BONUSES<br>(EXCEPT<br>DICE)
+					<div class="atkhelp helptext">
+						<textarea>Help for Melee or Ranged Attack To-Hit and Attack Damage</textarea>
+					</div>
+
+					<div class="crittohitgrid">
+						<em style="margin: 0;">Roll to<br>Confirm!</em>
+						<p></p>
+						<p style="padding-right: 12px;">CRIT<br>CONFIRM<br>BONUS</p>
+
+						<div class="confbutton macrobutton">
+						<button type="roll" name="attr_something" title="critroll" value="@{critmacro}"></button>
+						</div>
+						<p class="hitbonuses">
+							<span class="plus">+</span>
+							<span style="display: inline-block; font-size: 9px">ATTACK<br>BONUS</span>
+							<span class="plus">+</span>
 						</p>
-						<span class="plus" style="top:-8px; letter-spacing: -2px">)</span>
+						<div class="confbonus" style="margin-right: 12px;">
+							<input type="text" class="num-box boxed" value="0">
+						</div>
 					</div>
-					<div>
-						<span style="font-size: 16px; font-weight: bold; position: relative; top:-3px">x&nbsp</span>
-						<input type="text" class="num-box boxed" value="1" style="top:-1px">
-						<span class="plus" style=" top:3px">+</span>
+					<div class="critdamagegrid">
+						<em style="margin: 0;">Roll Crit<br>Damage!</em>
+						<p></p>
+						<p>CRIT<br>MULTIPLIER<br>MINUS ONE</p>
+						<p style="padding-right: 12px;">OTHER<br>CRIT<br>DAMAGE</p>
+
+						<div class="dmgparens" style="text-align: left;">
+							<span class="plus" style="top: -8px; letter-spacing: -2px;">(</span>
+							<span class="macrobutton" style="position: relative; top: -20px;">
+								<button type="roll" name="attr_something" title="critdmgroll" value="@{critdmgmacro}" style="width:36px; background-image: url('blue8_40px.png');"></button>
+							</span>
+							<span class="plus" style="top:-8px">+</span>
+							<p style="display: inline-block; font-size: 9px; text-align: center;">
+								DAMAGE<br>BONUSES<br>(EXCEPT<br>DICE)
+							</p>
+							<span class="plus" style="top:-8px; letter-spacing: -2px">)</span>
+						</div>
+						<div>
+							<span style="font-size: 16px; font-weight: bold; position: relative; top:-3px">x&nbsp</span>
+							<input type="text" class="num-box boxed" value="1" style="top:-1px">
+							<span class="plus" style=" top:3px">+</span>
+						</div>
+						<div style="text-align: left;">
+							&nbsp<input type="text" class="num-box boxed" value="0">
+						</div>
+					</div>		
+					<div class="showcritbuttons">
+						<img src="collapsedarrow_square.png" alt="show crit adjustments" style="width: 25px; margin-left: 12px;"></img>
+						<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 6px;"></img>
+						<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 6px;">
+						</img>
 					</div>
-					<div style="text-align: left;">
-						&nbsp<input type="text" class="num-box boxed" value="0">
+					<!-- these inputs are invisible, see css -->
+					<input type="checkbox" class="showdetailbox showcritdetailbox" unchecked/>
+					<input type="checkbox" class="showdetailbox showcrithelpbox" unchecked/>	
+					<input type="checkbox" class="showdetailbox showcritmacrosbox" unchecked/>
+
+					<div class="crithelp helptext">
+						<textarea>Help for Melee or Ranged Attack Critical Hits</textarea>
 					</div>
-				</div>		
-				<div class="showcritbuttons">
-					<img src="collapsedarrow_square.png" alt="show crit adjustments" style="width: 25px; margin-left: 12px;"></img>
-					<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 6px;"></img>
-					<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 6px;">
-					</img>
+
+					<!-- end of special attack variants of atktohitgrid, atkdamagegrid, crittohitgrid, and critdamagegrid -->
+
+					<div class="atkdetail">
+						<div style="height: 1em;" class="attack-adjst-grid">
+							<p></p>
+							<p></p>
+							<p></p>
+							<p></p>
+							<P></P>
+							<p>ATTACK BONUS</p>
+							<p><br>DAMAGE</p>
+							<p><br>AC BONUS</p>
+						</div>
+						<fieldset class="repeating_perm-melee-adjustments attack-adjst-grid">
+							<legend>Universal Melee Adjustments</legend>
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="base attack">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="BAB">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="+6">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="size mod">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="sz">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="+1">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="two-handed">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="2H">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="@{str-mod}*1.5" style="font-family: monospace; font-size: 12px; vertical-align: top;">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="2nd attack">
+							<span>[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="2nd">
+							<span>]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="-5">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="charging">
+							<span>[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="chg">
+							<span>]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="+2">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="-2">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="fight defensively">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="dfsv">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="-4">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="+2">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="non-lethal damage">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="nl">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="-4">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+
+						</fieldset>
+						<fieldset class="repeating_weap-melee-adjustments attack-adjst-grid">
+							<legend>Weapon Adjustments</legend>
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="bastard sword">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="axe">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="1d10">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="flaming">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="fire">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="+1d6">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+						</fieldset>
+
+						<fieldset class="repeating_char-melee-adjustments attack-adjst-grid">
+							<legend>Character-Specific Adjustments</legend>
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="Power Attack">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="pwr">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="-4">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="+6">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="smite">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="smt">
+							<span >]</span>
+							<input type="text" name="adjst_value" placeholder="to hit bonus" value="@{attr_cha}" style="font-family: monospace; font-size: 12px; vertical-align: top;">
+							<input type="text" name="adjst_value" placeholder="damage bonus" value="+7">
+							<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+						</fieldset>
+					</div>
+
+					<div class="critdetail">
+						<div style="height: 1em;" class="attack-adjst-grid">
+							<p></p>
+							<p></p>
+							<p></p>
+							<p></p>
+							<P></P>
+							<p>CONFIRM BONUS</p>
+							<p>CRIT MULTIPLIER</p>
+							<p>OTHER DAMAGE</p>
+						</div>
+						<fieldset class="repeating_perm-melee-adjustments attack-adjst-grid">
+							<legend>Universal Melee Adjustments</legend>
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="Claw at the Moon">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="CaM">
+							<span >]</span>
+							<input type="text" name="adjst_value" value="+4">
+							<input type="text" name="adjst_value" value="0">
+							<input type="text" name="adjst_value" value="0">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="tiny spear">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="weap">
+							<span >]</span>
+							<input type="text" name="adjst_value" value="0">
+							<input type="text" name="adjst_value" value="3">
+							<input type="text" name="adjst_value" value="0">
+
+							<input type="checkbox" name="adjst_active" checked/>
+							<input type="text" name="adjst_desc" placeholder="name" value="flaming burst">
+							<span >[</span>
+							<input type="text" name="adjst_abbr" placeholder="abbr" value="FB">
+							<span >]</span>
+							<input type="text" name="adjst_value" value="0">
+							<input type="text" name="adjst_value" value="0">
+							<input type="text" name="adjst_value" value="2d10">
+						</fieldset>
+					</div>
+					
+					<div class="hitmacro macrodetail">
+						<textarea name="hitmacro">to-hit macro</textarea>
+					</div>
+					<div class="dmgmacro macrodetail">
+						<textarea name="dmgmacro">damage macro</textarea>
+					</div>
+					<div class="critconfmacro macrodetail">
+						<textarea name="critconfmacro">crit confirm macro</textarea>
+					</div>
+					<div class="critdmgmacro macrodetail">
+						<textarea name="critdmgmacro">crit damage macro</textarea>
+					</div>
 				</div>
-				<!-- these inputs are invisible, see css -->
-				<input type="checkbox" class="showdetailbox showcritdetailbox" unchecked/>
-				<input type="checkbox" class="showdetailbox showcrithelpbox" unchecked/>	
-				<input type="checkbox" class="showdetailbox showcritmacrosbox" unchecked/>
 
-				<div class="crithelp helptext">
-					<textarea>Help for Melee or Ranged Attack Critical Hits</textarea>
-				</div>
-
-				<!-- end of special attack variants of atktohitgrid, atkdamagegrid, crittohitgrid, and critdamagegrid -->
-
-				<div class="atkdetail">
-					<div style="height: 1em;" class="attack-adjst-grid">
-						<p></p>
-						<p></p>
-						<p></p>
-						<p></p>
-						<P></P>
-						<p>ATTACK BONUS</p>
-						<p><br>DAMAGE</p>
-						<p><br>AC BONUS</p>
-					</div>
-					<fieldset class="repeating_perm-melee-adjustments attack-adjst-grid">
-						<legend>Universal Melee Adjustments</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="base attack">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="BAB">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="+6">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="size mod">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="sz">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="+1">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="two-handed">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="2H">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="@{str-mod}*1.5" style="font-family: monospace; font-size: 12px; vertical-align: top;">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="2nd attack">
-						<span>[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="2nd">
-						<span>]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="-5">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="charging">
-						<span>[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="chg">
-						<span>]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="+2">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="-2">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="fight defensively">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="dfsv">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="-4">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="+2">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="non-lethal damage">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="nl">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="-4">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-
-					</fieldset>
-					<fieldset class="repeating_weap-melee-adjustments attack-adjst-grid">
-						<legend>Weapon Adjustments</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="bastard sword">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="axe">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="1d10">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="flaming">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="fire">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="+1d6">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-					</fieldset>
-
-					<fieldset class="repeating_char-melee-adjustments attack-adjst-grid">
-						<legend>Character-Specific Adjustments</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="Power Attack">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="pwr">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="-4">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="+6">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="smite">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="smt">
-						<span >]</span>
-						<input type="text" name="adjst_value" placeholder="to hit bonus" value="@{attr_cha}" style="font-family: monospace; font-size: 12px; vertical-align: top;">
-						<input type="text" name="adjst_value" placeholder="damage bonus" value="+7">
-						<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
-					</fieldset>
-				</div>
-
-				<div class="critdetail">
-					<div style="height: 1em;" class="attack-adjst-grid">
-						<p></p>
-						<p></p>
-						<p></p>
-						<p></p>
-						<P></P>
-						<p>CONFIRM BONUS</p>
-						<p>CRIT MULTIPLIER</p>
-						<p>OTHER DAMAGE</p>
-					</div>
-					<fieldset class="repeating_perm-melee-adjustments attack-adjst-grid">
-						<legend>Universal Melee Adjustments</legend>
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="Claw at the Moon">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="CaM">
-						<span >]</span>
-						<input type="text" name="adjst_value" value="+4">
-						<input type="text" name="adjst_value" value="0">
-						<input type="text" name="adjst_value" value="0">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="tiny spear">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="weap">
-						<span >]</span>
-						<input type="text" name="adjst_value" value="0">
-						<input type="text" name="adjst_value" value="3">
-						<input type="text" name="adjst_value" value="0">
-
-						<input type="checkbox" name="adjst_active" checked/>
-						<input type="text" name="adjst_desc" placeholder="name" value="flaming burst">
-						<span >[</span>
-						<input type="text" name="adjst_abbr" placeholder="abbr" value="FB">
-						<span >]</span>
-						<input type="text" name="adjst_value" value="0">
-						<input type="text" name="adjst_value" value="0">
-						<input type="text" name="adjst_value" value="2d10">
-					</fieldset>
-				</div>
 				
-				<div class="hitmacro macrodetail">
-					<textarea name="hitmacro">to-hit macro</textarea>
-				</div>
-				<div class="dmgmacro macrodetail">
-					<textarea name="dmgmacro">damage macro</textarea>
-				</div>
-				<div class="critconfmacro macrodetail">
-					<textarea name="critconfmacro">crit confirm macro</textarea>
-				</div>
-				<div class="critdmgmacro macrodetail">
-					<textarea name="critdmgmacro">crit damage macro</textarea>
-				</div>
-			</div>
-
-			
-			<div class="turn-undead-attack">Turn Undead</div>
-			</div>
+				<div class="turn-undead-attack">Turn Undead</div>
+			</section>
 		</div>
 		<div class="pc-tab99 tabcontent2"> Skills </div>
 		<div class="pc-tab99 tabcontent3"> Equipment </div>
