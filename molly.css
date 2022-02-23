@@ -182,6 +182,8 @@ div.macrodetail textarea {font-family: monospace; font-variant: normal; width: 1
 div.helptext textarea {font-family: arial, sans-serif; font-variant: normal; width: 100%;
 	background: url('help20x20.png') no-repeat right top; background-size: 20px 20px;}
 
+.hidden {background-color: yellow}  
+
 
 /* ------------------------styling for specific sections -------------------- */
 
@@ -206,12 +208,11 @@ div.pc-sheet, div.npc-sheet {display: none;}
 #npc-show:checked ~ div.npc-sheet {display:block;}
 
 
-
-/* -------------- pc narrow layout: 6 columns, minimum 600px  mobile first----------------*/
+/* -------------- pc narrow layout:  1 column, minimum 500px -----------------------------*/
 
 .pc-header {
-	display:grid;
-	grid-template-columns: repeat(3, 1fr) repeat(3, 100px);
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
 	grid-template-rows: repeat(4, 50px); /* 35px for 20px input@1.7em + 10px label@1.2em + px padding */
 	grid-template-areas:
 		'fullname fullname displayname logo logo logo'
@@ -219,7 +220,8 @@ div.pc-sheet, div.npc-sheet {display: none;}
 		'XP race size age pc-height pc-weight'
 		'alignment deity gender eyes hair skin';
 }
-.logo { grid-area: logo; }
+.logo { grid-area: logo;}
+.logo img {height: 100px; object-fit: contain;}
 .pc-fullname { grid-area: fullname; }
 .pc-name { grid-area: displayname; }
 .player-name { grid-area: playername; }
@@ -237,7 +239,42 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .hair { grid-area: hair; }
 .skin { grid-area: skin; }
 
-/* --------------------------- pc narrow main tab content --------------------------------*/
+.pc-main-tab {
+	display: flex;
+	flex-flow: column wrap;
+}
+
+.pc-main-tab > section {width: 500px;}
+
+.abilities {order: 1; border: 0px solid lightgreen;}
+.saves {order: 2; border: 0px solid yellow;}
+.HPandAC {order: 3; text-align: left; border: 0px solid cyan;}
+.combat {order: 4; border: 0px solid red;}
+.readied_sfm {order: 6; text-align: left; border: 0px solid lavender;}
+
+/* ---------------------- pc medium layout: 2 columns, minimum 1000px; --------------------------*/
+
+@media screen and (min-width: 1000px) {                     
+
+	.pc-header {
+		display:grid;
+		grid-template-columns: repeat(6, 1fr) repeat(3, 100px);
+		grid-template-rows: repeat(3, 50px); /* 35px for 20px input@1.7em + 10px label@1.2em + px padding */ 
+		grid-template-areas:
+			'fullname fullname displayname displayname playername playername logo logo logo'
+			'class-n-lvl class-n-lvl XP XP alignment deity logo logo logo'
+			'race size age pc-height pc-weight gender eyes hair skin';
+	}
+
+	.abilities {}
+	.saves {}
+	.HPandAC {order: 5;}
+	.combat {break-after: always;}
+	.readied_sfm {order: 6;}
+}
+
+
+/* --------------------------- layouts for sections --------------------------------*/
 
 .ability-grid-container {
 	position: relative;
@@ -681,27 +718,6 @@ input.tbhat[value="melee"]:checked ~ .attack-grid-container > .hitbutton > .butt
 /* bull rush details include mandatory size adjustment and character-specific adjustments */
 /* don't know if this is going to be a real thing, or if it will be atkdetail updated via Javascript */
 
-
-/* ---------------------- pc medium layout: 9 columns, minimum 900px; --------------------------*/
-
-@media screen and (min-width: 900px) {
-	
-	.pc-header {
-		display:grid;
-		grid-template-columns: repeat(6, 1fr) repeat(3, 100px);
-		grid-template-rows: repeat(3, 50px); /* 35px for 20px input@1.7em + 10px label@1.2em + px padding */ 
-		grid-template-areas:
-			'fullname fullname displayname displayname playername playername logo logo logo'
-			'class-n-lvl class-n-lvl XP XP alignment deity logo logo logo'
-			'race size age pc-height pc-weight gender eyes hair skin';
-	}
-}
-
-
-/* ---------------------- pc wide layout: 12 columns; --------------------------*/
-@media only screen and (min-width: 1200px) {
-}
-/* ----------------------------------------any width ----------------------------------------- */
 
 
 /* ----------------------------------------Tabs (reskinned radio button)---------------------------------- */
