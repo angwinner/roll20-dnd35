@@ -122,10 +122,10 @@
 
 						<div class="neg-label abilityname">STR<br>STRENGTH</div>
 						<div class="ablscore">
-							<input type="text" class="num-box boxed" name="attr_str" value="18" readonly="readonly">
+							<input type="text" class="num-box boxed" name="attr_str" value="20" readonly="readonly">
 						</div>
 						<div class="ablmodifier">
-							<input type="text" class="num-box boxed" name="attr_str_mod" value="+4" readonly="readonly">
+							<input type="text" class="num-box boxed" name="attr_str_mod" value="+5" readonly="readonly">
 						</div>
 						<div class="abltemp">
 							<input type="number" name="attr_str_temp" class="temp-box boxed" value="0">
@@ -136,10 +136,10 @@
 						</div>
 						<div class="checkmod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" value="0">
+							<input type="text" class="num-box boxed" value="+8">
 							<span class="plus">+</span>
 						</div>
-						<div class="checktemp"><input type="number" class="temp-box boxed" value="3"></div>
+						<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
 						<div class="showablmacro">
 							<img src="help20x20.png" alt="show help"></img>
 							<img src="grey_wrench20x20.png" alt="show macro"></img>
@@ -160,9 +160,30 @@
 							<fieldset class="repeating_STRadjustments adjst-grid">
 								<legend>Adjustments to Strength</legend>
 								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="original value">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="base">
+								<span>]</span>
+								<input type="number" name="adjst_value" value=18>
+
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="Gauntlets Ogre Pwr">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="GOP">
+								<span>]</span>
+								<input type="number" name="adjst_value" value=2>
+
+								<input type="checkbox" name="adjst_active" unchecked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="Bull's Strength">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="BS">
+								<span>]</span>
+								<input type="number" name="adjst_value" value=4>
+
+								<input type="checkbox" name="adjst_active" unchecked/>
 								<input type="text" name="adjst_desc" placeholder="name">
 								<span>[</span>
-								<input type="text" name="adjst_abbr"placeholder="abbr">
+								<input type="text" name="adjst_abbr" placeholder="abbr">
 								<span>]</span>
 								<input type="number" name="adjst_value">
 							</fieldset>
@@ -173,11 +194,25 @@
 								<fieldset class="repeating_STRCHKadjustments adjst-grid">
 									<legend>Adjustments to Strength Check</legend>
 									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="Marshal's Aura">
+									<input type="text" name="adjst_desc" placeholder="unusual" value="STR modifier">
 									<span>[</span>
-									<input type="text" name="adjst_abbr" placeholder="MA">
+									<input type="text" name="adjst_abbr" value="mod">
 									<span>]</span>
-									<input type="number" name="adjst_value" placeholder="3">
+									<input type="number" name="adjst_value" value="5">
+
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="unusual" value="Marshal's Aura">
+									<span>[</span>
+									<input type="text" name="adjst_abbr" value="MA">
+									<span>]</span>
+									<input type="number" name="adjst_value" value="3">
+
+									<input type="checkbox" name="adjst_active" unchecked/>
+									<input type="text" name="adjst_desc" placeholder="unusual">
+									<span>[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr">
+									<span>]</span>
+									<input type="number" name="adjst_value">
 								</fieldset>
 							</div>
 						</div>
@@ -192,7 +227,7 @@
 					<div class="ability-grid-container roll-gc">
 						<div class="neg-label abilityname">DEX<br>DEXTERITY</div>
 						<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
-						<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
+						<div class="ablmodifier"><input type="text" class="num-box boxed" value="+3"></div>
 						<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
 						<div class="checkname">DEX<br>CHECK</div>
 						<div class="macrobutton">
@@ -200,7 +235,7 @@
 						</div>
 						<div class="checkmod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" value="0">
+							<input type="text" class="num-box boxed" value="+3">
 							<span class="plus">+</span>
 						</div>
 						<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
@@ -224,9 +259,16 @@
 							<fieldset class="repeating_DEXadjustments adjst-grid">
 								<legend>Adjustments to Dexterity</legend>
 								<input type="checkbox" name="adjst_active" checked/>
-								<input type="text" name="adjst_desc" placeholder="base score">
+								<input type="text" name="adjst_desc" placeholder="name" value="original value">
 								<span>[</span>
-								<input type="text" name="adjst_abbr"placeholder="base">
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="base">
+								<span>]</span>
+								<input type="number" name="adjst_value" value=16>
+
+								<input type="checkbox" name="adjst_active" unchecked/>
+								<input type="text" name="adjst_desc" placeholder="name">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr">
 								<span>]</span>
 								<input type="number" name="adjst_value">
 							</fieldset>
@@ -237,9 +279,16 @@
 								<fieldset class="repeating_DEXCHKadjustments adjst-grid">
 									<legend>Adjustments to Dexterity Check</legend>
 									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="unusual" value="DEX modifier">
+									<span>[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="mod">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=3>
+
+									<input type="checkbox" name="adjst_active" unchecked/>
 									<input type="text" name="adjst_desc" placeholder="unusual">
 									<span>[</span>
-									<input type="text" name="adjst_abbr">
+									<input type="text" name="adjst_abbr" placeholder="abbr">
 									<span>]</span>
 									<input type="number" name="adjst_value">
 								</fieldset>
@@ -256,7 +305,7 @@
 					<div class="ability-grid-container roll-gc">
 						<div class="neg-label abilityname">CON<br>CONSTITUTION</div>
 						<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
-						<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
+						<div class="ablmodifier"><input type="text" class="num-box boxed" value="+3"></div>
 						<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
 						<div class="checkname">CON<br>CHECK</div>
 						<div class="macrobutton">
@@ -264,7 +313,7 @@
 						</div>
 						<div class="checkmod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" value="0">
+							<input type="text" class="num-box boxed" value="+3">
 							<span class="plus">+</span>
 						</div>
 						<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
@@ -288,9 +337,16 @@
 							<fieldset class="repeating_CONadjustments adjst-grid">
 								<legend>Adjustments to Constitution</legend>
 								<input type="checkbox" name="adjst_active" checked/>
-								<input type="text" name="adjst_desc" placeholder="base score">
+								<input type="text" name="adjst_desc" placeholder="name" value="original value">
 								<span>[</span>
-								<input type="text" name="adjst_abbr"placeholder="base">
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="base">
+								<span>]</span>
+								<input type="number" name="adjst_value" value=16>
+
+								<input type="checkbox" name="adjst_active" unchecked/>
+								<input type="text" name="adjst_desc" placeholder="name">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr">
 								<span>]</span>
 								<input type="number" name="adjst_value">
 							</fieldset>
@@ -301,9 +357,16 @@
 								<fieldset class="repeating_CONCHKadjustments adjst-grid">
 									<legend>Adjustments to Constitution Check</legend>
 									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="unusual" value="CON modifier">
+									<span>[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="mod">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=3>
+
+									<input type="checkbox" name="adjst_active" unchecked/>
 									<input type="text" name="adjst_desc" placeholder="unusual">
 									<span>[</span>
-									<input type="text" name="adjst_abbr">
+									<input type="text" name="adjst_abbr" placeholder="abbr">
 									<span>]</span>
 									<input type="number" name="adjst_value">
 								</fieldset>
@@ -320,7 +383,7 @@
 					<div class="ability-grid-container roll-gc">
 						<div class="neg-label abilityname">INT<br>INTELLIGENCE</div>
 						<div class="ablscore"><input type="text" class="num-box boxed" value="16"></div>
-						<div class="ablmodifier"><input type="text" class="num-box boxed" value="+2"></div>
+						<div class="ablmodifier"><input type="text" class="num-box boxed" value="+3"></div>
 						<div class="abltemp"><input type="number" class="temp-box boxed" value="0"></div>
 						<div class="checkname">INT<br>CHECK</div>
 						<div class="macrobutton">
@@ -328,7 +391,7 @@
 						</div>
 						<div class="checkmod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" value="0">
+							<input type="text" class="num-box boxed" value="+3">
 							<span class="plus">+</span>
 						</div>
 						<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
@@ -352,9 +415,16 @@
 							<fieldset class="repeating_INTadjustments adjst-grid">
 								<legend>Adjustments to Intelligence</legend>
 								<input type="checkbox" name="adjst_active" checked/>
-								<input type="text" name="adjst_desc" placeholder="base score">
+								<input type="text" name="adjst_desc" placeholder="name" value="original value">
 								<span>[</span>
-								<input type="text" name="adjst_abbr"placeholder="base">
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="base">
+								<span>]</span>
+								<input type="number" name="adjst_value" value=16>
+
+								<input type="checkbox" name="adjst_active" unchecked/>
+								<input type="text" name="adjst_desc" placeholder="name">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr">
 								<span>]</span>
 								<input type="number" name="adjst_value">
 							</fieldset>
@@ -365,9 +435,16 @@
 								<fieldset class="repeating_INTCHKadjustments adjst-grid">
 									<legend>Adjustments to Intelligence Check</legend>
 									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="unusual" value="INT modifier">
+									<span>[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="mod">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=3>
+
+									<input type="checkbox" name="adjst_active" unchecked/>
 									<input type="text" name="adjst_desc" placeholder="unusual">
 									<span>[</span>
-									<input type="text" name="adjst_abbr">
+									<input type="text" name="adjst_abbr" placeholder="abbr">
 									<span>]</span>
 									<input type="number" name="adjst_value">
 								</fieldset>
@@ -392,7 +469,7 @@
 						</div>
 						<div class="checkmod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" value="0">
+							<input type="text" class="num-box boxed" value="+1">
 							<span class="plus">+</span>
 						</div>
 						<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
@@ -416,9 +493,16 @@
 							<fieldset class="repeating_WISadjustments adjst-grid">
 								<legend>Adjustments to Wisdom</legend>
 								<input type="checkbox" name="adjst_active" checked/>
-								<input type="text" name="adjst_desc" placeholder="base score">
+								<input type="text" name="adjst_desc" placeholder="name" value="original value">
 								<span>[</span>
-								<input type="text" name="adjst_abbr"placeholder="base">
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="base">
+								<span>]</span>
+								<input type="number" name="adjst_value" value=12>
+
+								<input type="checkbox" name="adjst_active" unchecked/>
+								<input type="text" name="adjst_desc" placeholder="name">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr">
 								<span>]</span>
 								<input type="number" name="adjst_value">
 							</fieldset>
@@ -429,9 +513,16 @@
 								<fieldset class="repeating_WISCHKadjustments adjst-grid">
 									<legend>Adjustments to Wisdom Check</legend>
 									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="unusual" value="WIS modifier">
+									<span>[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="mod">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=1>
+
+									<input type="checkbox" name="adjst_active" unchecked/>
 									<input type="text" name="adjst_desc" placeholder="unusual">
 									<span>[</span>
-									<input type="text" name="adjst_abbr">
+									<input type="text" name="adjst_abbr" placeholder="abbr">
 									<span>]</span>
 									<input type="number" name="adjst_value">
 								</fieldset>
@@ -456,7 +547,7 @@
 						</div>
 						<div class="checkmod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" value="0">
+							<input type="text" class="num-box boxed" value="+2">
 							<span class="plus">+</span>
 						</div>
 						<div class="checktemp"><input type="number" class="temp-box boxed" value="0"></div>
@@ -480,9 +571,16 @@
 							<fieldset class="repeating_CHAadjustments adjst-grid">
 								<legend>Adjustments to Charisma</legend>
 								<input type="checkbox" name="adjst_active" checked/>
-								<input type="text" name="adjst_desc" placeholder="base score">
+								<input type="text" name="adjst_desc" placeholder="name" value="original value">
 								<span>[</span>
-								<input type="text" name="adjst_abbr"placeholder="base">
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="base">
+								<span>]</span>
+								<input type="number" name="adjst_value" value=14>
+
+								<input type="checkbox" name="adjst_active" unchecked/>
+								<input type="text" name="adjst_desc" placeholder="name">
+								<span>[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr">
 								<span>]</span>
 								<input type="number" name="adjst_value">
 							</fieldset>
@@ -493,9 +591,16 @@
 								<fieldset class="repeating_CHACHKadjustments adjst-grid">
 									<legend>Adjustments to Charisma Check</legend>
 									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="unusual" value="CHA modifier">
+									<span>[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="mod">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=2>
+
+									<input type="checkbox" name="adjst_active" unchecked/>
 									<input type="text" name="adjst_desc" placeholder="unusual">
 									<span>[</span>
-									<input type="text" name="adjst_abbr">
+									<input type="text" name="adjst_abbr" placeholder="abbr">
 									<span>]</span>
 									<input type="number" name="adjst_value">
 								</fieldset>
@@ -523,10 +628,10 @@
 						</div>
 						<div class="savemod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" name="attr_fortitude" value="0">
+							<input type="text" class="num-box boxed" name="attr_fortitude" value="9">
 							<span class="plus">+</span>
 						</div>
-						<div class="savetemp"><input type="number" class="temp-box boxed" value="3"></div>
+						<div class="savetemp"><input type="number" class="temp-box boxed" value="0"></div>
 						<div class="showsavemacro">
 							<img src="help20x20.png" alt="show help"></img>
 							<img src="grey_wrench20x20.png" alt="show macro"></img>
@@ -545,9 +650,23 @@
 								<fieldset class="repeating_FORTSAVadjustments adjst-grid">
 									<legend>Adjustments to Fortitude Save</legend>
 									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="Great Fortitude">
+									<input type="text" name="adjst_desc" placeholder="name" value="base save">
 									<span>[</span>
-									<input type="text" name="adjst_abbr"placeholder="GF">
+									<input type="text" name="adjst_abbr"placeholder="abbr" value="base">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=6>
+
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="ability mod">
+									<span>[</span>
+									<input type="text" name="adjst_abbr"placeholder="abbr" value="CON">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=3>
+
+									<input type="checkbox" name="adjst_active" unchecked/>
+									<input type="text" name="adjst_desc" placeholder="name">
+									<span>[</span>
+									<input type="text" name="adjst_abbr"placeholder="abbr">
 									<span>]</span>
 									<input type="number" name="adjst_value">
 								</fieldset>
@@ -567,7 +686,7 @@
 						</div>
 						<div class="savemod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" name="attr_reflex" value="0">
+							<input type="text" class="num-box boxed" name="attr_reflex" value="6">
 							<span class="plus">+</span>
 						</div>
 						<div class="savetemp"><input type="number" class="temp-box boxed" value="0"></div>
@@ -589,9 +708,23 @@
 								<fieldset class="repeating_REFLEXSAVadjustments adjst-grid">
 									<legend>Adjustments to Reflex Save</legend>
 									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="placeholder">
+									<input type="text" name="adjst_desc" placeholder="name" value="base save">
 									<span>[</span>
-									<input type="text" name="adjst_abbr">
+									<input type="text" name="adjst_abbr"placeholder="abbr" value="base">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=3>
+
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="ability mod">
+									<span>[</span>
+									<input type="text" name="adjst_abbr"placeholder="abbr" value="DEX">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=3>
+
+									<input type="checkbox" name="adjst_active" unchecked/>
+									<input type="text" name="adjst_desc" placeholder="name">
+									<span>[</span>
+									<input type="text" name="adjst_abbr"placeholder="abbr">
 									<span>]</span>
 									<input type="number" name="adjst_value">
 								</fieldset>
@@ -611,7 +744,7 @@
 						</div>
 						<div class="savemod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" name="attr_will" value="0">
+							<input type="text" class="num-box boxed" name="attr_will" value="5">
 							<span class="plus">+</span>
 						</div>
 						<div class="savetemp"><input type="number" class="temp-box boxed" value="0"></div>
@@ -633,23 +766,32 @@
 								<fieldset class="repeating_WILLSAVadjustments adjst-grid">
 									<legend>Adjustments to Will Save</legend>
 									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="class - Brb">
+									<input type="text" name="adjst_desc" placeholder="name" value="base save">
 									<span>[</span>
-									<input type="text" name="adjst_abbr" class="bracketed" placeholder="clss" value="brb">
+									<input type="text" name="adjst_abbr"placeholder="abbr" value="base">
 									<span>]</span>
-									<input type="text" name="adjst_value" placeholder="+2">
+									<input type="number" name="adjst_value" value=2>
+
 									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="class - Fighter">
-									<span></span>
-									<input type="text" name="adjst_abbr" class="bracketed" placeholder="clss">
-									<span></span>
-									<input type="text" name="adjst_value" placeholder="+2">
-									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="Iron Will">
+									<input type="text" name="adjst_desc" placeholder="name" value="ability mod">
 									<span>[</span>
-									<input type="text" name="adjst_abbr"placeholder="iron">
+									<input type="text" name="adjst_abbr"placeholder="abbr" value="WIS">
 									<span>]</span>
-									<input type="text" name="adjst_value" placeholder="+2">
+									<input type="number" name="adjst_value" value=1>
+
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Iron Will">
+									<span>[</span>
+									<input type="text" name="adjst_abbr"placeholder="abbr" value="IW">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=2>
+
+									<input type="checkbox" name="adjst_active" unchecked/>
+									<input type="text" name="adjst_desc" placeholder="name">
+									<span>[</span>
+									<input type="text" name="adjst_abbr"placeholder="abbr">
+									<span>]</span>
+									<input type="number" name="adjst_value">
 								</fieldset>
 							</div>
 						</div>
@@ -735,52 +877,51 @@
 					</div>
 
 					<br>
-					<div class="hidden">
-						<span style="background-color: yellow;">Condition Control - will be hidden and updated via JavaScript
-						</span>
-						<br><br>
-						<input type="checkbox" id="hidden-condn-cover" unchecked/>
-						<label for="hidden-condn-cover" style="background-color: yellow;">Behind Cover</label>
-						<input type="checkbox" id="hidden-condn-blind" unchecked/>
-						<label for="hidden-condn-blind" style="background-color: yellow;">Blinded</label>
-						<input type="checkbox" id="hidden-condn-cower" unchecked/>
-						<label for="hidden-condn-cower" style="background-color: yellow;">Cowering</label>
-						<input type="checkbox" id="hidden-condn-dazzled" unchecked/>
-						<label for="hidden-condn-dazzled" style="background-color: yellow;">Dazzled</label>
-						<input type="checkbox" id="hidden-condn-tangled" unchecked/>
-						<label for="hidden-condn-tangled" style="background-color: yellow;">Entangled</label>
-						<input type="checkbox" id="hidden-condn-grappled" unchecked/>
-						<label for="hidden-condn-grappled" style="background-color: yellow;">Grappling</label>
-						<input type="checkbox" id="hidden-condn-helpless" unchecked/>
-						<label for="hidden-condn-helpless" style="background-color: yellow;">Helpless</label>
-						<input type="checkbox" id="hidden-condn-invis" unchecked/>
-						<label for="hidden-condn-invis" style="background-color: yellow;">Invisible</label>
-						<input type="checkbox" id="hidden-condn-kneel" unchecked/>
-						<label for="hidden-condn-kneel" style="background-color: yellow;">Kneeling</label>
-						<input type="checkbox" id="hidden-condn-pinned" unchecked/>
-						<label for="hidden-condn-pinned" style="background-color: yellow;">Pinned</label>
-						<input type="checkbox" id="hidden-condn-prone" unchecked/>
-						<label for="hidden-condn-prone" style="background-color: yellow;">Prone</label>
-						<input type="checkbox" id="hidden-condn-shaken" unchecked/>
-						<label for="hidden-condn-shaken" style="background-color: yellow;">Shaken</label>
-						<input type="checkbox" id="hidden-condn-squeeze" unchecked/>
-						<label for="hidden-condn-squeeze" style="background-color: yellow;">Squeezing Through</label>
-						<input type="checkbox" id="hidden-condn-stunned" unchecked/>
-						<label for="hidden-condn-stunned" style="background-color: yellow;">Stunned</label>
-					</div>
+					
+					<span class="hidden">Condition Control - will be hidden and updated via JavaScript
+					</span>
+					<br><br>
+					<input type="checkbox" id="hidden-condn-cover" unchecked class="hidden"/>
+					<label for="hidden-condn-cover" class="hidden">Behind Cover</label>
+					<input type="checkbox" id="hidden-condn-blind" unchecked class="hidden"/>
+					<label for="hidden-condn-blind" class="hidden">Blinded</label>
+					<input type="checkbox" id="hidden-condn-cower" unchecked class="hidden"/>
+					<label for="hidden-condn-cower" class="hidden">Cowering</label>
+					<input type="checkbox" id="hidden-condn-dazzled" unchecked class="hidden"/>
+					<label for="hidden-condn-dazzled" class="hidden">Dazzled</label>
+					<input type="checkbox" id="hidden-condn-tangled" unchecked class="hidden"/>
+					<label for="hidden-condn-tangled" class="hidden">Entangled</label>
+					<input type="checkbox" id="hidden-condn-grappled" unchecked class="hidden"/>
+					<label for="hidden-condn-grappled" class="hidden">Grappling</label>
+					<input type="checkbox" id="hidden-condn-helpless" unchecked class="hidden"/>
+					<label for="hidden-condn-helpless" class="hidden">Helpless</label>
+					<input type="checkbox" id="hidden-condn-invis" unchecked class="hidden"/>
+					<label for="hidden-condn-invis" class="hidden">Invisible</label>
+					<input type="checkbox" id="hidden-condn-kneel" unchecked class="hidden"/>
+					<label for="hidden-condn-kneel" class="hidden">Kneeling</label>
+					<input type="checkbox" id="hidden-condn-pinned" unchecked class="hidden"/>
+					<label for="hidden-condn-pinned" class="hidden">Pinned</label>
+					<input type="checkbox" id="hidden-condn-prone" unchecked class="hidden"/>
+					<label for="hidden-condn-prone" class="hidden">Prone</label>
+					<input type="checkbox" id="hidden-condn-shaken" unchecked class="hidden"/>
+					<label for="hidden-condn-shaken" class="hidden">Shaken</label>
+					<input type="checkbox" id="hidden-condn-squeeze" unchecked class="hidden"/>
+					<label for="hidden-condn-squeeze" class="hidden">Squeezing Through</label>
+					<input type="checkbox" id="hidden-condn-stunned" unchecked class="hidden"/>
+					<label for="hidden-condn-stunned" class="hidden">Stunned</label>
 
 					<div class="ac-grid-container-single roll-gc">
 						<div class="neg-label acname">AC<br>ARMOR CLASS</div>
 						<div class="acvalue">
-							<input type="text" class="num-box boxed" name="attr_ac" value="0">
+							<input type="text" class="num-box boxed" name="attr_ac" value="18">
 						</div>
 						<div class="neg-label touchacname">TOUCH<br>ARMOR CLASS</div>
 						<div class="touchacvalue">
-							<input type="text" class="num-box boxed" name="attr_touchac" value="0">
+							<input type="text" class="num-box boxed" name="attr_touchac" value="11">
 						</div>
 						<div class="neg-label flatacname">FLAT-FOOTED<br>ARMOR CLASS</div>
 						<div class="flatacvalue">
-							<input type="text" class="num-box boxed" name="attr_ffac" value="0">
+							<input type="text" class="num-box boxed" name="attr_ffac" value="15">
 						</div>
 
 						<!-- these inputs are invisible, see css -->
@@ -793,11 +934,11 @@
 							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
 								<legend>AC Adjustments from Armor Set-Up</legend>
 								<input type="checkbox" name="adjst-active" checked/>
-								<input type="text" name="adjst-desc" placeholder="dex mod">
+								<input type="text" name="adjst-desc" placeholder="name" value="DEX modifier">
 								<span>[</span>
-								<input type="text" name="adjst-abbr" placeholder="dex">
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="DEX">
 								<span>]</span>
-								<input type="number" name="adjst-value" placeholder="+1">
+								<input type="number" name="adjst-value" value=3>
 								<span>
 									<input type="checkbox" id="acadj-touch" checked/>
 									<label for="acadj-flat">apply Touch AC</label>
@@ -808,28 +949,28 @@
 								</span>
 
 								<input type="checkbox" name="adjst-active" checked/>
-								<input type="text" name="adjst-desc" placeholder="plate mail">
+								<input type="text" name="adjst-desc" placeholder="name" value="chain shirt">
 								<span>[</span>
-								<input type="text" name="adjst-abbr" placeholder="armr">
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="armr">
 								<span>]</span>
-								<input type="number" name="adjst-value" placeholder="+8">
+								<input type="number" name="adjst-value" value=4>
 								<span>
 									<input type="checkbox" id="acadj-touch" unchecked/>
 									<label for="acadj-flat">apply Touch AC</label>
 								</span>
 								<span>
-									<input type="checkbox" id="acadj-flat" unchecked/>
+									<input type="checkbox" id="acadj-flat" checked/>
 									<label for="acadj-flat">apply Flat-Footed</label>
 								</span>
 							</fieldset>
 							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
-								<legend>AC Adjustments from Attack Adjustments (below)</legend>
+								<legend>AC Adjustments from Attack Adjustments</legend>
 								<input type="checkbox" name="adjst-active" checked/>
-								<input type="text" name="adjst-desc" placeholder="charging">
+								<input type="text" name="adjst-desc" placeholder="name" value="charging">
 								<span>[</span>
-								<input type="text" name="adjst-abbr" placeholder="chg">
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="chg">
 								<span>]</span>
-								<input type="number" name="adjst-value" placeholder="-2">
+								<input type="number" name="adjst-value" value=-2>
 								<span>
 									<input type="checkbox" id="acadj-touch" checked/>
 									<label for="acadj-flat">apply Touch AC</label>
@@ -842,11 +983,11 @@
 							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
 								<legend>Other AC Adjustments</legend>
 								<input type="checkbox" name="adjst-active" checked/>
-								<input type="text" name="adjst-desc" placeholder="Barkskin">
+								<input type="text" name="adjst-desc" placeholder="name" value="Barkskin">
 								<span>[</span>
-								<input type="text" name="adjst-abbr" placeholder="brks">
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="bark">
 								<span>]</span>
-								<input type="number" name="adjst-value" placeholder="+3">
+								<input type="number" name="adjst-value" value=3>
 								<span>
 									<input type="checkbox" id="acadj-touch" unchecked/>
 									<label for="acadj-flat">apply Touch AC</label>
@@ -856,12 +997,12 @@
 									<label for="acadj-flat">apply Flat-Footed</label>
 								</span>
 
-								<input type="checkbox" name="adjst-active" checked/>
-								<input type="text" name="adjst-desc" placeholder="cover">
+								<input type="checkbox" name="adjst-active" unchecked/>
+								<input type="text" name="adjst-desc" placeholder="name" value="cover">
 								<span>[</span>
-								<input type="text" name="adjst-abbr" placeholder="cov">
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="cov">
 								<span>]</span>
-								<input type="number" name="adjst-value" placeholder="+4">
+								<input type="number" name="adjst-value" value=4>
 								<span>
 									<input type="checkbox" id="acadj-touch" checked/>
 									<label for="acadj-flat">apply Touch AC</label>
@@ -878,27 +1019,27 @@
 
 						<div class="neg-label m-acname">AC<br>VS MELEE</div>
 						<div class="m-acvalue">
-							<input type="text" class="num-box boxed" name="attr_m-ac" value="0">
+							<input type="text" class="num-box boxed" name="attr_m-ac" value="13">
 						</div>
 						<div class="neg-label m-touchacname">TOUCH<br>VS MELEE</div>
 						<div class="m-touchacvalue">
-							<input type="text" class="num-box boxed" name="attr_m-touchac" value="0">
+							<input type="text" class="num-box boxed" name="attr_m-touchac" value="9">
 						</div>
 						<div class="neg-label m-flatacname">FLAT-FOOTED<br>VS MELEE</div>
 						<div class="m-flatacvalue">
-							<input type="text" class="num-box boxed" name="attr_m-ffac" value="0">
+							<input type="text" class="num-box boxed" name="attr_m-ffac" value="10">
 						</div>
 						<div class="neg-label r-acname">AC<br>VS RANGED</div>
 						<div class="r-acvalue">
-							<input type="text" class="num-box boxed" name="attr_r-ac" value="0">
+							<input type="text" class="num-box boxed" name="attr_r-ac" value="21">
 						</div>
 						<div class="neg-label r-touchacname">TOUCH<br>VS RANGED</div>
 						<div class="r-touchacvalue">
-							<input type="text" class="num-box boxed" name="attr_r-touchac" value="0">
+							<input type="text" class="num-box boxed" name="attr_r-touchac" value="17">
 						</div>
 						<div class="neg-label r-flatacname">FLAT-FOOTED<br>VS RANGED</div>
 						<div class="r-flatacvalue">
-							<input type="text" class="num-box boxed" name="attr_r-ffac" value="0">
+							<input type="text" class="num-box boxed" name="attr_r-ffac" value="18">
 						</div>
 
 						<!-- these inputs are invisible, see css -->
@@ -911,28 +1052,43 @@
 							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
 								<legend>AC Adjustments from Armor Set-Up</legend>
 								<input type="checkbox" name="adjst-active" checked/>
-								<input type="text" name="adjst-desc" placeholder="dex mod">
+								<input type="text" name="adjst-desc" placeholder="name" value="DEX modifier">
 								<span>[</span>
-								<input type="text" name="adjst-abbr" placeholder="dex">
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="DEX">
 								<span>]</span>
-								<input type="number" name="adjst-value" placeholder="+1">
+								<input type="number" name="adjst-value" value=3>
 								<span>
-									<input type="checkbox" id="acadj-touch" unchecked/>
+									<input type="checkbox" id="acadj-touch" checked/>
 									<label for="acadj-flat">apply Touch AC</label>
 								</span>
 								<span>
 									<input type="checkbox" id="acadj-flat" unchecked/>
 									<label for="acadj-flat">apply Flat-Footed</label>
 								</span>
+
+								<input type="checkbox" name="adjst-active" checked/>
+								<input type="text" name="adjst-desc" placeholder="name" value="chain shirt">
+								<span>[</span>
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="armr">
+								<span>]</span>
+								<input type="number" name="adjst-value" value=4>
+								<span>
+									<input type="checkbox" id="acadj-touch" unchecked/>
+									<label for="acadj-flat">apply Touch AC</label>
+								</span>
+								<span>
+									<input type="checkbox" id="acadj-flat" checked/>
+									<label for="acadj-flat">apply Flat-Footed</label>
+								</span>
 							</fieldset>
 							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
 								<legend>Other AC Adjustments</legend>
 								<input type="checkbox" name="adjst-active" checked/>
-								<input type="text" name="adjst-desc" placeholder="prone - melee">
+								<input type="text" name="adjst-desc" placeholder="name" value="prone - melee">
 								<span>[</span>
-								<input type="text" name="adjst-abbr" placeholder="prone">
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="prone">
 								<span>]</span>
-								<input type="number" name="adjst-value" placeholder="-4">
+								<input type="number" name="adjst-value" value=-4>
 								<span>
 									<input type="checkbox" id="acadj-touch" checked/>
 									<label for="acadj-flat">apply Touch AC</label>
@@ -943,11 +1099,11 @@
 								</span>
 
 								<input type="checkbox" name="adjst-active" checked/>
-								<input type="text" name="adjst-desc" placeholder="prone - ranged">
+								<input type="text" name="adjst-desc" placeholder="name" value="prone - ranged">
 								<span>[</span>
-								<input type="text" name="adjst-abbr" placeholder="prone">
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="prone">
 								<span>]</span>
-								<input type="number" name="adjst-value" placeholder="+4">
+								<input type="number" name="adjst-value" value=+4>
 								<span>
 									<input type="checkbox" id="acadj-touch" checked/>
 									<label for="acadj-flat">apply Touch AC</label>
@@ -1009,7 +1165,7 @@
 						</div>
 						<div class="initmod rollmod">
 							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" name="attr_init" value="0">
+							<input type="text" class="num-box boxed" name="attr_init" value="3">
 							<span class="plus">+</span>
 						</div>
 						<div class="inittemp"><input type="number" class="temp-box boxed" value="0"></div>
@@ -1031,11 +1187,11 @@
 								<fieldset class="repeating_INITadjustments adjst-grid">
 									<legend>Adjustments to Initiative</legend>
 									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="dex mod">
+									<input type="text" name="adjst_desc" placeholder="name" value="DEX modifier">
 									<span>[</span>
-									<input type="text" name="adjst_abbr"placeholder="dex">
+									<input type="text" name="adjst_abbr"placeholder="abbr" value="dex">
 									<span>]</span>
-									<input type="number" name="adjst_value">
+									<input type="number" name="adjst_value" value=3>
 								</fieldset>
 							</div>
 						</div>
@@ -1093,31 +1249,31 @@
 					</fieldset>
 
 					<br>
-					<span style="background-color: yellow;">Temporary Control - will become hidden with JavaScript
+					<span class="hidden">Temporary Control - will become hidden with JavaScript
 					</span>
 					<br>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-melee" value="melee" checked/>
-					<label for="atk-type-melee" style="background-color: yellow;">Melee</label>
+					<label for="atk-type-melee" class="hidden">Melee</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-ranged" value="ranged"/>
-					<label for="atk-type-ranged" style="background-color: yellow;">Ranged</label>
+					<label for="atk-type-ranged" class="hidden">Ranged</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-aid" value="aid"/>
-					<label for="atk-type-aid" style="background-color: yellow;">Aid Another</label>
+					<label for="atk-type-aid" class="hidden">Aid Another</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-bull" value="bull"/>
-					<label for="atk-type-bull" style="background-color: yellow;">Bull Rush</label>
+					<label for="atk-type-bull" class="hidden">Bull Rush</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-disarm" value="disarm"/>
-					<label for="atk-type-disarm" style="background-color: yellow;">Disarm</label>
+					<label for="atk-type-disarm" class="hidden">Disarm</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-feint" value="feint"/>
-					<label for="atk-type-feint" style="background-color: yellow;">Feint</label>
+					<label for="atk-type-feint" class="hidden">Feint</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-grapple" value="grapple"/>
-					<label for="atk-type-grapple" style="background-color: yellow;">Grapple</label>
+					<label for="atk-type-grapple" class="hidden">Grapple</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-overrun" value="overrun"/>
-					<label for="atk-type-overrun" style="background-color: yellow;">Overrun</label>
+					<label for="atk-type-overrun" class="hidden">Overrun</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-sunder" value="sunder"/>
-					<label for="atk-type-sunder" style="background-color: yellow;">Sunder</label>
+					<label for="atk-type-sunder" class="hidden">Sunder</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-trip" value="trip"/>
-					<label for="atk-type-trip" style="background-color: yellow;">Trip</label>
+					<label for="atk-type-trip" class="hidden">Trip</label>
 					<input type="radio" name="to-be-hidden-atk-type" class="tbhat" id="atk-type-turn" value="turn"/>
-					<label for="atk-type-turn" style="background-color: yellow;">Turn Undead</label>
+					<label for="atk-type-turn" class="hidden">Turn Undead</label>
 
 
 					<div class="meleeranged-atk-gc attack-grid-container roll-gc">
