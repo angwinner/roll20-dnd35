@@ -1,6 +1,17 @@
 # roll20-dnd35
 An alternate version of the D&amp;D 3.5 character sheet for Roll20
 
+<b>FUN WITH THIS HTML MOCK-UP</b>
+
+- resize your browser width to > and < 1000px
+- change an ability score (you can't, but clicking on one opens the mock-up of the interface where you would)
+- click on a die
+- using the *yellow* controls, give yourself the condition prone, pinned, or helpless
+- click on the orange 'crit' button after the attack roll (ultimately, it will activate automatically on a possible crit)
+- click on any right-pointing carat
+- click on a help icon
+- click on a macro (wrench) icon
+
 <b>MOTIVATION</b>
 
 My gaming group has experienced some frustrations while playing Dungeons & Dragons version 3.5 on Roll20, and this character sheet redesign is intended to address the most serious issues experienced by players. The first set of issues is centered around the display. My party is often frustrated by switching between tabs or getting stalled because they miss pop-ups spawned by macros. One example from combat is that the character's Armor Class and Hit Points are on the 'Stats' tab, but one must navigate to the 'Weapons' tab to use weapon attack macros. The 'Weapons' tab combines weapon setup and weapon use. In my redesign, all attack actions are on the 'Main' tab while the weapons setup is relegated to the 'More' tab. The same will be true of prepared spells.
@@ -17,6 +28,7 @@ Other features include some responsive web design for one- or two-column format,
 
 <b>Development Plan</b>
 What you see right now is an html mock-up with functional CSS controls. One goal of the project is to have all view controls implemented in CSS. This character sheet's predecessor had some unfortunate Roll20 Attributes that were actually view controls.
+View controls in CSS impose significant constraints on the HTML structure.
 The mock data adds significant bulk to the size of the html file.
 
 Phase 2 will commence with moving the character sheet to Roll20's sandbox and making sure all the attributes work.
