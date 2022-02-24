@@ -465,10 +465,12 @@ div.pc-sheet, div.npc-sheet {display: none;}
 }
 
 input[id="hidden-condn-helpless"]:checked ~ div.ac-grid-container-single,
+	input[id="hidden-condn-kneel"]:checked ~ div.ac-grid-container-single,
 	input[id="hidden-condn-pinned"]:checked ~ div.ac-grid-container-single,
 	input[id="hidden-condn-prone"]:checked ~ div.ac-grid-container-single
 	{display: none;}
 input[id="hidden-condn-helpless"]:checked ~ div.ac-grid-container-split,
+	input[id="hidden-condn-kneel"]:checked ~ div.ac-grid-container-split,
 	input[id="hidden-condn-pinned"]:checked ~ div.ac-grid-container-split,
 	input[id="hidden-condn-prone"]:checked ~ div.ac-grid-container-split
 	{display: grid;}
