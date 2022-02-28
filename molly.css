@@ -150,33 +150,6 @@ fieldset {text-align: left;}
 
 fieldset > span {white-space: nowrap;}
 
-.showmore1rowgrid {
-	display: grid;
-	grid-template-columns: 20px;
-	grid-template-rows: 20px;
-	grid-template-areas: 'showmore1';
-}
-.showmore2rowgrid {
-	display: grid;
-	grid-template-columns: 20px;
-	grid-template-rows: 20px 20px;
-	grid-template-areas: 
-		'showmore1'
-		'showmore2';
-}
-.showmore3rowgrid {
-	display: grid;
-	grid-template-columns: 20px;
-	grid-template-rows: 20px 25px 25px;
-	grid-template-areas: 
-		'showmore1'
-		'showmore2'
-		'showmore3';
-}
-.showmore1 { grid-area: showmore1; }
-.showmore2 { grid-area: showmore2; }
-.showmore3 { grid-area: showmore3; }
-
 div.macrodetail textarea {font-family: monospace; font-variant: normal; width: 100%;
 	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
 div.helptext textarea {font-family: arial, sans-serif; font-variant: normal; width: 100%;
@@ -307,7 +280,7 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .checkmacro { grid-area: checkmacro; display: none; }
 
 .showdetailbox {
-	opacity: 0;
+	opacity: .7;
 	cursor: pointer;
 	height: 100%;
     z-index: 2;
@@ -546,59 +519,61 @@ input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-
 	position: relative; top: 20px;}
 .showinitmacrobox:checked ~ div.initmacro {display: block;}
 
-/* This is the general layout of all the attacks and special attacks, and their adjustments.
-The specific contents of each grid-area vary with the attack chosen */
-.attack-grid-container {
+/* The combat controls and details for melee, ranged, and sunder attacks. Incorporates critical hits */
+.meleeranged-atk-gc {
 	position: relative;
 	padding: 0px; /* this is the padding outside the grid container*/
 	text-align: center;
 	font-size: 16px;
 	display: grid;
-	grid-template-columns: 175px 245px 40px;
-	grid-template-rows: 84px auto auto auto auto auto auto auto auto auto;
+	grid-template-columns: 50px 70px 55px 70px 50px 70px 55px 40px;
+	grid-template-rows: 36px 48px auto auto auto auto auto auto auto auto auto;
 	grid-template-areas:
-		'combatfirstroll combatsecondroll showatkbuttons'
-		'combathelp combathelp combathelp'
-		'critfirstroll critsecondroll showcritbuttons'
-		'critdetail critdetail critdetail'
-		'crithelp crithelp crithelp'
-		'atkdetail atkdetail atkdetail'
-		'hitmacro hitmacro hitmacro'
-		'dmgmacro dmgmacro dmgmacro'
-		'critconfmacro critconfmacro critconfmacro'
-		'critdmgmacro critdmgmacro critdmgmacro';
+		'atkheader atkheader atkheader atkheader atkheader atkheader atkheader showatkbuttons'
+		'hitbutton hitmod hittemp critrange dmgbutton dmgmod dmgtemp showatkbuttons'
+		'atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp '
+		'critgc critgc critgc critgc critgc critgc critgc critgc'
+		'atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail'
+		'hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro'
+		'dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro';
+		
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
 
-.showatkbuttons { grid-area: showatkbuttons; }
-.showcritbuttons { grid-area: showcritbuttons; display: none; }
+.hitbutton { grid-area: hitbutton; }
+.hitmod { grid-area: hitmod; }
+.hittemp { grid-area: hittemp; }
+.critrange { grid-area: critrange; }
+.critrange > input {width: 80%; text-align: center; margin-top: 10px;}
+.dmgbutton { grid-area: dmgbutton; }
+.dmgmod { grid-area: dmgmod; }
+.dmgtemp { grid-area: dmgtemp; }
 
-.critdetail { grid-area: critdetail; display: none;}
+.showatkbuttons { grid-area: showatkbuttons; }
+
 .atkdetail { grid-area: atkdetail; display: block;}
 .hitmacro { grid-area: hitmacro; display: none; }
 .dmgmacro { grid-area: dmgmacro; display: none; }
-.critconfmacro { grid-area: critconfmacro; display: none; }
-.critdmgmacro { grid-area: critdmgmacro; display: none; }
 
 .showcritcontrolbox { grid-area: showatkbuttons; width: 25px; height: 20px ;position: relative; top: 0px;}
 .showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
 .showatkmacrosbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 45px;}
 
-.showcritcontrolbox:checked ~ div.crittohitgrid {display: grid;}
-.showcritcontrolbox:checked ~ div.critdamagegrid {display: grid;}
-.showcritcontrolbox:checked ~ div.showcritbuttons {display: block;}
-.showcritcontrolbox:checked ~ input.showcritdetailbox {display: block;}
-.showcritcontrolbox:checked ~ input.showcrithelpbox {display: block;}
-.showcritcontrolbox:checked ~ input.showcritmacrosbox {display: block;}
+.showcritcontrolbox:checked ~ div.meleeranged-crit-gc {display: grid;}
 
-.atkhelp, .aidanotherhelp, .bullrushhelp, .disarmhelp, .feinthelp, .grapplehelp,
-	.overrunhelp, .sunderhelp, .triphelp
-	{grid-area: combathelp; display: none;}
-input.tbhat[value="melee"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+.atkhelp, .sunderhelp
+	{grid-area: atkhelp; display: none;}
+.emptyhelp {grid-area: atkhelp; display: block;}
+input.tbhat[value="melee"]:checked ~ .meleeranged-atk-gc > .showatkhelpbox:checked ~ 
 	.atkhelp {display: grid}
-input.tbhat[value="ranged"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
+input.tbhat[value="ranged"]:checked ~ .meleeranged-atk-gc > .showatkhelpbox:checked ~ 
 	.atkhelp {display: grid} 
+input.tbhat[value="sunder"]:checked ~ .meleeranged-atk-gc > .showatkhelpbox:checked ~ 
+	.sunderhelp {display: grid}
+.showatkhelpbox:checked ~ .emptyhelp {display: none}
+
+/*
 input.tbhat[value="aid"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
 	.aidanotherhelp {display: grid}
 input.tbhat[value="bull"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
@@ -611,93 +586,12 @@ input.tbhat[value="grapple"]:checked ~ .attack-grid-container > .showatkhelpbox:
 	.grapplehelp {display: grid}
 input.tbhat[value="overrun"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
 	.overrunhelp {display: grid}
-input.tbhat[value="sunder"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
-	.sunderhelp {display: grid}
 input.tbhat[value="trip"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
 	.triphelp {display: grid}
-
-.crithelp {grid-area: crithelp; display: none;}
-input.tbhat[value="melee"]:checked ~ .attack-grid-container > .showcrithelpbox:checked ~ 
-	.crithelp {display: grid}
-input.tbhat[value="ranged"]:checked ~ .attack-grid-container > .showcrithelpbox:checked ~ 
-	.crithelp {display: grid}
-input.tbhat[value="sunder"]:checked ~ .attack-grid-container > .showcrithelpbox:checked ~ 
-	.crithelp {display: grid}
+*/
 
 .showatkmacrosbox:checked ~ div.hitmacro {display: block;}
 .showatkmacrosbox:checked ~ div.dmgmacro {display: block;}
-
-.showcritdetailbox { grid-area: showcritbuttons; width: 20px; height: 20px ;position: relative; top: 0px;
-	display: none;}
-.showcrithelpbox { grid-area: showcritbuttons; width: 25px; height: 25px; position: relative; top: 20px;
-	display: none;}
-.showcritmacrosbox { grid-area: showcritbuttons; width: 25px; height: 25px; position: relative; top: 45px;
-	display: none;}
-.showcritdetailbox:checked ~ div.critdetail {display: block;}
-
-.showcritmacrosbox:checked ~ div.critconfmacro {display: block;}
-.showcritmacrosbox:checked ~ div.critdmgmacro {display: block;}
-
-/* below are the specific attack layouts */
-/* this grid works for any simple d20 roll, including grapple and opposed STR checks */
-.atktohitgrid { 
-	grid-area: combatfirstroll;
-	display: grid;
-	grid-template-columns: 50px 70px 55px;
-	grid-template-rows: 36px 48px;
-	grid-template-areas:
-		'atkheader atkheader atkheader'
-		'hitbutton hitmod hittemp';
-}
-.hitbutton { grid-area: hitbutton; }
-.hitmod { grid-area: hitmod; }
-.hittemp { grid-area: hittemp; }
-
-/* nope, can't do this
-input.tbhat[value="melee"]:checked ~ .attack-grid-container > .hitbutton > .button {value: "@{tohitmeleemacro}"}
-/* also change src of button to check the selector works */
-
-.atkdamagegrid {
-	grid-area: combatsecondroll;
-	display: grid;
-	grid-template-columns: 70px 50px 70px 55px;
-	grid-template-rows: 36px 48px;
-	grid-template-areas:
-		'atkheader atkheader atkheader atkheader'
-		'critrange dmgbutton dmgmod dmgtemp';
-}
-.critrange { grid-area: critrange; }
-.critrange > input {width: 80%; text-align: center; margin-top: 10px;}
-.dmgbutton { grid-area: dmgbutton; }
-.dmgmod { grid-area: dmgmod; }
-.dmgtemp { grid-area: dmgtemp; }
-
-.crittohitgrid {
-	grid-area: critfirstroll;
-	display: none;
-	grid-template-columns: 50px 70px 55px;
-	grid-template-rows: 36px 48px;
-	grid-template-areas:
-		'critheader critheader critheader'
-		'confbutton hitbonuses confbonus';
-}
-.confbutton { grid-area: confbutton; }
-.hitbonuses { grid-area: hitbonuses; }
-.confbonus { grid-area: confbonus; }
-
-.critdamagegrid {
-	grid-area: critsecondroll;
-	display: none;
-	grid-template-columns: 70px 50px 70px 55px;
-	grid-template-rows: 36px 48px;
-	grid-template-areas:
-		'critheader critheader critheader critheader'
-		'dmgparens dmgparens critmult othercritdmg';
-}
-.dmgparens { grid-area: dmgparens; }
-.critmult { grid-area: critmult; }
-.othercritdmg { grid-area: othercritdmg; }
-
 
 .attack-adjst-grid {
 	display: grid;
@@ -706,6 +600,50 @@ input.tbhat[value="melee"]:checked ~ .attack-grid-container > .hitbutton > .butt
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
+
+.meleeranged-crit-gc {
+	grid-area: critgc;
+	display: none;
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	grid-template-columns: 50px 70px 55px 70px 50px 70px 55px 40px;
+	grid-template-rows: 36px 48px auto auto auto auto auto auto auto auto auto;
+	grid-template-areas:
+		'critheader critheader critheader critheader critheader critheader critheader showcritbuttons'
+		'confbutton hitbonuses confbonus dmgparens dmgparens critmult othercritdmg showcritbuttons'
+		'critdetail critdetail critdetail critdetail critdetail critdetail critdetail critdetail'
+		'crithelp crithelp crithelp crithelp crithelp crithelp crithelp crithelp'
+		'critconfmacro critconfmacro critconfmacro critconfmacro critconfmacro critconfmacro critconfmacro critconfmacro'
+		'critdmgmacro critdmgmacro critdmgmacro critdmgmacro critdmgmacro critdmgmacro critdmgmacro critdmgmacro';
+		
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+}
+
+.confbutton { grid-area: confbutton; }
+.hitbonuses { grid-area: hitbonuses; }
+.confbonus { grid-area: confbonus; }
+.dmgparens { grid-area: dmgparens; }
+.critmult { grid-area: critmult; }
+.othercritdmg { grid-area: othercritdmg; }
+
+.showcritbuttons { grid-area: showcritbuttons; }
+
+.critdetail { grid-area: critdetail; display: none;}
+.crithelp { grid-area: crithelp; display: none; }
+.critconfmacro { grid-area: critconfmacro; display: none; }
+.critdmgmacro { grid-area: critdmgmacro; display: none; }
+
+.showcritdetailbox { grid-area: showcritbuttons; width: 20px; height: 20px ;position: relative; top: 0px;}
+.showcrithelpbox { grid-area: showcritbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
+.showcritmacrosbox { grid-area: showcritbuttons; width: 25px; height: 25px; position: relative; top: 45px;}
+
+.showcritdetailbox:checked ~ div.critdetail {display: block;}
+.showcrithelpbox:checked ~ div.crithelp {display: block;}
+.showcritmacrosbox:checked ~ div.critconfmacro {display: block;}
+.showcritmacrosbox:checked ~ div.critdmgmacro {display: block;}
 
 .critdetail {grid-area: critdetail;}
 .crit-adjst-grid {
@@ -716,11 +654,21 @@ input.tbhat[value="melee"]:checked ~ .attack-grid-container > .hitbutton > .butt
 	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
 
-.bullrushdetail {grid-area: atkdetail; display: block;}
-/* bull rush details include mandatory size adjustment and character-specific adjustments */
-/* don't know if this is going to be a real thing, or if it will be atkdetail updated via Javascript */
+/* The combat controls and details for aid another and disarm actions. To-hit roll only. */
+.aiddisarm-atk-gc {
+}
 
+/* The combat controls and details for grapple and trip actions. To-hit roll and strength check. */
+.grappletrip-atk-gc {
+}
 
+/* The combat controls and details for bull rush, overrun, and feint actions. Strength or skill check only. */
+.check-atk-gc {
+}
+
+/* The combat controls and details for turn undead. A check and a damage roll. */
+.turn-atk-gc {
+}
 
 /* ----------------------------------------Tabs (reskinned radio button)---------------------------------- */
 

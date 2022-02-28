@@ -1276,40 +1276,37 @@
 					<label for="atk-type-turn" class="hidden">Turn Undead</label>
 
 
-					<div class="meleeranged-atk-gc attack-grid-container roll-gc">
-						<div class="atktohitgrid">
-							<em style="margin: 0;">Roll<br>to Hit!</em>
-							<p><br>ATTACK<br>BONUS</p>
-							<p><br>TEMP<br>BONUS</p>
-							<div class="hitbutton macrobutton">
-								<button type="roll" name="attr_atk-tohit" title="atk-tohit" value="@{tohitmacro}"></button>
-							</div>
-							<div class="hitmod rollmod">
-								<span class="plus">+</span>
-								<input type="text" class="num-box boxed" value="0">
-								<span class="plus">+</span>
-							</div>
-							<div class="hittemp"><input type="number" class="temp-box boxed" value="0"></div>
-						</div>
-
-						<div class="atkdamagegrid">
-							<p><br>CRIT<br>RANGE</p>
-							<em style="margin: 0;">Roll<br>Damage!</em>
-							<p><br>DAMAGE<br>BONUS</p>
-							<p><br>TEMP<br>BONUS</p>
-
-							<div class="critrange"><input type="text" class="boxed" value="0"></div>
+					<div class="meleeranged-atk-gc roll-gc">
 						
-							<div class="dmgbutton macrobutton">
-								<button type="roll" style="background-image: url('blue8_40px.png')" name="" title="" value="@{dmgmacro}"></button>
-							</div>
-							<div class="dmgmod rollmod"> 
-								<span class="plus">+</span>
-								<input type="text" class="num-box boxed" value="0">
-								<span class="plus">+</span>
-							</div>
-							<div class="dmgtemp"><input type="number" class="temp-box boxed" value="0"></div>
+						<em style="margin: 0;">Roll<br>to Hit!</em>
+						<p><br>ATTACK<br>BONUS</p>
+						<p><br>TEMP<br>BONUS</p>
+						<p><br>CRIT<br>RANGE</p>
+						<em style="margin: 0;">Roll<br>Damage!</em>
+						<p><br>DAMAGE<br>BONUS</p>
+						<p><br>TEMP<br>BONUS</p>
+
+						<div class="hitbutton macrobutton">
+							<button type="roll" name="attr_atk-tohit" title="atk-tohit" value="@{tohitmacro}"></button>
 						</div>
+						<div class="hitmod rollmod">
+							<span class="plus">+</span>
+							<input type="text" class="num-box boxed" value="0">
+							<span class="plus">+</span>
+						</div>
+						<div class="hittemp"><input type="number" class="temp-box boxed" value="0"></div>
+
+						<div class="critrange"><input type="text" class="boxed" value="0"></div>
+					
+						<div class="dmgbutton macrobutton">
+							<button type="roll" style="background-image: url('blue8_40px.png')" name="" title="" value="@{dmgmacro}"></button>
+						</div>
+						<div class="dmgmod rollmod"> 
+							<span class="plus">+</span>
+							<input type="text" class="num-box boxed" value="0">
+							<span class="plus">+</span>
+						</div>
+						<div class="dmgtemp"><input type="number" class="temp-box boxed" value="0"></div>
 
 						<div class="showatkbuttons">
 							<img src="show_crit2.png" alt="show crit controls" class="showcritimg"></img>
@@ -1325,11 +1322,20 @@
 						<div class="atkhelp helptext">
 							<textarea>Help for Melee or Ranged Attack To-Hit and Attack Damage</textarea>
 						</div>
-
-						<div class="crittohitgrid">
-							<em style="margin: 0;">Roll to<br>Confirm!</em>
-							<p></p>
-							<p style="padding-right: 12px;">CRIT<br>CONFIRM<br>BONUS</p>
+						<div class="sunderhelp helptext">
+							<textarea>Help for Sunder</textarea>
+						</div>
+						<div class="emptyhelp">
+						</div>
+					
+						<div class="meleeranged-crit-gc">
+							<em class="critheader" style="margin: 0;">Roll to<br>Confirm!</em>
+							<p class="critheader"></p>
+							<p  class="critheader" style="padding-right: 12px;">CRIT<br>CONFIRM<br>BONUS</p>
+							<em  class="critheader" style="margin: 0;">Roll Crit<br>Damage!</em>
+							<p class="critheader"></p>
+							<p class="critheader">CRIT<br>MULTIPLIER<br>MINUS ONE</p>
+							<p  class="critheader" style="padding-right: 12px;">OTHER<br>CRIT<br>DAMAGE</p>
 
 							<div class="confbutton macrobutton">
 							<button type="roll" name="attr_something" title="critroll" value="@{critmacro}"></button>
@@ -1342,12 +1348,6 @@
 							<div class="confbonus" style="margin-right: 12px;">
 								<input type="text" class="num-box boxed" value="0">
 							</div>
-						</div>
-						<div class="critdamagegrid">
-							<em style="margin: 0;">Roll Crit<br>Damage!</em>
-							<p></p>
-							<p>CRIT<br>MULTIPLIER<br>MINUS ONE</p>
-							<p style="padding-right: 12px;">OTHER<br>CRIT<br>DAMAGE</p>
 
 							<div class="dmgparens" style="text-align: left;">
 								<span class="plus" style="top: -8px; letter-spacing: -2px;">(</span>
@@ -1368,23 +1368,75 @@
 							<div style="text-align: left;">
 								&nbsp<input type="text" class="num-box boxed" value="0">
 							</div>
-						</div>		
-						<div class="showcritbuttons">
-							<img src="collapsedarrow_square.png" alt="show crit adjustments" style="width: 25px; margin-left: 12px;"></img>
-							<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 6px;"></img>
-							<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 6px;">
-							</img>
-						</div>
-						<!-- these inputs are invisible, see css -->
-						<input type="checkbox" class="showdetailbox showcritdetailbox" unchecked/>
-						<input type="checkbox" class="showdetailbox showcrithelpbox" unchecked/>	
-						<input type="checkbox" class="showdetailbox showcritmacrosbox" unchecked/>
+								
+							<div class="showcritbuttons">
+								<img src="collapsedarrow_square.png" alt="show crit adjustments" style="width: 25px; margin-left: 12px;"></img>
+								<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 6px;"></img>
+								<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 6px;">
+								</img>
+							</div>
+							<!-- these inputs are invisible, see css -->
+							<input type="checkbox" class="showdetailbox showcritdetailbox" unchecked/>
+							<input type="checkbox" class="showdetailbox showcrithelpbox" unchecked/>	
+							<input type="checkbox" class="showdetailbox showcritmacrosbox" unchecked/>
 
-						<div class="crithelp helptext">
-							<textarea>Help for Melee or Ranged Attack Critical Hits</textarea>
-						</div>
+							<div class="critdetail">
+								<div style="height: 1em;" class="crit-adjst-grid">
+									<p></p>
+									<p></p>
+									<p></p>
+									<p></p>
+									<P></P>
+									<p>CRIT RANGE</p>
+									<p>CONFIRM BONUS</p>
+									<p>CRIT MULTIPLIER</p>
+									<p>OTHER DAMAGE</p>
+								</div>
+								<fieldset class="crit-adjst-grid adjst-grid">
+									<legend>Critical Hit Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Claw at the Moon">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="CaM">
+									<span >]</span>
+									<input type="text" name="adjst_value" value="0">
+									<input type="text" name="adjst_value" value="+4">
+									<input type="text" name="adjst_value" value="0">
+									<input type="text" name="adjst_value" value="0">
 
-						<!-- end of special attack variants of atktohitgrid, atkdamagegrid, crittohitgrid, and critdamagegrid -->
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="tiny spear">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="weap">
+									<span >]</span>
+									<input type="text" name="adjst_value" value="0">
+									<input type="text" name="adjst_value" value="0">
+									<input type="text" name="adjst_value" value="3">
+									<input type="text" name="adjst_value" value="0">
+
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="flaming burst">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="FB">
+									<span >]</span>
+									<input type="text" name="adjst_value" value="0">
+									<input type="text" name="adjst_value" value="0">
+									<input type="text" name="adjst_value" value="0">
+									<input type="text" name="adjst_value" value="2d10">
+								</fieldset>
+							</div>
+
+							<div class="crithelp helptext">
+								<textarea>Help for Melee/Ranged/Sunder Critical Hits</textarea>
+							</div>
+
+							<div class="critconfmacro macrodetail">
+								<textarea name="critconfmacro">crit confirm macro</textarea>
+							</div>
+							<div class="critdmgmacro macrodetail">
+								<textarea name="critdmgmacro">crit damage macro</textarea>
+							</div>
+						</div>
 
 						<div class="atkdetail">
 							<div style="height: 1em;" class="attack-adjst-grid">
@@ -1505,60 +1557,12 @@
 								<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
 							</fieldset>
 						</div>
-
-						<div class="critdetail">
-							<div style="height: 1em;" class="attack-adjst-grid">
-								<p></p>
-								<p></p>
-								<p></p>
-								<p></p>
-								<P></P>
-								<p>CONFIRM BONUS</p>
-								<p>CRIT MULTIPLIER</p>
-								<p>OTHER DAMAGE</p>
-							</div>
-							<fieldset class="repeating_perm-melee-adjustments attack-adjst-grid">
-								<legend>Critical Hit Adjustments</legend>
-								<input type="checkbox" name="adjst_active" checked/>
-								<input type="text" name="adjst_desc" placeholder="name" value="Claw at the Moon">
-								<span >[</span>
-								<input type="text" name="adjst_abbr" placeholder="abbr" value="CaM">
-								<span >]</span>
-								<input type="text" name="adjst_value" value="+4">
-								<input type="text" name="adjst_value" value="0">
-								<input type="text" name="adjst_value" value="0">
-
-								<input type="checkbox" name="adjst_active" checked/>
-								<input type="text" name="adjst_desc" placeholder="name" value="tiny spear">
-								<span >[</span>
-								<input type="text" name="adjst_abbr" placeholder="abbr" value="weap">
-								<span >]</span>
-								<input type="text" name="adjst_value" value="0">
-								<input type="text" name="adjst_value" value="3">
-								<input type="text" name="adjst_value" value="0">
-
-								<input type="checkbox" name="adjst_active" checked/>
-								<input type="text" name="adjst_desc" placeholder="name" value="flaming burst">
-								<span >[</span>
-								<input type="text" name="adjst_abbr" placeholder="abbr" value="FB">
-								<span >]</span>
-								<input type="text" name="adjst_value" value="0">
-								<input type="text" name="adjst_value" value="0">
-								<input type="text" name="adjst_value" value="2d10">
-							</fieldset>
-						</div>
 						
 						<div class="hitmacro macrodetail">
 							<textarea name="hitmacro">to-hit macro</textarea>
 						</div>
 						<div class="dmgmacro macrodetail">
 							<textarea name="dmgmacro">damage macro</textarea>
-						</div>
-						<div class="critconfmacro macrodetail">
-							<textarea name="critconfmacro">crit confirm macro</textarea>
-						</div>
-						<div class="critdmgmacro macrodetail">
-							<textarea name="critdmgmacro">crit damage macro</textarea>
 						</div>
 					</div>
 
