@@ -280,7 +280,7 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .checkmacro { grid-area: checkmacro; display: none; }
 
 .showdetailbox {
-	opacity: .7;
+	opacity: 0;
 	cursor: pointer;
 	height: 100%;
     z-index: 2;
@@ -519,13 +519,21 @@ input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-
 	position: relative; top: 20px;}
 .showinitmacrobox:checked ~ div.initmacro {display: block;}
 
+/* User chooses which attack format is displayed */
+input.tbhat[value="melee"]:checked ~ .meleeranged-atk-gc {display: grid;}
+input.tbhat[value="ranged"]:checked ~ .meleeranged-atk-gc {display: grid;}
+input.tbhat[value="sunder"]:checked ~ .meleeranged-atk-gc {display: grid;}
+input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc {display: grid;}
+input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc {display: grid;}
+
+
 /* The combat controls and details for melee, ranged, and sunder attacks. Incorporates critical hits */
 .meleeranged-atk-gc {
 	position: relative;
 	padding: 0px; /* this is the padding outside the grid container*/
 	text-align: center;
 	font-size: 16px;
-	display: grid;
+	display: none;
 	grid-template-columns: 50px 70px 55px 70px 50px 70px 55px 40px;
 	grid-template-rows: 36px 48px auto auto auto auto auto auto auto auto auto;
 	grid-template-areas:
@@ -574,12 +582,10 @@ input.tbhat[value="sunder"]:checked ~ .meleeranged-atk-gc > .showatkhelpbox:chec
 .showatkhelpbox:checked ~ .emptyhelp {display: none}
 
 /*
-input.tbhat[value="aid"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
-	.aidanotherhelp {display: grid}
+
 input.tbhat[value="bull"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
 	.bullrushhelp {display: grid}
-input.tbhat[value="disarm"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
-	.disarmhelp {display: grid}
+
 input.tbhat[value="feint"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
 	.feinthelp {display: grid}
 input.tbhat[value="grapple"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
@@ -656,7 +662,52 @@ input.tbhat[value="trip"]:checked ~ .attack-grid-container > .showatkhelpbox:che
 
 /* The combat controls and details for aid another and disarm actions. To-hit roll only. */
 .aiddisarm-atk-gc {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: none;
+	grid-template-columns: 55px 70px 55px 240px 40px;
+	grid-template-rows: 36px 48px auto auto auto;
+	grid-template-areas:
+		'atkheader atkheader atkheader empty showatkbuttons'
+		'hitbutton hitmod hittemp empty showatkbuttons'
+		'atkhelp atkhelp atkhelp atkhelp atkhelp '
+		'atkdetail atkdetail atkdetail atkdetail atkdetail'
+		'hitmacro hitmacro hitmacro hitmacro hitmacro';
+		
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
 }
+.hitbutton { grid-area: hitbutton; }
+.hitmod { grid-area: hitmod; }
+.hittemp { grid-area: hittemp; }
+
+.showatkbuttons { grid-area: showatkbuttons; }
+
+.atkdetail { grid-area: atkdetail; display: block;}
+.hitmacro { grid-area: hitmacro; display: none; }
+
+.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
+.showatkmacrosbox { grid-area: showatkbuttons; }
+
+.header-aid {display: none;}
+.header-disarm {display: none;}
+input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc > .header-aid {display: contents}
+input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc > .header-disarm {display: contents}
+
+.aidhelp, .disarmhelp
+	{grid-area: atkhelp; display: none;}
+.emptyhelp {grid-area: atkhelp; display: block;}
+input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc > .showatkhelpbox:checked ~ 
+	.aidhelp {display: grid}
+input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc > .showatkhelpbox:checked ~ 
+	.disarmhelp {display: grid} 
+.showatkhelpbox:checked ~ .emptyhelp {display: none}
+
+.showatkmacrosbox:checked ~ div.hitmacro {display: block;}
+
+
 
 /* The combat controls and details for grapple and trip actions. To-hit roll and strength check. */
 .grappletrip-atk-gc {

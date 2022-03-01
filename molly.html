@@ -1567,6 +1567,98 @@
 					</div>
 
 					
+					<div class="aiddisarm-atk-gc roll-gc">
+						<div class="header-aid">
+							<em style="margin: 0;">Roll<br>to Help!</em>
+							<p><br>ATTACK<br>BONUS</p>
+							<p><br>TEMP<br>BONUS</p>
+						</div>
+						<div class="header-disarm">
+							<em style="margin: 0;">Roll<br>to Hit!</em>
+							<p><br>ATTACK<br>BONUS</p>
+							<p><br>TEMP<br>BONUS</p>
+						</div>
+
+						<div class="hitbutton macrobutton">
+							<button type="roll" name="attr_atk-tohit" title="atk-tohit" value="@{tohitmacro}"></button>
+						</div>
+						<div class="hitmod rollmod">
+							<span class="plus">+</span>
+							<input type="text" class="num-box boxed" value="0">
+							<span class="plus">+</span>
+						</div>
+						<div class="hittemp"><input type="number" class="temp-box boxed" value="0"></div>
+
+						<div class="showatkbuttons">
+							<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 4px; margin-top: 25px;"></img>
+							<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 4px;">
+							</img>
+						</div>
+						<!-- these inputs are invisible, see css -->
+						<input type="checkbox" class="showdetailbox showatkhelpbox" unchecked/>	
+						<input type="checkbox" class="showdetailbox showatkmacrosbox" unchecked/>
+
+						<div class="aidhelp helptext">
+							<textarea>Help for Aid Another Special Attack</textarea>
+						</div>
+						<div class="disarmhelp helptext">
+							<textarea>Help for Disarm Special Attack</textarea>
+						</div>
+						<div class="emptyhelp">
+						</div>
+
+						<div class="atkdetail">
+							<div style="height: 1em;" class="attack-adjst-grid">
+								<p></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<P></P>
+								<p>ATTACK BONUS</p>
+								<p><br>DAMAGE</p>
+								<p><br>AC BONUS</p>
+							</div>
+							<fieldset class="repeating_perm-melee-adjustments attack-adjst-grid">
+								<legend>Universal Melee Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="base attack">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="BAB">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="to hit bonus" value="+6">
+								<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+								<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+							</fieldset>
+							<fieldset class="repeating_weap-melee-adjustments attack-adjst-grid">
+								<legend>Weapon Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="longsword">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="weap">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="to hit bonus" value="+1">
+								<input type="text" name="adjst_value" placeholder="damage bonus" value="1d8">
+								<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+							</fieldset>
+
+							<fieldset class="repeating_char-melee-adjustments attack-adjst-grid">
+								<legend>Character-Specific Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="Combat Expertise">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="ce">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="to hit bonus" value="-3">
+								<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+								<input type="text" name="adjst_value" placeholder="AC bonus" value="+3">
+							</fieldset>
+						</div>
+						
+						<div class="hitmacro macrodetail">
+							<textarea name="hitmacro">to-hit macro</textarea>
+						</div>
+					</div>
+
 					<div class="turn-undead-attack">Turn Undead</div>
 				</section>
 
