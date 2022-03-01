@@ -1568,26 +1568,33 @@
 
 					
 					<div class="aiddisarm-atk-gc roll-gc">
-						<div class="header-aid">
-							<em style="margin: 0;">Roll<br>to Help!</em>
-							<p><br>ATTACK<br>BONUS</p>
-							<p><br>TEMP<br>BONUS</p>
-						</div>
-						<div class="header-disarm">
-							<em style="margin: 0;">Roll<br>to Hit!</em>
-							<p><br>ATTACK<br>BONUS</p>
-							<p><br>TEMP<br>BONUS</p>
-						</div>
+						<div class="aid-atk"><em style="margin: 0;">Roll<br>to Help!</em></div>
+						<div class="disarm-atk"><em style="margin: 0;">Roll<br>to Hit!</em></div>
+						<p><br>ATTACK<br>BONUS</p>
+						<p><br>TEMP<br>BONUS</p>
 
-						<div class="hitbutton macrobutton">
-							<button type="roll" name="attr_atk-tohit" title="atk-tohit" value="@{tohitmacro}"></button>
+						<div class='aid-atk'>
+							<div class="hitbutton macrobutton">
+								<button type="roll" name="roll_aid-tohit" title="aid-tohit" value="@{aidmacro}"></button>
+							</div>
+							<div class="hitmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_aid-mod" title="aid-mod" class="num-box boxed" value="0">
+								<span class="plus">+</span>
+							</div>
+							<div class="hittemp"><input type="number" name="attr_aid-temp" title="aid-temp" class="temp-box boxed" value="0"></div>
 						</div>
-						<div class="hitmod rollmod">
-							<span class="plus">+</span>
-							<input type="text" class="num-box boxed" value="0">
-							<span class="plus">+</span>
+						<div class='disarm-atk'>
+							<div class="hitbutton macrobutton">
+								<button type="roll" name="roll_disarm-tohit" title="disarm-tohit" value="@{disarmmacro}"></button>
+							</div>
+							<div class="hitmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_disarm-mod" title="disarm-mod" class="num-box boxed" value="0">
+								<span class="plus">+</span>
+							</div>
+							<div class="hittemp"><input type="number" name="attr_disarm-temp" title="disarm-temp" class="temp-box boxed" value="0"></div>
 						</div>
-						<div class="hittemp"><input type="number" class="temp-box boxed" value="0"></div>
 
 						<div class="showatkbuttons">
 							<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 4px; margin-top: 25px;"></img>
@@ -1598,13 +1605,9 @@
 						<input type="checkbox" class="showdetailbox showatkhelpbox" unchecked/>	
 						<input type="checkbox" class="showdetailbox showatkmacrosbox" unchecked/>
 
-						<div class="aidhelp helptext">
-							<textarea>Help for Aid Another Special Attack</textarea>
-						</div>
-						<div class="disarmhelp helptext">
-							<textarea>Help for Disarm Special Attack</textarea>
-						</div>
-						<div class="emptyhelp">
+						<div class="atkhelp helptext">
+							<div class="aid-atk"><textarea>Help for Aid Another Special Attack</textarea></div>
+							<div class="disarm-atk"><textarea>Help for Disarm Special Attack</textarea></div>
 						</div>
 
 						<div class="atkdetail">
@@ -1629,6 +1632,27 @@
 								<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
 								<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
 							</fieldset>
+							<div class="disarm-atk">
+								<fieldset class="repeating_disarm-adjustments attack-adjst-grid">
+									<legend>Disarm Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Improved Disarm">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="ID">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="+4">
+									<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Spiked Chain">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="weap">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="+2">
+									<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+								</fieldset>
+							</div>
 							<fieldset class="repeating_weap-melee-adjustments attack-adjst-grid">
 								<legend>Weapon Adjustments</legend>
 								<input type="checkbox" name="adjst_active" checked/>
@@ -1640,7 +1664,6 @@
 								<input type="text" name="adjst_value" placeholder="damage bonus" value="1d8">
 								<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
 							</fieldset>
-
 							<fieldset class="repeating_char-melee-adjustments attack-adjst-grid">
 								<legend>Character-Specific Adjustments</legend>
 								<input type="checkbox" name="adjst_active" checked/>
@@ -1655,8 +1678,10 @@
 						</div>
 						
 						<div class="hitmacro macrodetail">
-							<textarea name="hitmacro">to-hit macro</textarea>
+							<div class="aid-atk"><textarea name="hitmacro">Aid Another macro</textarea></div>
+							<div class="disarm-atk"><textarea name="hitmacro">Disarm Attack macro</textarea></div>
 						</div>
+
 					</div>
 
 					<div class="turn-undead-attack">Turn Undead</div>

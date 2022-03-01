@@ -519,13 +519,13 @@ input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-
 	position: relative; top: 20px;}
 .showinitmacrobox:checked ~ div.initmacro {display: block;}
 
+
 /* User chooses which attack format is displayed */
 input.tbhat[value="melee"]:checked ~ .meleeranged-atk-gc {display: grid;}
 input.tbhat[value="ranged"]:checked ~ .meleeranged-atk-gc {display: grid;}
 input.tbhat[value="sunder"]:checked ~ .meleeranged-atk-gc {display: grid;}
 input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc {display: grid;}
 input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc {display: grid;}
-
 
 /* The combat controls and details for melee, ranged, and sunder attacks. Incorporates critical hits */
 .meleeranged-atk-gc {
@@ -682,6 +682,7 @@ input.tbhat[value="trip"]:checked ~ .attack-grid-container > .showatkhelpbox:che
 .hitbutton { grid-area: hitbutton; }
 .hitmod { grid-area: hitmod; }
 .hittemp { grid-area: hittemp; }
+.atkhelp { grid-area: atkhelp; display: none;}
 
 .showatkbuttons { grid-area: showatkbuttons; }
 
@@ -691,11 +692,12 @@ input.tbhat[value="trip"]:checked ~ .attack-grid-container > .showatkhelpbox:che
 .showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
 .showatkmacrosbox { grid-area: showatkbuttons; }
 
-.header-aid {display: none;}
-.header-disarm {display: none;}
-input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc > .header-aid {display: contents}
-input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc > .header-disarm {display: contents}
+.aid-atk {display: none;}
+.disarm-atk {display: none;}
+input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc .aid-atk {display: contents}
+input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc .disarm-atk {display: contents}
 
+/*
 .aidhelp, .disarmhelp
 	{grid-area: atkhelp; display: none;}
 .emptyhelp {grid-area: atkhelp; display: block;}
@@ -704,7 +706,8 @@ input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc > .showatkhelpbox:checked ~
 input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc > .showatkhelpbox:checked ~ 
 	.disarmhelp {display: grid} 
 .showatkhelpbox:checked ~ .emptyhelp {display: none}
-
+*/
+.showatkhelpbox:checked ~ div.atkhelp {display: block;}
 .showatkmacrosbox:checked ~ div.hitmacro {display: block;}
 
 
