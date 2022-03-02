@@ -9,6 +9,7 @@ p > br {font-size: inherit;}
 
 img {display: block; width: 100%;}
 div {border: 0px solid lightblue;}
+p {border: 0px solid lightgreen;}
 
 /* ------------ fonts, inputs, labels -------------------- */
 * {
@@ -280,7 +281,7 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .checkmacro { grid-area: checkmacro; display: none; }
 
 .showdetailbox {
-	opacity: 0;
+	opacity: 0.4;
 	cursor: pointer;
 	height: 100%;
     z-index: 2;

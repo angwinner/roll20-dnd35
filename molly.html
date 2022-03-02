@@ -1689,7 +1689,7 @@
 						<p><br>ATTACK<br>BONUS</p>
 						<p><br>TEMP<br>BONUS</p>
 						<p></p>
-						<em>Roll It!</em>
+						<em style="margin: 0;"><br>Roll It!</em>
 						<p><br>CHECK<br>MODIFIER</p>
 						<p><br>TEMP<br>MODIFIER</p>	
 
@@ -1751,6 +1751,69 @@
 						</div>
 
 						<div class="atkdetail">
+							<div class="grapple-atk">
+								<div style="height: 1em;" class="attack-adjst-grid">
+									<p></p>
+									<p></p>
+									<p></p>
+									<p></p>
+									<P></P>
+									<p>ATTACK<br>BONUS</p>
+									<p>CHECK<br>BONUS</p>
+									<p></p>
+								</div>
+								<fieldset class="repeating_grapple-adjustments attack-adjst-grid">
+									<legend>Grapple Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Improved Grapple">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="IG">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+4">
+									<p></p>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="size">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="size">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="0">
+									<p></p>
+								</fieldset>
+							</div>
+							<div class="trip-atk">
+								<div style="height: 1em;" class="attack-adjst-grid">
+									<p></p>
+									<p></p>
+									<p></p>
+									<p></p>
+									<P></P>
+									<p>ATTACK<br>BONUS</p>
+									<p>CHECK<br>BONUS</p>
+									<p></p>
+								</div>
+								<fieldset class="repeating_trip-adjustments attack-adjst-grid">
+									<legend>Trip Adjustments</legend>
+									
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="stable">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="stbl">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+									<p></p>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="large">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="size">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+4">
+									<p></p>
+								</fieldset>
+							</div>
 							<div style="height: 1em;" class="attack-adjst-grid">
 								<p></p>
 								<p></p>
@@ -1772,67 +1835,7 @@
 								<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
 								<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
 							</fieldset>
-							<div class="grapple-atk">
-								<fieldset class="repeating_grapple-adjustments attack-adjst-grid">
-									<legend>Grapple Adjustments</legend>
-									<p></p>
-									<p></p>
-									<p></p>
-									<p></p>
-									<P></P>
-									<p>ATTACK BONUS</p>
-									<p>CHECK BONUS</p>
-									<p></p>
-									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="name" value="Improved Grapple">
-									<span >[</span>
-									<input type="text" name="adjst_abbr" placeholder="abbr" value="IG">
-									<span >]</span>
-									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
-									<input type="text" name="adjst_value" placeholder="check bonus" value="+4">
-									<p></p>
-									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="name" value="size">
-									<span >[</span>
-									<input type="text" name="adjst_abbr" placeholder="abbr" value="size">
-									<span >]</span>
-									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
-									<input type="text" name="adjst_value" placeholder="check bonus" value="0">
-									<p></p>
-								</fieldset>
-							</div>
-							<div class="trip-atk">
-								<fieldset class="repeating_trip-adjustments attack-adjst-grid">
-									<legend>Trip Adjustments</legend>
-									<p></p>
-									<p></p>
-									<p></p>
-									<p></p>
-									<P></P>
-									<p>ATTACK BONUS</p>
-									<p>CHECK BONUS</p>
-									<p></p>
-									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="name" value="stable">
-									<span >[</span>
-									<input type="text" name="adjst_abbr" placeholder="abbr" value="stbl">
-									<span >]</span>
-									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
-									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
-									<p></p>
-									<input type="checkbox" name="adjst_active" checked/>
-									<input type="text" name="adjst_desc" placeholder="name" value="large">
-									<span >[</span>
-									<input type="text" name="adjst_abbr" placeholder="abbr" value="size">
-									<span >]</span>
-									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
-									<input type="text" name="adjst_value" placeholder="check bonus" value="+4">
-									<p></p>
-								</fieldset>
-							</div>
-							<fieldset class="repeating_weap-melee-adjustments attack-adjst-grid">
-								<legend>Weapon Adjustments</legend>
-							</fieldset>
+							
 							<fieldset class="repeating_char-melee-adjustments attack-adjst-grid">
 								<legend>Character-Specific Adjustments</legend>
 								<input type="checkbox" name="adjst_active" checked/>
