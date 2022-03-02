@@ -1684,6 +1684,175 @@
 
 					</div>
 
+					<div class="grappletrip-atk-gc roll-gc">
+						<em style="margin: 0;">Roll<br>to Hit!</em>
+						<p><br>ATTACK<br>BONUS</p>
+						<p><br>TEMP<br>BONUS</p>
+						<p></p>
+						<em>Roll It!</em>
+						<p><br>CHECK<br>MODIFIER</p>
+						<p><br>TEMP<br>MODIFIER</p>	
+
+						<div class='grapple-atk'>
+							<div class="hitbutton macrobutton">
+								<button type="roll" name="roll_grapple-tohit" title="grapple-tohit" value="@{grapplehitmacro}"></button>
+							</div>
+							<div class="hitmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_grapplehit-mod" title="grapplehit-mod" class="num-box boxed" value="0">
+								<span class="plus">+</span>
+							</div>
+							<div class="hittemp"><input type="number" name="attr_grapplehit-temp" title="grapplehit-temp" class="temp-box boxed" value="0"></div>
+							<div class="checkname">GRAPPLE<br>CHECK</div>
+							<div class="checkbutton">
+								<button type="roll" name="roll_grapplecheck" title="grapplecheck" value="@{grapplecheckmacro}"></button>
+							</div>
+							<div class="checkmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_grapplecheck-mod" title="grapplecheck-mod" class="num-box boxed" value="+8">
+								<span class="plus">+</span>
+							</div>
+							<div class="checktemp"><input type="number" name="attr_grapplecheck-temp" title="grapplecheck-temp" class="temp-box boxed" value="0"></div>
+						</div>
+						<div class='trip-atk'>
+							<div class="hitbutton macrobutton">
+								<button type="roll" name="roll_trip-tohit" title="trip-tohit" value="@{tripmacro}"></button>
+							</div>
+							<div class="hitmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_trip-mod" title="trip-mod" class="num-box boxed" value="0">
+								<span class="plus">+</span>
+							</div>
+							<div class="hittemp"><input type="number" name="attr_trip-temp" title="trip-temp" class="temp-box boxed" value="0"></div>
+							<div class="checkname">TRIP<br>CHECK</div>
+							<div class="checkbutton">
+								<button type="roll" name="roll_tripcheck" title="tripcheck" value="@{tripcheckmacro}"></button>
+							</div>
+							<div class="checkmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_tripcheck-mod" title="tripcheck-mod" class="num-box boxed" value="+6">
+								<span class="plus">+</span>
+							</div>
+							<div class="checktemp"><input type="number" name="attr_tripcheck-temp" title="tripcheck-temp" class="temp-box boxed" value="0"></div>
+						</div>
+
+						<div class="showatkbuttons">
+							<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 4px; margin-top: 25px;"></img>
+							<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 4px;">
+							</img>
+						</div>
+						<!-- these inputs are invisible, see css -->
+						<input type="checkbox" class="showdetailbox showatkhelpbox" unchecked/>	
+						<input type="checkbox" class="showdetailbox showatkmacrosbox" unchecked/>
+
+						<div class="atkhelp helptext">
+							<div class="grapple-atk"><textarea>Help for Grapple Special Attack</textarea></div>
+							<div class="trip-atk"><textarea>Help for Trip Special Attack</textarea></div>
+						</div>
+
+						<div class="atkdetail">
+							<div style="height: 1em;" class="attack-adjst-grid">
+								<p></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<P></P>
+								<p>ATTACK BONUS</p>
+								<p><br>DAMAGE</p>
+								<p><br>AC BONUS</p>
+							</div>
+							<fieldset class="repeating_perm-melee-adjustments attack-adjst-grid">
+								<legend>Universal Melee Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="base attack">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="BAB">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="to hit bonus" value="+6">
+								<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+								<input type="text" name="adjst_value" placeholder="AC bonus" value="0">
+							</fieldset>
+							<div class="grapple-atk">
+								<fieldset class="repeating_grapple-adjustments attack-adjst-grid">
+									<legend>Grapple Adjustments</legend>
+									<p></p>
+									<p></p>
+									<p></p>
+									<p></p>
+									<P></P>
+									<p>ATTACK BONUS</p>
+									<p>CHECK BONUS</p>
+									<p></p>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Improved Grapple">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="IG">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+4">
+									<p></p>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="size">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="size">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="0">
+									<p></p>
+								</fieldset>
+							</div>
+							<div class="trip-atk">
+								<fieldset class="repeating_trip-adjustments attack-adjst-grid">
+									<legend>Trip Adjustments</legend>
+									<p></p>
+									<p></p>
+									<p></p>
+									<p></p>
+									<P></P>
+									<p>ATTACK BONUS</p>
+									<p>CHECK BONUS</p>
+									<p></p>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="stable">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="stbl">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+									<p></p>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="large">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="size">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+4">
+									<p></p>
+								</fieldset>
+							</div>
+							<fieldset class="repeating_weap-melee-adjustments attack-adjst-grid">
+								<legend>Weapon Adjustments</legend>
+							</fieldset>
+							<fieldset class="repeating_char-melee-adjustments attack-adjst-grid">
+								<legend>Character-Specific Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="Combat Expertise">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="ce">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="to hit bonus" value="-3">
+								<input type="text" name="adjst_value" placeholder="damage bonus" value="0">
+								<input type="text" name="adjst_value" placeholder="AC bonus" value="+3">
+							</fieldset>
+						</div>
+						
+						<div class="hitmacro macrodetail">
+							<div class="grapple-atk"><textarea name="hitmacro">Grapple macro</textarea></div>
+							<div class="trip-atk"><textarea name="hitmacro">Trip Attack macro</textarea></div>
+						</div>
+
+					</div>
+
 					<div class="turn-undead-attack">Turn Undead</div>
 				</section>
 
