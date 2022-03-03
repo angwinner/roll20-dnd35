@@ -529,6 +529,10 @@ input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc {display: grid;}
 input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc {display: grid;}
 input.tbhat[value="grapple"]:checked ~ .grappletrip-atk-gc {display: grid}
 input.tbhat[value="trip"]:checked ~ .grappletrip-atk-gc {display: grid}
+input.tbhat[value="bull"]:checked ~ .check-atk-gc {display: grid}
+input.tbhat[value="feint"]:checked ~ .check-atk-gc {display: grid}
+input.tbhat[value="overrun"]:checked ~ .check-atk-gc {display: grid}
+input.tbhat[value="turn"]:checked ~ .turn-atk-gc {display: grid}
 
 /* The combat controls and details for melee, ranged, and sunder attacks. Incorporates critical hits */
 .meleeranged-atk-gc {
@@ -717,7 +721,8 @@ input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc .disarm-atk {display: co
 		'hitbutton hitmod hittemp checkname checkbutton checkmod checktemp showatkbuttons'
 		'atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp'
 		'atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail'
-		'hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro';
+		'hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro'
+		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro';
 		
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
@@ -735,6 +740,7 @@ input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc .disarm-atk {display: co
 
 .atkdetail { grid-area: atkdetail; display: block;}
 .hitmacro { grid-area: hitmacro; display: none; }
+.checkmacro { grid-area: checkmacro; display: none; }
 
 .showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
 .showatkmacrosbox { grid-area: showatkbuttons; }
@@ -746,11 +752,52 @@ input.tbhat[value="trip"]:checked ~ .grappletrip-atk-gc .trip-atk {display: cont
 
 .showatkhelpbox:checked ~ div.atkhelp {display: block;}
 .showatkmacrosbox:checked ~ div.hitmacro {display: block;}
+.showatkmacrosbox:checked ~ div.checkmacro {display: block;}
 
 
 /* The combat controls and details for bull rush, overrun, and feint actions. Strength or skill check only. */
 .check-atk-gc {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: none;
+	grid-template-columns: 65px 50px 70px 55px 180px 40px;
+	grid-template-rows: 36px 48px auto auto auto;
+	grid-template-areas:
+		'atkheader atkheader atkheader atkheader empty showatkbuttons'
+		'checkname checkbutton checkmod checktemp empty showatkbuttons'
+		'atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp '
+		'atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail '
+		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro';
+		
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
 }
+.checkname { grid-area: checkname; text-align: right;}
+.checkbutton { grid-area: checkbutton; }
+.checkmod { grid-area: checkmod; }
+.checktemp { grid-area: checktemp; }
+.atkhelp { grid-area: atkhelp; display: none;}
+
+.showatkbuttons { grid-area: showatkbuttons; }
+
+.atkdetail { grid-area: atkdetail; display: block;}
+.checkmacro { grid-area: checkmacro; display: none; }
+
+.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
+.showatkmacrosbox { grid-area: showatkbuttons; }
+
+.bullrush-atk {display: none;}
+.overrun-atk {display: none;}
+.feint-atk {display: none;}
+input.tbhat[value="bull"]:checked ~ .check-atk-gc .bullrush-atk {display: contents}
+input.tbhat[value="feint"]:checked ~ .check-atk-gc .feint-atk {display: contents}
+input.tbhat[value="overrun"]:checked ~ .check-atk-gc .overrun-atk {display: contents}
+
+.showatkhelpbox:checked ~ div.atkhelp {display: block;}
+.showatkmacrosbox:checked ~ div.checkmacro {display: block;}
+
 
 /* The combat controls and details for turn undead. A check and a damage roll. */
 .turn-atk-gc {

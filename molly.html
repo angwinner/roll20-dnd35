@@ -1709,7 +1709,7 @@
 							</div>
 							<div class="checkmod rollmod">
 								<span class="plus">+</span>
-								<input type="text" name="attr_grapplecheck-mod" title="grapplecheck-mod" class="num-box boxed" value="+8">
+								<input type="text" name="attr_grapplecheck-mod" title="grapplecheck-mod" class="num-box boxed" value="+13">
 								<span class="plus">+</span>
 							</div>
 							<div class="checktemp"><input type="number" name="attr_grapplecheck-temp" title="grapplecheck-temp" class="temp-box boxed" value="0"></div>
@@ -1764,6 +1764,22 @@
 								</div>
 								<fieldset class="repeating_grapple-adjustments attack-adjst-grid">
 									<legend>Grapple Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="base attack bonus">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="BAB">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+7">
+									<p></p>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Strength modifier">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="str">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="to hit bonus" value="0">
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+									<p></p>
 									<input type="checkbox" name="adjst_active" checked/>
 									<input type="text" name="adjst_desc" placeholder="name" value="Improved Grapple">
 									<span >[</span>
@@ -1848,10 +1864,190 @@
 								<input type="text" name="adjst_value" placeholder="AC bonus" value="+3">
 							</fieldset>
 						</div>
-						
+					
 						<div class="hitmacro macrodetail">
-							<div class="grapple-atk"><textarea name="hitmacro">Grapple macro</textarea></div>
-							<div class="trip-atk"><textarea name="hitmacro">Trip Attack macro</textarea></div>
+							<div class="grapple-atk"><textarea name="hitmacro">Grapple to-hit macro</textarea></div>
+							<div class="trip-atk"><textarea name="hitmacro">Trip to-hit macro</textarea></div>
+						</div>
+						<div class="checkmacro macrodetail">
+							<div class="grapple-atk"><textarea name="hitmacro">Grapple check macro</textarea></div>
+							<div class="trip-atk"><textarea name="hitmacro">Trip check macro</textarea></div>
+						</div>
+
+					</div>
+
+					<div class="check-atk-gc roll-gc">
+						<p></p>
+						<em style="margin: 0;"><br>Roll It!</em>
+						<p><br>CHECK<br>MODIFIER</p>
+						<p><br>TEMP<br>MODIFIER</p>	
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>	
+
+						<div class='bullrush-atk'>
+							<div class="checkname">BULL<br>RUSH<br>CHECK</div>
+							<div class="checkbutton">
+								<button type="roll" name="roll_bullrushcheck" title="bullrushcheck" value="@{bullrushcheckmacro}"></button>
+							</div>
+							<div class="checkmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_bullrushcheck-mod" title="bullrushcheck-mod" class="num-box boxed" value="+2">
+								<span class="plus">+</span>
+							</div>
+							<div class="checktemp">
+								<input type="number" name="attr_bullrushcheck-temp" title="bullrushcheck-temp" class="temp-box boxed" value="0">
+							</div>
+						</div>
+						<div class='overrun-atk'>
+							<div class="checkname">OVERRUN<br>CHECK</div>
+							<div class="checkbutton">
+								<button type="roll" name="roll_overruncheck" title="overruncheck" value="@{overruncheckmacro}"></button>
+							</div>
+							<div class="checkmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_overruncheck-mod" title="overruncheck-mod" class="num-box boxed" value="+2">
+								<span class="plus">+</span>
+							</div>
+							<div class="checktemp">
+								<input type="number" name="attr_bullrushcheck-temp" title="bullrushcheck-temp" class="temp-box boxed" value="0">
+							</div>
+						</div>
+						<div class='feint-atk'>
+							<div class="checkname">FEINT<br>CHECK</div>
+							<div class="checkbutton">
+								<button type="roll" name="roll_feintcheck" title="feintcheck" value="@{feintcheckmacro}"></button>
+							</div>
+							<div class="checkmod rollmod">
+								<span class="plus">+</span>
+								<input type="text" name="attr_feintcheck-mod" title="feintcheck-mod" class="num-box boxed" value="+2">
+								<span class="plus">+</span>
+							</div>
+							<div class="checktemp">
+								<input type="number" name="attr_feintcheck-temp" title="feintcheck-temp" class="temp-box boxed" value="0">
+							</div>
+						</div>
+						<div></div>
+
+						<div class="showatkbuttons">
+							<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 4px; margin-top: 25px;"></img>
+							<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 4px;">
+							</img>
+						</div>
+						<!-- these inputs are invisible, see css -->
+						<input type="checkbox" class="showdetailbox showatkhelpbox" unchecked/>	
+						<input type="checkbox" class="showdetailbox showatkmacrosbox" unchecked/>
+
+						<div class="atkhelp helptext">
+							<div class="bullrush-atk"><textarea>Help for Bull Rush Special Attack</textarea></div>
+							<div class="overrun-atk"><textarea>Help for Overrun Special Attack</textarea></div>
+							<div class="feint-atk"><textarea>Help for Feint</textarea></div>
+						</div>
+
+						<div class="atkdetail">
+							<div class="bullrush-atk">
+								<fieldset class="repeating_bullrush-adjustments adjst-grid">
+									<legend>Bull Rush Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="size">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="size">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="-4">
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="stability">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="stbl">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+									<input type="checkbox" name="adjst_active" unchecked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="charging">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="chg">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+								</fieldset>
+								<fieldset class="repeating_STRCHKadjustments adjst-grid">
+									<legend>Strength Check Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="strength modifier">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="STR">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Marshal's Aura">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="MA">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+3">
+								</fieldset>
+							</div>
+							<div class="overrun-atk">
+								<fieldset class="repeating_overrun-adjustments adjst-grid">
+									<legend>Overrun Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="size">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="size">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="-4">
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="stability">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="stbl">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+								</fieldset>
+								<fieldset class="repeating_STRCHKadjustments adjst-grid">
+									<legend>Strength Check Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="strength modifier">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="STR">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="Marshal's Aura">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="MA">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+3">
+								</fieldset>
+							</div>
+							<div class="feint-atk">
+								<fieldset class="repeating_feint-adjustments adjst-grid">
+									<legend>Feint Adjustments</legend>
+									<input type="checkbox" name="adjst_active" unchecked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="non-humanoid opponent">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="nh">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="-4">
+									<input type="checkbox" name="adjst_active" unchecked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="animal">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="an">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="-8">
+								</fieldset>
+								<fieldset class="repeating_bluff-adjustments adjst-grid">
+									<legend>Bluff Check Adjustments</legend>
+									<input type="checkbox" name="adjst_active" checked/>
+									<input type="text" name="adjst_desc" placeholder="name" value="charisma modifier">
+									<span >[</span>
+									<input type="text" name="adjst_abbr" placeholder="abbr" value="CHA">
+									<span >]</span>
+									<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+								</fieldset>
+							</div>
+						</div>
+					
+						<div class="checkmacro macrodetail">
+							<div class="bullrush-atk"><textarea name="hitmacro">Bull Rush check macro</textarea></div>
+							<div class="overrun-atk"><textarea name="hitmacro">Overrun check macro</textarea></div>
+							<div class="feint-atk"><textarea name="hitmacro">Feint check macro</textarea></div>
 						</div>
 
 					</div>
