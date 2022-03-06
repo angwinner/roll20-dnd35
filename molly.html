@@ -963,6 +963,30 @@
 									<label for="acadj-flat">apply Flat-Footed</label>
 								</span>
 							</fieldset>
+								<span>
+									<input type="checkbox" id="acadj-touch" checked/>
+									<label for="acadj-flat">apply Touch AC</label>
+								</span>
+								<span>
+									<input type="checkbox" id="acadj-flat" unchecked/>
+									<label for="acadj-flat">apply Flat-Footed</label>
+								</span>
+
+								<input type="checkbox" name="adjst-active" checked/>
+								<input type="text" name="adjst-desc" placeholder="name" value="chain shirt">
+								<span>[</span>
+								<input type="text" name="adjst-abbr" placeholder="abbr" value="armr">
+								<span>]</span>
+								<input type="number" name="adjst-value" value=4>
+								<span>
+									<input type="checkbox" id="acadj-touch" unchecked/>
+									<label for="acadj-flat">apply Touch AC</label>
+								</span>
+								<span>
+									<input type="checkbox" id="acadj-flat" checked/>
+									<label for="acadj-flat">apply Flat-Footed</label>
+								</span>
+							</fieldset>
 							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
 								<legend>AC Adjustments from Attack Adjustments</legend>
 								<input type="checkbox" name="adjst-active" checked/>
@@ -1946,6 +1970,14 @@
 						</div>
 
 						<div class="atkdetail">
+							<div style="height: 1em;" class="adjst-grid">
+								<p></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<p>CHECK BONUS</p>
+							</div>
 							<div class="bullrush-atk">
 								<fieldset class="repeating_bullrush-adjustments adjst-grid">
 									<legend>Bull Rush Adjustments</legend>
@@ -2043,7 +2075,7 @@
 								</fieldset>
 							</div>
 						</div>
-					
+						
 						<div class="checkmacro macrodetail">
 							<div class="bullrush-atk"><textarea name="hitmacro">Bull Rush check macro</textarea></div>
 							<div class="overrun-atk"><textarea name="hitmacro">Overrun check macro</textarea></div>
@@ -2052,7 +2084,148 @@
 
 					</div>
 
-					<div class="turn-undead-attack">Turn Undead</div>
+					<div class="turn-atk-gc roll-gc">
+						<div class="turn-lvl-gc">
+							<div class="turnlvlname">DIVINE CASTER<br>LEVEL FOR<br>TURN UNDEAD</div>
+							<div class="turnlvlvalue">
+								<input type="text" class="num-box boxed" name="attr_turnlvl" value="9">
+							</div>
+							<!-- these inputs are invisible, see css -->
+							<input type="checkbox" class="showdetailbox showturnlvldetailbox" unchecked/>
+
+							<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-turn">
+							<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-turn">
+
+							<div class="turnlvldetail">
+								<fieldset class="repeating_turnlvladjustments adjst-grid">
+									<legend>Turn Undead Level Adjustments</legend>
+									<input type="checkbox" name="adjst-active" checked/>
+									<input type="text" name="adjst-desc" placeholder="name" value="cleric level">
+									<span>[</span>
+									<input type="text" name="adjst-abbr" placeholder="abbr" value="lvl">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=5>
+									<input type="checkbox" name="adjst-active" checked/>
+									<input type="text" name="adjst-desc" placeholder="name" value="Phylactery of Undead Turning">
+									<span>[</span>
+									<input type="text" name="adjst-abbr" placeholder="abbr" value="PUD">
+									<span>]</span>
+									<input type="number" name="adjst_value" value=+4>
+								</fieldset>
+							</div>
+						</div>
+
+						<p></p>
+						<em style="margin: 0;"><br>Roll It!</em>
+						<p><br>CHECK<br>MODIFIER</p>
+						<p><br>TEMP<br>MODIFIER</p>	
+						<em style="margin: 0;">Roll<br>Damage!</em>
+						<p><br>DAMAGE<br>BONUS</p>
+						<p><br>TEMP<br>BONUS</p>
+						<p></p>	
+						
+						<div class="checkname">TURNING<br>CHECK</div>
+						<div class="checkbutton">
+							<button type="roll" name="roll_turncheck" title="turncheck" value="@{turncheckmacro}"></button>
+						</div>
+						<div class="checkmod rollmod">
+							<span class="plus">+</span>
+							<input type="text" name="attr_turncheck-mod" title="turncheck-mod" class="num-box boxed" value="+6">
+							<span class="plus">+</span>
+						</div>
+						<div class="checktemp">
+							<input type="number" name="attr_turncheck-temp" title="turncheck-temp" class="temp-box boxed" value="0">
+						</div>
+
+						<div class="dmgbutton macrobutton">
+							<button type="roll" style="background-image: url('blue8_40px.png')" name="" title="" value="@{dmgmacro}"></button>
+						</div>
+						<div class="dmgmod rollmod"> 
+							<span class="plus">+</span>
+							<input type="text" class="num-box boxed" value="0">
+							<span class="plus">+</span>
+						</div>
+						<div class="dmgtemp"><input type="number" class="temp-box boxed" value="0"></div>
+
+						<div class="showatkbuttons">
+							<img src="help20x20.png" alt="show help" style="width: 25px; margin-left: 4px; margin-top: 25px;"></img>
+							<img src="grey_wrench20x20.png" alt="show macro" style="width: 25px; margin-left: 4px;">
+							</img>
+						</div>
+						<!-- these inputs are invisible, see css -->
+						<input type="checkbox" class="showdetailbox showatkhelpbox" unchecked/>	
+						<input type="checkbox" class="showdetailbox showatkmacrosbox" unchecked/>
+
+						<div class="atkhelp helptext">
+							<textarea>Help for Turning Check</textarea>
+							<textarea>Help for Turning Damage</textarea>
+						</div>
+
+						<div class="turncheckdetail">
+							<div style="height: 1em;" class="adjst-grid">
+								<p></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<p>CHECK BONUS</p>
+							</div>
+							<fieldset class="repeating_turncheck-adjustments adjst-grid">
+								<legend>Turning Check Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="Consecrate">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="cnsc">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="check bonus" value="+3">
+							</fieldset>
+							<fieldset class="repeating_CHAadjustments adjst-grid">
+								<legend>Charisma Check Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="Charisma modifier">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="CHA">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+							</fieldset>
+						</div>
+						<div class="turndmgdetail">
+							<div style="height: 1em;" class="adjst-grid">
+								<p></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<p>DAMAGE BONUS</p>
+							</div>
+							<fieldset class="repeating_turndmg-adjustments adjst-grid">
+								<legend>Turning Damage Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="Exalted Turning">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="ET">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="check bonus" value="3d6">
+							</fieldset>
+							<fieldset class="repeating_CHAadjustments adjst-grid">
+								<legend>Charisma Check Adjustments</legend>
+								<input type="checkbox" name="adjst_active" checked/>
+								<input type="text" name="adjst_desc" placeholder="name" value="Charisma modifier">
+								<span >[</span>
+								<input type="text" name="adjst_abbr" placeholder="abbr" value="CHA">
+								<span >]</span>
+								<input type="text" name="adjst_value" placeholder="check bonus" value="+2">
+							</fieldset>
+						</div>
+
+						<div class="checkmacro macrodetail">
+							<textarea>Turning Check macro</textarea>
+						</div>
+						<div class="dmgmacro macrodetail">
+							<textarea>Turning Damage macro</textarea>
+						</div>
+						
+					</div>
 				</section>
 
 				<section class="readied_sfm">

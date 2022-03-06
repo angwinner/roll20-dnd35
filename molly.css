@@ -281,7 +281,7 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .checkmacro { grid-area: checkmacro; display: none; }
 
 .showdetailbox {
-	opacity: 0.4;
+	opacity: 0;
 	cursor: pointer;
 	height: 100%;
     z-index: 2;
@@ -705,8 +705,6 @@ input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc .disarm-atk {display: co
 .showatkhelpbox:checked ~ div.atkhelp {display: block;}
 .showatkmacrosbox:checked ~ div.hitmacro {display: block;}
 
-
-
 /* The combat controls and details for grapple and trip actions. To-hit roll and strength check. */
 .grappletrip-atk-gc {
 	position: relative;
@@ -800,8 +798,75 @@ input.tbhat[value="overrun"]:checked ~ .check-atk-gc .overrun-atk {display: cont
 
 
 /* The combat controls and details for turn undead. A check and a damage roll. */
+
 .turn-atk-gc {
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	text-align: center;
+	font-size: 16px;
+	display: none;
+	grid-template-columns: 65px 50px 70px 55px 55px 70px 55px 40px;
+	grid-template-rows: auto 36px 48px auto auto auto;
+	grid-template-areas:
+		'turnlevel turnlevel turnlevel turnlevel turnlevel turnlevel turnlevel turnlevel'
+		'atkheader atkheader atkheader atkheader atkheader atkheader atkheader showatkbuttons'
+		'checkname checkbutton checkmod checktemp dmgbutton dmgmod dmgtemp showatkbuttons'
+		'atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp'
+		'turncheckdetail turncheckdetail turncheckdetail turncheckdetail turndmgdetail turndmgdetail turndmgdetail turndmgdetail'
+		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro'
+		'dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro';
+		
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
 }
+.turnlevel {grid-area: turnlevel;}
+.checkname { grid-area: checkname; text-align: right;}
+.checkbutton { grid-area: checkbutton; }
+.checkmod { grid-area: checkmod; }
+.checktemp { grid-area: checktemp; }
+.dmgbutton { grid-area: dmgbutton; }
+.dmgmod { grid-area: dmgmod; }
+.dmgtemp { grid-area: dmgtemp; }
+.atkhelp { grid-area: atkhelp; display: none;}
+
+.showatkbuttons { grid-area: showatkbuttons; }
+
+.turncheckdetail { grid-area: turncheckdetail; display: block;}
+.turndmgdetail { grid-area: turndmgdetail; display: block;}
+.checkmacro { grid-area: checkmacro; display: none; }
+
+.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
+.showatkmacrosbox { grid-area: showatkbuttons; }
+
+.showatkhelpbox:checked ~ div.atkhelp {display: block;}
+.showatkmacrosbox:checked ~ div.checkmacro {display: block;}
+.showatkmacrosbox:checked ~ div.dmgmacro {display: block;}
+
+.turn-lvl-gc{
+	grid-area: turnlevel;
+	display: grid;
+	position: relative;
+	padding: 0px; /* this is the padding outside the grid container*/
+	font-size: 16px;
+	grid-template-columns: 100px 50px;
+	grid-template-areas:
+		'turnlvlname turnlvlvalue'
+		'turnlvldetail turnlvldetail';
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+}
+.turnlvlname {grid-area: turnlvlname;}
+.turnlvlvalue {grid-area: turnlvlvalue;}
+.turnlvldetail {grid-area: turnlvldetail; display: none;}
+
+.showturnlvldetailbox {grid-row: 1; grid-column: 2;}
+.arrowcollapsed-turn {grid-area: turnlvlvalue; left: 5px;}
+.arrowexpanded-turn {grid-area: turnlvlvalue; display: none;}
+
+.showturnlvldetailbox:checked ~ div.turnlvldetail {display: block;}
+.showturnlvldetailbox:checked ~ img.arrowcollapsed-turn {display: none;}
+.showturnlvldetailbox:checked ~ img.arrowexpanded-turn {display: block; left: 5px;}
+
 
 /* ----------------------------------------Tabs (reskinned radio button)---------------------------------- */
 
