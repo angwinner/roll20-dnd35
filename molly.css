@@ -4,15 +4,6 @@
 
 * {
 	box-sizing: border-box;
-}
-p > br {font-size: inherit;}
-
-img {display: block; width: 100%;}
-div {border: 0px solid lightblue;}
-p {border: 0px solid lightgreen;}
-
-/* ------------ fonts, inputs, labels -------------------- */
-* {
 	font-family: "Raleway", sans-serif;
 	font-weight: 500;
 	font-variant: small-caps;
@@ -20,102 +11,15 @@ p {border: 0px solid lightgreen;}
 	font-size: 12px;
 }
 
-label {font-size: 10px;overflow: hidden;}
+img {display: block; width: 100%;}
 
-input[type="text"] ~ label {vertical-align: top; padding-top: 2px;} /* label underneath input */
-
-section.pc-header select ~ label {position: relative; top: -4px;}
+input[type="text"] ~ label 
+	{font-size: 10px; overflow: hidden; vertical-align: top; padding-top: 2px;} /* label underneath input */
 
 input[type="radio"] ~ label, input[type="checkbox"] ~ label
 	{font-size: 12px; position: relative; bottom: 4px;}  /* label to right */
 
-/* column headings for grid containers */
-.roll-gc p {font-size: 9px; line-height: 1.0; margin: 5px 0px 2px 0px; display: inline-block;}
-
-
-h2 {font-size: 14px; font-weight: 900; margin: 0.5em 0px 0px 0px;}
-em {font-size: 14px; margin: 0.5em 0px 0px 0px;}
-
-.neg-label {
-	font-family: "Raleway", sans-serif;
-	font-weight: 500;
-	text-align: center;
-	background-color: black;
-	color: white;
-	font-size: 10px;
-	height: 40px;
-	line-height: 1.0;
-	padding: 3px;
-}
-.neg-label::first-line {font-size: 22px; font-weight: 900;}
-
-.neg-label-smaller::first-line {font-size: 20px;  font-weight: 900;}
-.neg-label-smaller{line-height: 1.1;}
-
-.neg-label-one-line {font-size: 16px; height: 30px; position: relative; top: 4px;}
-
-input {
-	font-family: "Shadows Into Light Two", sans-serif;
-	font-variant: normal;
-	height: 1.4em;
-	padding: 0.3em 0 0.3em 0;  /* for descenders */
-	text-align: left;
-	background: white;
-	border: none;
-	border-bottom: 2px solid black;
-}
-
-input[type="number"] {text-align: center}
-
-input.boxed {
-	font-size: 16px;
-	border-style: solid;
-	border-width: 1px;
-}
-
-input.num-box {
-	width: 35px;
-	height: 30px;
-	padding-bottom: 0em;  /* don't need to allow for descenders */
-	text-align: center;
-	font-weight: bold;
-}
-
-input.temp-box {
-	width: 45px;
-	height: 30px;
-	padding-bottom: 0em;
-	text-align: center;
-	font-weight: bold;
-	border-style: solid;
-	border-width: 1px;
-	border-color: lightgray;
-	outline-style: solid;
-	outline-width: 3px;
-	outline-color: lightgray;
-}
-
-input.text-box {
-	width: 95%;
-	height: 1.8em;
-	padding: 0.3em;
-}
-
-button[type="roll"]{
-	width: 40px;
-	height: 40px;
-	background-color: white;
-	background-image: url('blue20_40px.png');
-	background-repeat: no-repeat;
-	background-position: center;
-  	border: none;
-  	padding: 0px;
-  	display: inline-block;
-  	transition: transform 0.3s;
-}
-button[type="roll"]:active {
-	transform: rotate(360deg);
-}
+section.pc-header select ~ label {position: relative; top: -4px;}
 
 section.pc-header select {
 	-moz-appearance: none;
@@ -134,47 +38,89 @@ section.pc-header select {
 	border-bottom: 2px solid black;
 }
 
-.roll-gc input.num-box, .roll-gc input.temp-box {
-	position: relative;
-	top: 4px;
+h2 {font-size: 16px; font-weight: 900; margin: 0.4em 0px 0px 0px;}
+em {font-size: 14px; margin: 0.6em 0px 0px 0px;}
+
+.neg-label {
+	text-align: center;
+	background-color: black;
+	color: white;
+	font-size: 10px;
+	height: 40px;
+	line-height: 1.0;
+	padding: 3px;
 }
-.roll-gc div { margin-bottom: 5px; }
+.neg-label::first-line {font-size: 22px; font-weight: 900;}
 
-div.rollmod span + input.boxed {top: -1px;}
+.neg-label-one-line {font-size: 16px; height: 30px; position: relative; top: 4px;}
 
-.plus {
-	font-size: 30px;
-	position: relative;
-	top: 4px;
+input {
+	font-family: "Shadows Into Light Two", sans-serif;
+	font-variant: normal;
+	letter-spacing: 1px;
+	height: 1.4em;
+	padding: 0.3em 0 0.3em 0;  /* for descenders */
+	border: none;
+	border-bottom: 2px solid black;
+	text-align: center
 }
-fieldset {text-align: left;}
 
-fieldset > span {white-space: nowrap;}
-
-div.macrodetail textarea {font-family: monospace; font-variant: normal; width: 100%;
-	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
-div.helptext textarea {font-family: arial, sans-serif; font-variant: normal; width: 100%;
-	background: url('help20x20.png') no-repeat right top; background-size: 20px 20px;}
-
-.hidden {background-color: yellow}  
-
-
-/* ------------------------styling for specific sections -------------------- */
-
-.pc-header input {
+section.pc-header input {
+	text-align: left;
 	font-size: 16px;
 	width: 95%;
 }
 
-.ability-grid-container div.checkname{ padding-top: 6px; text-align: right; }
-
-.adjst-grid > input[type="text"], .attack-adjst-grid > input[type="text"],
-.ac-adjst-grid > input[type="text"] {
-	width: 95%;
-	text-align: center;
-	font-size: 14px;
+input.boxed {
+	font-size: 16px;
+	border-style: solid;
+	border-width: 1px;
 }
-fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
+
+input.num-box {
+	width: 35px;
+	height: 30px;
+	padding-bottom: 0em;  /* don't need to allow for descenders */
+	font-weight: bold;
+}
+
+input.text-box {
+	width: 95%;
+	height: 1.8em;
+	padding: 0.3em;
+}
+
+input.temp-box {
+	width: 45px;
+	height: 30px;
+	padding-bottom: 0em;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 1px;
+	border-color: lightgray;
+	outline-style: solid;
+	outline-width: 3px;
+	outline-color: lightgray;
+}
+
+button[type="roll"]{
+	width: 40px;
+	height: 40px;
+	background-image: url('blue20_40px.png');
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position: center;
+  	border: none;
+  	padding: 0px;
+  	display: inline-block;
+  	transition: transform 0.3s;
+}
+button[type="roll"]:active {
+	transform: rotate(360deg);
+}
+
+.hidden {background-color: yellow}  
+
 
 /* ------------ general organization -----------------------*/
 div.pc-sheet, div.npc-sheet {display: none;}
@@ -194,24 +140,24 @@ div.pc-sheet, div.npc-sheet {display: none;}
 		'XP race size age pc-height pc-weight'
 		'alignment deity gender eyes hair skin';
 }
-.logo { grid-area: logo;}
+.logo {grid-area: logo;}
 .logo img {height: 100px; object-fit: contain;}
-.pc-fullname { grid-area: fullname; }
-.pc-name { grid-area: displayname; }
-.player-name { grid-area: playername; }
-.class-n-lvl { grid-area: class-n-lvl; }
-.xp { grid-area: XP;}
-.race { grid-area: race; }
-.size { grid-area: size; }
-.alignment { grid-area: alignment; }
-.deity { grid-area: deity; }
-.gender { grid-area: gender; }
-.age { grid-area: age; }
-.pc-height { grid-area: pc-height; }
-.pc-weight { grid-area: pc-weight; }
-.eyes { grid-area: eyes; }
-.hair { grid-area: hair; }
-.skin { grid-area: skin; }
+.pc-fullname {grid-area: fullname;}
+.pc-name {grid-area: displayname;}
+.player-name {grid-area: playername;}
+.class-n-lvl {grid-area: class-n-lvl;}
+.xp {grid-area: XP;}
+.race {grid-area: race;}
+.size {grid-area: size;}
+.alignment {grid-area: alignment;}
+.deity {grid-area: deity;}
+.gender {grid-area: gender;}
+.age {grid-area: age;}
+.pc-height {grid-area: pc-height;}
+.pc-weight {grid-area: pc-weight;}
+.eyes {grid-area: eyes;}
+.hair {grid-area: hair;}
+.skin {grid-area: skin;}
 
 .pc-main-tab {
 	display: flex;
@@ -248,14 +194,110 @@ div.pc-sheet, div.npc-sheet {display: none;}
 }
 
 
-/* --------------------------- layouts for sections --------------------------------*/
+/* -------- grid container layout for roll + modifier (with expandable adjustments) + temp ---------------*/
+
+.roll-gc {
+	position: relative;
+	padding: 0px;
+	text-align: center;
+	display: grid;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px; /* grid-row-gap leaves blank gaps around display none areas */
+}
+
+.toggle {  /*the hidden controls that toggles display of the adjustments, help, and macros*/
+	opacity: 0.4;
+	cursor: pointer;
+	height: 100%;
+    z-index: 2;
+}
+
+.arrow {  	/* the visible carat that indicates a toggle details control */
+	z-index: 1;
+	position: absolute;
+	bottom: 2px;
+	height: 18px;
+	width: 18px;
+}
+
+.plus {
+	font-size: 30px;
+	position: relative;
+	top: 4px;
+}
+
+/* column headings for grid containers */
+.roll-gc p {font-size: 9px; line-height: 1.0; margin: 5px 0px 2px 0px; display: inline-block;}
+
+.roll-gc input.num-box, .roll-gc input.temp-box {
+	position: relative;
+	top: 4px;
+}
+.roll-gc div {margin-bottom: 5px;}
+
+/* class names and styling features for commonly used grid areas */
+.rollname {grid-area: rollname;}
+.macrobutton {grid-area: macrobutton;}
+.hitbutton {grid-area: hitbutton;} /* hit, check, and dmg prefixes are used when there is... */
+.checkbutton {grid-area: checkbutton;} /* ... more than one roll in the grid container */
+.dmgbutton {grid-area: dmgbutton;}
+
+.mod {grid-area: mod;}
+.hitmod {grid-area: hitmod;}
+.checkmod {grid-area: checkmod;}
+.dmgmod {grid-area: dmgmod;}
+
+.temp {grid-area: temp;}
+.hittemp {grid-area: hittemp;}
+.checktemp {grid-area: checktemp;}
+.dmgtemp {grid-area: dmgtemp;}
+
+.detail {grid-area: detail; display: none;} /* detail blocks display adjustments */
+.arrowcollapsed {display: block;}
+.arrowexpanded {display: none;}
+.showdetailbox:checked ~ div.detail {display: block;}
+.showdetailbox:checked ~ img.arrowcollapsed {display: none;}
+.showdetailbox:checked ~ img.arrowexpanded {display: block;}
+
+.toolicons {grid-area: toolicons;}
+.help {grid-area: help; display: none;}
+.showhelpbox:checked ~ div.help {display: block;}
+div.help textarea {font-family: arial, sans-serif; font-variant: normal; width: 100%;
+	background: url('help20x20.png') no-repeat right top; background-size: 20px 20px;}
+.macro {grid-area: macro; display: none;}
+.showmacrobox:checked ~ div.macro {display: block;}
+div.macro textarea {font-family: monospace; font-variant: normal; width: 100%;
+	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
+
+
+
+div.checkname{padding-top: 6px; text-align: right;}
+
+div.mod span + input.boxed {top: -1px;}
+
+fieldset > span {white-space: nowrap;}
+
+
+
+
+
+
+
+
+
+/*.ability-grid-container div.checkname{padding-top: 6px; text-align: right;}*/
+
+.adjst-grid > input[type="text"], .attack-adjst-grid > input[type="text"],
+.ac-adjst-grid > input[type="text"] {
+	width: 95%;
+	text-align: center;
+	font-size: 14px;
+}
+fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
+
+
 
 .ability-grid-container {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
-	display: grid;
 	grid-template-columns: 80px 45px 45px 45px 65px 50px 70px 55px 20px;
 	grid-template-areas:
 		'header header header header header header header header header'
@@ -263,37 +305,20 @@ div.pc-sheet, div.npc-sheet {display: none;}
 		'scoredetail scoredetail scoredetail scoredetail checkdetail checkdetail checkdetail checkdetail checkdetail'
 		'ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp'
 		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro';
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
-.abilityname { grid-area: abilityname; }
-.ablscore { grid-area: ablscore; }
-.ablmodifier { grid-area: ablmodifier; }
-.abltemp { grid-area: abltemp; }
-.checkname { grid-area: checkname;}
-.macrobutton { grid-area: macrobutton; }
-.checkmod { grid-area: checkmod; }
-.checktemp { grid-area: checktemp; }
-.showablmacro { grid-area: showablmacro; text-align: left;}
-.scoredetail { grid-area: scoredetail; display: none; }
-.checkdetail { grid-area: checkdetail; display: none; }
-.ablhelp { grid-area: ablhelp; display: none; }
-.checkmacro { grid-area: checkmacro; display: none; }
-
-.showdetailbox {
-	opacity: 0;
-	cursor: pointer;
-	height: 100%;
-    z-index: 2;
-}
-
-.arrow {
-	z-index: 1;
-	position: absolute;
-	bottom: 2px;
-	height: 18px;
-	width: 18px;
-}
+.abilityname {grid-area: abilityname;}
+.ablscore {grid-area: ablscore;}
+.ablmodifier {grid-area: ablmodifier;}
+.abltemp {grid-area: abltemp;}
+.checkname {grid-area: checkname;}
+/*.macrobutton {grid-area: macrobutton;}*/
+.checkmod {grid-area: checkmod;}
+.checktemp {grid-area: checktemp;}
+.showablmacro {grid-area: showablmacro; text-align: left;}
+.scoredetail {grid-area: scoredetail; display: none;}
+.checkdetail {grid-area: checkdetail; display: none;}
+.ablhelp {grid-area: ablhelp; display: none;}
+.checkmacro {grid-area: checkmacro; display: none;}
 
 .showscoredetailbox {grid-row: 2; grid-column: 2 / 4;}
 .arrowcollapsed-score {grid-area: ablscore; left: 5px;}
@@ -326,43 +351,44 @@ div.pc-sheet, div.npc-sheet {display: none;}
 }
 
 .save-grid-container {
-	position: relative;
+	/*position: relative;
 	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
+	/*text-align: center;
 	font-size: 16px;
-	display: grid;
-	grid-template-columns: 120px 50px 70px 55px 20px;
+	display: grid;*/
+	grid-template-columns: 140px 50px 70px 55px 20px;
 	grid-template-areas: 
 		'header header header header header'
-		'savename macrobutton savemod savetemp showsavemacro'
-		'savedetail savedetail savedetail savedetail savedetail'
-		'savehelp savehelp savehelp savehelp savehelp'
-		'savemacro savemacro savemacro savemacro savemacro';
-	grid-column-gap: 0px;
+		'rollname macrobutton mod temp toolicons'
+		'detail detail detail detail detail'
+		'help help help help help'
+		'macro macro macro macro macro';
+	/*grid-column-gap: 0px;
 	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
-.savename { grid-area: savename; }
-.macrobutton { grid-area: macrobutton; }
-.savemod { grid-area: savemod; }
-.savetemp { grid-area: savetemp; }
-.showsavemacro { grid-area: showsavemacro; text-align: left;}
-.savedetail { grid-area: savedetail; display: none; }
-.savemacro { grid-area: savemacro; display: none; }
-.savehelp { grid-area: savehelp; display: none; }
+/*.savename { grid-area: savename; }*/
+/*.macrobutton { grid-area: macrobutton;}*/
+/*.savemod { grid-area: savemod; }*/
+/*.savetemp { grid-area: savetemp; }*/
+/*.showsavemacro { grid-area: showsavemacro; text-align: left;}*/
+/*.savedetail { grid-area: savedetail; display: none; }*/
+/*.savemacro { grid-area: savemacro; display: none; }
+/*.savehelp { grid-area: savehelp; display: none; }*/
 
-.showsavedetailbox { grid-row: 2; grid-column: 3; }
-.arrowcollapsed-save {grid-area: savemod; left: 17px;}
-.arrowexpanded-save {grid-area: savemod; display: none;} 
-	
+/*.showsavedetailbox { grid-row: 2; grid-column: 3; }*/
+.showdetailbox {grid-area: mod;}
+.arrowcollapsed {grid-area: mod; left: 17px;}
+.arrowexpanded {grid-area: mod; left: 17px;} 
+/*	
 .showsavedetailbox:checked ~ div.savedetail {display: block;}
 .showsavedetailbox:checked ~ img.arrowcollapsed-save {display: none;} 
 .showsavedetailbox:checked ~ img.arrowexpanded-save {display: block; left: 17px}
 
-.showsavehelpbox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;}
-.showsavehelpbox:checked ~ div.savehelp {display: block;}
+.showhelpbox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;}
+/*.showsavehelpbox:checked ~ div.help {display: block;}*/
 
-.showsavemacrobox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
-.showsavemacrobox:checked ~ div.savemacro {display: block;}
+.showmacrobox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
+/*.showsavemacrobox:checked ~ div.savemacro {display: block;}*/
 
 
 .ac-grid-container-single {
@@ -481,44 +507,44 @@ input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-
 .showconcealmacrobox:checked ~ div.concealmacro {display: block;}
 
 .init-grid-container {
-	position: relative;
+	/*position: relative;
 	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
+	/*text-align: center;
 	font-size: 16px;
-	display: grid;
+	display: grid;*/
 	grid-template-columns: 125px 50px 70px 55px 20px;
 	grid-template-rows: auto 46px auto auto;
 	grid-template-areas:
 		'header header header header header'
-		'initlabel macrobutton initmod inittemp showinitmacro'
-		'initdetail initdetail initdetail initdetail initdetail'
-		'inithelp inithelp inithelp inithelp inithelp'
-		'initmacro initmacro initmacro initmacro initmacro';
-	grid-column-gap: 0px;
+		'rollname macrobutton mod temp toolicons'
+		'detail detail detail detail detail'
+		'help help help help help'
+		'macro macro macro macro macro';
+	/*grid-column-gap: 0px;
 	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
-.initlabel { grid-area: initlabel; }
-.macrobutton { grid-area: macrobutton; }
-.initmod { grid-area: initmod; }
+/*.initlabel { grid-area: initlabel; }
+/*.macrobutton { grid-area: macrobutton; }*/
+/*.initmod { grid-area: initmod; }
 .inittemp { grid-area: inittemp; }
-.showinitmacro { grid-area: showinitmacro; text-align: left; background: aliceblue;}
-.initdetail { grid-area: initdetail; display: none; }
-.inithelp { grid-area: inithelp; display: none; }
-.initmacro { grid-area: initmacro; display: none; }
+/*.showinitmacro { grid-area: showinitmacro; text-align: left;}*/
+/*.initdetail { grid-area: initdetail; display: none; }*/
+/*.help { grid-area: help; display: none; }*/
+/*.initmacro { grid-area: initmacro; display: none; }*/
 
-.showinitdetailbox { grid-row: 2; grid-column: 3; }
-.arrowcollapsed-init {grid-area: initmod; left: 18px;}
-.arrowexpanded-init {grid-area: initmod; display: none;}
+.showdetailbox {grid-area: mod;}
+.arrowcollapsed {grid-area: mod; left: 18px;}
+.arrowexpanded {grid-area: mod;  left: 18px;}
 	
-.showinitdetailbox:checked ~ div.initdetail {display: block;}
-.showinitdetailbox:checked ~ img.arrowcollapsed-init {display: none;}
-.showinitdetailbox:checked ~ img.arrowexpanded-init {display: block; left: 18px}
+/*.showdetailbox:checked ~ div.detail {display: block;}
+.showdetailbox:checked ~ img.arrowcollapsed {display: none;}
+.showdetailbox:checked ~ img.arrowexpanded {display: block;}*/
 
-.showinithelpbox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;}
-.showinithelpbox:checked ~ div.inithelp {display: block;}
-.showinitmacrobox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;
+.showhelpbox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;}
+/*.showhelpbox:checked ~ div.help {display: block;}*/
+.showmacrobox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;
 	position: relative; top: 20px;}
-.showinitmacrobox:checked ~ div.initmacro {display: block;}
+/*.showinitmacrobox:checked ~ div.initmacro {display: block;}*/
 
 
 /* User chooses which attack format is displayed */
