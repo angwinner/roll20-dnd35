@@ -237,6 +237,7 @@ div.pc-sheet, div.npc-sheet {display: none;}
 
 /* class names and styling features for commonly used grid areas */
 .rollname {grid-area: rollname;}
+.checkname {grid-area: checkname;}
 .macrobutton {grid-area: macrobutton;}
 .hitbutton {grid-area: hitbutton;} /* hit, check, and dmg prefixes are used when there is... */
 .checkbutton {grid-area: checkbutton;} /* ... more than one roll in the grid container */
@@ -259,7 +260,17 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .showdetailbox:checked ~ img.arrowcollapsed {display: none;}
 .showdetailbox:checked ~ img.arrowexpanded {display: block;}
 
+.adjst-grid {
+	display: grid;
+	padding: 0px;
+	grid-template-columns: 20px 110px 10px 30px 10px 45px;
+	grid-column-gap: 0px;
+	grid-row-gap: 5px;
+}
+
 .toolicons {grid-area: toolicons;}
+.showhelpbox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px;}
+.showmacrobox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
 .help {grid-area: help; display: none;}
 .showhelpbox:checked ~ div.help {display: block;}
 div.help textarea {font-family: arial, sans-serif; font-variant: normal; width: 100%;
@@ -301,61 +312,31 @@ fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
 	grid-template-columns: 80px 45px 45px 45px 65px 50px 70px 55px 20px;
 	grid-template-areas:
 		'header header header header header header header header header'
-		'abilityname ablscore ablmodifier abltemp checkname macrobutton checkmod checktemp showablmacro'
-		'scoredetail scoredetail scoredetail scoredetail checkdetail checkdetail checkdetail checkdetail checkdetail'
-		'ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp ablhelp'
-		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro';
+		'abilityname ablscore ablmodifier abltemp checkname macrobutton mod temp toolicons'
+		'scoredetail scoredetail scoredetail scoredetail detail detail detail detail detail'
+		'help help help help help help help help help'
+		'macro macro macro macro macro macro macro macro macro';
 }
 .abilityname {grid-area: abilityname;}
 .ablscore {grid-area: ablscore;}
 .ablmodifier {grid-area: ablmodifier;}
 .abltemp {grid-area: abltemp;}
-.checkname {grid-area: checkname;}
-/*.macrobutton {grid-area: macrobutton;}*/
-.checkmod {grid-area: checkmod;}
-.checktemp {grid-area: checktemp;}
-.showablmacro {grid-area: showablmacro; text-align: left;}
 .scoredetail {grid-area: scoredetail; display: none;}
-.checkdetail {grid-area: checkdetail; display: none;}
-.ablhelp {grid-area: ablhelp; display: none;}
-.checkmacro {grid-area: checkmacro; display: none;}
 
 .showscoredetailbox {grid-row: 2; grid-column: 2 / 4;}
 .arrowcollapsed-score {grid-area: ablscore; left: 5px;}
-.arrowexpanded-score {grid-area: ablscore; display: none;}
+.arrowexpanded-score {grid-area: ablscore; left: 5px; display: none;}
 
 .showscoredetailbox:checked ~ div.scoredetail {display: block;}
 .showscoredetailbox:checked ~ img.arrowcollapsed-score {display: none;}
-.showscoredetailbox:checked ~ img.arrowexpanded-score {display: block; left: 5px;}
+.showscoredetailbox:checked ~ img.arrowexpanded-score {display: block;}
 
-.showcheckdetailbox { grid-row: 2; grid-column: 7; }
-.arrowcollapsed-check {grid-area: checkmod; left: 17px;}
-.arrowexpanded-check {grid-area: checkmod; display: none;}
-	
-.showcheckdetailbox:checked ~ div.checkdetail {display: block;}
-.showcheckdetailbox:checked ~ img.arrowcollapsed-check {display: none;}
-.showcheckdetailbox:checked ~ img.arrowexpanded-check {display: block; left: 17px}
-
-.showablhelpbox {grid-row: 2; grid-column: 9; width: 20px; height: 20px; margin: 0px;}
-.showablhelpbox:checked ~ div.ablhelp {display: block;}
-
-.showablmacrobox {grid-row: 2; grid-column: 9; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
-.showablmacrobox:checked ~ div.checkmacro {display: block;}
-
-.adjst-grid {
-	display: grid;
-	padding: 0px;
-	grid-template-columns: 20px 90px 10px 30px 10px 45px;
-	grid-column-gap: 0px;
-	grid-row-gap: 5px;  /* grid-row-gap leaves blank gaps around display none areas */
-}
+.ability-grid-container .detail {margin-left: 25px;}
+.showdetailbox {grid-area: mod;}
+.arrowcollapsed-check {grid-area: mod; left: 17px;}
+.arrowexpanded-check {grid-area: mod; left: 17px;}
 
 .save-grid-container {
-	/*position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	/*text-align: center;
-	font-size: 16px;
-	display: grid;*/
 	grid-template-columns: 140px 50px 70px 55px 20px;
 	grid-template-areas: 
 		'header header header header header'
@@ -363,33 +344,12 @@ fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
 		'detail detail detail detail detail'
 		'help help help help help'
 		'macro macro macro macro macro';
-	/*grid-column-gap: 0px;
-	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
-/*.savename { grid-area: savename; }*/
-/*.macrobutton { grid-area: macrobutton;}*/
-/*.savemod { grid-area: savemod; }*/
-/*.savetemp { grid-area: savetemp; }*/
-/*.showsavemacro { grid-area: showsavemacro; text-align: left;}*/
-/*.savedetail { grid-area: savedetail; display: none; }*/
-/*.savemacro { grid-area: savemacro; display: none; }
-/*.savehelp { grid-area: savehelp; display: none; }*/
-
-/*.showsavedetailbox { grid-row: 2; grid-column: 3; }*/
 .showdetailbox {grid-area: mod;}
 .arrowcollapsed {grid-area: mod; left: 17px;}
 .arrowexpanded {grid-area: mod; left: 17px;} 
-/*	
-.showsavedetailbox:checked ~ div.savedetail {display: block;}
-.showsavedetailbox:checked ~ img.arrowcollapsed-save {display: none;} 
-.showsavedetailbox:checked ~ img.arrowexpanded-save {display: block; left: 17px}
-
-.showhelpbox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;}
-/*.showsavehelpbox:checked ~ div.help {display: block;}*/
-
-.showmacrobox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
-/*.showsavemacrobox:checked ~ div.savemacro {display: block;}*/
-
+.showhelpbox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px;}
+.showmacrobox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
 
 .ac-grid-container-single {
 	position: relative;
@@ -507,11 +467,6 @@ input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-
 .showconcealmacrobox:checked ~ div.concealmacro {display: block;}
 
 .init-grid-container {
-	/*position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	/*text-align: center;
-	font-size: 16px;
-	display: grid;*/
 	grid-template-columns: 125px 50px 70px 55px 20px;
 	grid-template-rows: auto 46px auto auto;
 	grid-template-areas:
@@ -520,31 +475,10 @@ input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-
 		'detail detail detail detail detail'
 		'help help help help help'
 		'macro macro macro macro macro';
-	/*grid-column-gap: 0px;
-	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
-/*.initlabel { grid-area: initlabel; }
-/*.macrobutton { grid-area: macrobutton; }*/
-/*.initmod { grid-area: initmod; }
-.inittemp { grid-area: inittemp; }
-/*.showinitmacro { grid-area: showinitmacro; text-align: left;}*/
-/*.initdetail { grid-area: initdetail; display: none; }*/
-/*.help { grid-area: help; display: none; }*/
-/*.initmacro { grid-area: initmacro; display: none; }*/
-
 .showdetailbox {grid-area: mod;}
 .arrowcollapsed {grid-area: mod; left: 18px;}
-.arrowexpanded {grid-area: mod;  left: 18px;}
-	
-/*.showdetailbox:checked ~ div.detail {display: block;}
-.showdetailbox:checked ~ img.arrowcollapsed {display: none;}
-.showdetailbox:checked ~ img.arrowexpanded {display: block;}*/
-
-.showhelpbox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;}
-/*.showhelpbox:checked ~ div.help {display: block;}*/
-.showmacrobox {grid-row: 2; grid-column: 5; width: 20px; height: 20px; margin: 0px;
-	position: relative; top: 20px;}
-/*.showinitmacrobox:checked ~ div.initmacro {display: block;}*/
+.arrowexpanded {grid-area: mod; left: 18px;}
 
 
 /* User chooses which attack format is displayed */
