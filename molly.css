@@ -38,7 +38,8 @@ section.pc-header select {
 	border-bottom: 2px solid black;
 }
 
-h2 {font-size: 16px; font-weight: 900; margin: 0.4em 0px 0px 0px;}
+h2 {font-size: 16px; font-weight: 900; margin: 0px; text-align: left;}
+
 em {font-size: 14px; margin: 0.6em 0px 0px 0px;}
 
 .neg-label {
@@ -193,7 +194,6 @@ div.pc-sheet, div.npc-sheet {display: none;}
 	.readied_sfm {order: 6;}
 }
 
-
 /* -------- grid container layout for roll + modifier (with expandable adjustments) + temp ---------------*/
 
 .roll-gc {
@@ -215,7 +215,8 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .arrow {  	/* the visible carat that indicates a toggle details control */
 	z-index: 1;
 	position: absolute;
-	bottom: 2px;
+	bottom: 3px;
+	left: 18px;
 	height: 18px;
 	width: 18px;
 }
@@ -254,8 +255,9 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .dmgtemp {grid-area: dmgtemp;}
 
 .detail {grid-area: detail; display: none;} /* detail blocks display adjustments */
-.arrowcollapsed {display: block;}
-.arrowexpanded {display: none;}
+.arrowcollapsed {grid-area: mod; display: block;}
+.arrowexpanded {grid-area: mod; display: none;}
+.showdetailbox {grid-area: mod;}
 .showdetailbox:checked ~ div.detail {display: block;}
 .showdetailbox:checked ~ img.arrowcollapsed {display: none;}
 .showdetailbox:checked ~ img.arrowexpanded {display: block;}
@@ -279,6 +281,10 @@ div.help textarea {font-family: arial, sans-serif; font-variant: normal; width: 
 .showmacrobox:checked ~ div.macro {display: block;}
 div.macro textarea {font-family: monospace; font-variant: normal; width: 100%;
 	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
+
+
+section.HPandAC > h2, section.HPandAC > p, section.HPandAC > input, section.HPandAC > span
+	{display: inline-block;} 
 
 
 
@@ -330,11 +336,7 @@ fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
 .showscoredetailbox:checked ~ div.scoredetail {display: block;}
 .showscoredetailbox:checked ~ img.arrowcollapsed-score {display: none;}
 .showscoredetailbox:checked ~ img.arrowexpanded-score {display: block;}
-
 .ability-grid-container .detail {margin-left: 25px;}
-.showdetailbox {grid-area: mod;}
-.arrowcollapsed-check {grid-area: mod; left: 17px;}
-.arrowexpanded-check {grid-area: mod; left: 17px;}
 
 .save-grid-container {
 	grid-template-columns: 140px 50px 70px 55px 20px;
@@ -345,54 +347,38 @@ fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
 		'help help help help help'
 		'macro macro macro macro macro';
 }
-.showdetailbox {grid-area: mod;}
-.arrowcollapsed {grid-area: mod; left: 17px;}
-.arrowexpanded {grid-area: mod; left: 17px;} 
 .showhelpbox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px;}
 .showmacrobox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
 
 .ac-grid-container-single {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
-	display: grid;
 	grid-template-columns: 80px 50px 90px 50px 160px 50px;
 	grid-template-areas:
 		'acname acvalue touchacname touchacvalue flatacname flatacvalue'
 		'acdetail acdetail acdetail acdetail acdetail acdetail';
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
-.acname { grid-area: acname; }
-.acvalue { grid-area: acvalue; }
-.touchacname { grid-area: touchacname; }
-.touchacvalue { grid-area: touchacvalue; }
-.flatacname { grid-area: flatacname; }
-.flatacvalue { grid-area: flatacvalue; }
-.acdetail { grid-area: acdetail; display: none; }
+.acname {grid-area: acname;}
+.acvalue {grid-area: acvalue;}
+.touchacname {grid-area: touchacname;}
+.touchacvalue {grid-area: touchacvalue;}
+.flatacname {grid-area: flatacname;}
+.flatacvalue {grid-area: flatacvalue;}
+.acdetail {grid-area: acdetail; display: none;}
 
-.showacdetailbox { grid-row: 1; grid-column: 2; }
-.arrowcollapsed-ac {grid-area: acvalue; left: 8px;}
-.arrowexpanded-ac {grid-area: acvalue; display: none;} 
-	
+.showacdetailbox {grid-area: acvalue;}
+.arrowcollapsed-ac {grid-area: acvalue; left: 7px; bottom: 2px;}
+.arrowexpanded-ac {grid-area: acvalue; left: 7px; bottom: 2px; display: none;} 
+
 .showacdetailbox:checked ~ div.acdetail {display: block;}
 .showacdetailbox:checked ~ img.arrowcollapsed-ac {display: none;} 
-.showacdetailbox:checked ~ img.arrowexpanded-ac {display: block; left: 8px}
+.showacdetailbox:checked ~ img.arrowexpanded-ac {display: block;}
 
 .ac-grid-container-split {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
 	display: none;
 	grid-template-columns: 80px 50px 90px 50px 160px 50px;
 	grid-template-areas:
 		'm-acname m-acvalue m-touchacname m-touchacvalue m-flatacname m-flatacvalue'
 		'r-acname r-acvalue r-touchacname r-touchacvalue r-flatacname r-flatacvalue'
 		'm-r-acdetail m-r-acdetail m-r-acdetail m-r-acdetail m-r-acdetail m-r-acdetail';
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
 .m-acname { grid-area: m-acname; }
 .m-acvalue { grid-area: m-acvalue; }
@@ -409,12 +395,16 @@ fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
 .m-r-acdetail { grid-area: m-r-acdetail; display: none; }
 
 .show-mr-acdetailbox { grid-row: 1 / span 2; grid-column: 2; }
-.arrowcollapsed-mrac {grid-area: m-acvalue; left: 8px;}
-.arrowexpanded-mrac {grid-area: m-acvalue; display: none;} 
+.arrowcollapsed-mrac {grid-area: m-acvalue; left: 7px; bottom: 2px;}
+.arrowexpanded-mrac {grid-area: m-acvalue; left: 7px; bottom: 2px; display: none;}
+.arrowcollapsed-mrac2 {grid-area: r-acvalue; left: 7px; bottom: 2px;}
+.arrowexpanded-mrac2 {grid-area: r-acvalue; left: 7px; bottom: 2px; display: none;} 
 	
 .show-mr-acdetailbox:checked ~ div.m-r-acdetail {display: block;}
 .show-mr-acdetailbox:checked ~ img.arrowcollapsed-mrac {display: none;} 
-.show-mr-acdetailbox:checked ~ img.arrowexpanded-mrac {display: block; left: 8px}
+.show-mr-acdetailbox:checked ~ img.arrowexpanded-mrac {display: block;}
+.show-mr-acdetailbox:checked ~ img.arrowcollapsed-mrac2 {display: none;} 
+.show-mr-acdetailbox:checked ~ img.arrowexpanded-mrac2 {display: block;}
 
 .ac-adjst-grid {
 	display: grid;
@@ -436,35 +426,22 @@ input[id="hidden-condn-helpless"]:checked ~ div.ac-grid-container-split,
 	{display: grid;}
 
 .conceal-grid-container {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
-	display: grid;
-	grid-template-columns: 95px 20px 35px 20px 35px 25px 50px 50px 50px 40px 25px;
+	grid-template-columns: 95px 20px 35px 20px 35px 25px 50px 50px 50px 50px 20px;
 	grid-template-rows: 46px auto;
 	grid-template-areas:
-		'conceallabel conceal-20 conceal-20-l conceal-50 conceal-50-l conceal-other conceal-other-l concealother buttonlabel macrobutton showconcealmacro'
-		'concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro concealmacro';
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
+		'concealname conceal-20 conceal-20-l conceal-50 conceal-50-l conceal-other conceal-other-l concealother buttonlabel macrobutton toolicons'
+		'help help help help help help help help help help help'
+		'macro macro macro macro macro macro macro macro macro macro macro';
 }
-.conceallabel { grid-area: conceallabel; height: 26px; margin-top: 15px;}
-.conceal-20 { grid-area: conceal-20;  height: 26px; margin-top: 10px;}
-.conceal-20-l { grid-area: conceal-20-l; text-align: left; padding-left: 5px; height: 26px; margin-top: 20px;}
-.conceal-50 { grid-area: conceal-50; height: 26px; margin-top: 10px;}
-.conceal-50-l { grid-area: conceal-50-l; text-align: left; padding-left: 5px; height: 26px; margin-top: 20px;}
-.conceal-other { grid-area: conceal-other;  height: 26px; margin-top: 10px;}
-.conceal-other-l { grid-area: conceal-other-l; text-align: left; height: 26px; margin-top: 20px;}
-input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-top: 8px;}
-.buttonlabel { grid-area: buttonlabel; text-align: right; margin-top: 5px; padding-right: 5px;}
-.macrobutton { grid-area: macrobutton; }
-.showconcealmacro { grid-area: showconcealmacro; text-align: left;}
-.concealmacro { grid-area: concealmacro; display: none; }
-.concealmacro  textarea { width:100%; }
-
-.showconcealmacrobox {grid-row: 1; grid-column: 11; width: 90%;}
-.showconcealmacrobox:checked ~ div.concealmacro {display: block;}
+.concealname {grid-area: concealname; height: 26px; margin-top: 15px;}
+.conceal-20 {grid-area: conceal-20;  height: 26px; margin-top: 10px;}
+.conceal-20-l {grid-area: conceal-20-l; text-align: left; padding-left: 5px; height: 26px; margin-top: 20px;}
+.conceal-50 {grid-area: conceal-50; height: 26px; margin-top: 10px;}
+.conceal-50-l {grid-area: conceal-50-l; text-align: left; padding-left: 5px; height: 26px; margin-top: 20px;}
+.conceal-other {grid-area: conceal-other;  height: 26px; margin-top: 10px;}
+.conceal-other-l {grid-area: conceal-other-l; text-align: left; height: 26px; margin-top: 20px;}
+input.concealother {grid-area: concealother; height: 26px; width: 35px; margin-top: 8px;}
+.buttonlabel {grid-area: buttonlabel; text-align: right; margin-top: 5px; padding-right: 5px;}
 
 .init-grid-container {
 	grid-template-columns: 125px 50px 70px 55px 20px;
@@ -476,9 +453,6 @@ input.concealother { grid-area: concealother; height: 26px; width: 35px; margin-
 		'help help help help help'
 		'macro macro macro macro macro';
 }
-.showdetailbox {grid-area: mod;}
-.arrowcollapsed {grid-area: mod; left: 18px;}
-.arrowexpanded {grid-area: mod; left: 18px;}
 
 
 /* User chooses which attack format is displayed */

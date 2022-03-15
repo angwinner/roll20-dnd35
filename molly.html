@@ -110,7 +110,7 @@
 			<div class="pc-main-tab">
 				<section class="abilities">
 					<div class="ability-grid-container roll-gc">
-						<h2>ABILITIES</h2>
+						<h2 style="margin-top: 6px;">ABILITIES</h2>
 						<p>ABILITY SCORE</p>
 						<p>ABILITY MODIFIER</p>
 						<p>TEMP SCORE</p>
@@ -599,7 +599,7 @@
 
 				<section class="saves">
 					<div class="save-grid-container roll-gc">
-						<h2>SAVING THROWS</h2>
+						<h2 style="margin-top: 9px;">SAVING THROWS</h2>
 						<em>Roll It!</em>
 						<p>SAVE<br>MODIFIER</p>
 						<p>TEMP<br>MODIFIER</p>
@@ -787,16 +787,16 @@
 				</section>
 
 				<section class="HPandAC">
-					<h2 style="display: inline-block; width: 80px;">HEALTH</h2>
-					<p style="display: inline-block; width: 24px; text-align: right; margin: 0px;">MAX</p>
-					<p style="display: inline-block; width: 200px; margin: 5px 0px 0px 10px; text-align: center;">Wounds / Current HP</p>
+					<h2 style="width: 80px;">HEALTH</h2>
+					<p style="width: 24px; margin: 0px;">MAX</p>
+					<p style="width: 200px; margin: 5px 0px 0px 10px; text-align: center;">Wounds / Current HP</p>
 					<br>
-					<div class="neg-label" style="display: inline-block; width: 70px;">HP<br>HIT POINTS</div>			
-					<input type="text" class="text-box boxed" style="display: inline-block; width: 50px; vertical-align: top; margin-top: 6px;">&nbsp
-					<input type="text" class="text-box boxed" style="display: inline-block; width: 200px; vertical-align: top; margin-top: 6px;">
-					<div class="neg-label neg-label-one-line" style="display: inline-block; margin-left: 15px; vertical-align: top;">SPEED</div>
-					<input type="text" class="text-box boxed" style="display: inline-block; width: 50px; vertical-align: top; margin-top: 5px;"><br>
-					<div style="display: inline-block;">
+					<span class="neg-label" style="display: inline-block; width: 70px;">HP<br>HIT POINTS</span>			
+					<input type="text" class="text-box boxed" style="width: 50px; vertical-align: top; margin-top: 6px;">&nbsp
+					<input type="text" class="text-box boxed" style="width: 200px; vertical-align: top; margin-top: 6px;">
+					<span class="neg-label neg-label-one-line" style="margin-left: 15px; vertical-align: top;">SPEED</span>
+					<input type="text" class="text-box boxed" style="width: 50px; vertical-align: top; margin-top: 5px;"><br>
+					<div>
 						<fieldset style="padding: 0px 5px 0px 0px; margin: 10px 0px 10px 0px;">
 							<legend>Conditions Affecting You</legend>
 							<span>
@@ -913,7 +913,7 @@
 						<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-ac">
 
 						<div class="acdetail">
-							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
+							<fieldset class="repeating_ACadjustments ac-adjst-grid">
 								<legend>AC Adjustments from Armor Set-Up</legend>
 								<input type="checkbox" name="adjst-active" checked/>
 								<input type="text" name="adjst-desc" placeholder="name" value="DEX modifier">
@@ -945,7 +945,7 @@
 									<label for="acadj-flat">apply Flat-Footed</label>
 								</span>
 							</fieldset>
-							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
+							<fieldset class="repeating_ACadjustments ac-adjst-grid">
 								<legend>AC Adjustments from Attack Adjustments</legend>
 								<input type="checkbox" name="adjst-active" checked/>
 								<input type="text" name="adjst-desc" placeholder="name" value="charging">
@@ -962,7 +962,7 @@
 									<label for="acadj-flat">apply Flat-Footed</label>
 								</span>
 							</fieldset>
-							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
+							<fieldset class="repeating_ACadjustments ac-adjst-grid">
 								<legend>Other AC Adjustments</legend>
 								<input type="checkbox" name="adjst-active" checked/>
 								<input type="text" name="adjst-desc" placeholder="name" value="Barkskin">
@@ -1029,6 +1029,8 @@
 
 						<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-mrac">
 						<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-mrac">
+						<img src="collapsedarrow_square.png" alt="expand icon" class="arrow arrowcollapsed-mrac2">
+						<img src="expandedarrow_square.png" alt="collapse icon" class="arrow arrowexpanded-mrac2">
 
 						<div class="m-r-acdetail">
 							<fieldset class="repeating_ACadjustments ac-adjst-grid adjst-grid">
@@ -1098,19 +1100,19 @@
 						</div>
 					</div>
 
-					<div style="display: inline-block; text-align: right; margin: 5px;">
+					<span style="text-align: right; margin: 5px;">
 						DAMAGE<br>REDUCTION
-					</div>
-					<input type="text" class="text-box boxed" style="display: inline-block; width: 35px; margin: 5px; vertical-align: top;">
-					<input type="number" class="temp-box boxed" value="0" style="display: inline-block; width: 45px; vertical-align: top;  margin: 5px; margin-top: 5px;">
-					<div style="display: inline-block; text-align: right; margin: 5px;  margin-left: 40px;">
+					</span>
+					<input type="text" class="text-box boxed" style="width: 35px; margin: 5px; vertical-align: top;">
+					<input type="number" class="temp-box boxed" value="0" style="width: 45px; vertical-align: top;  margin: 5px; margin-top: 5px;">
+					<span style="text-align: right; margin: 5px;  margin-left: 40px;">
 						SPELL<br>RESISTANCE
-					</div>
-					<input type="text" class="text-box boxed" style="display: inline-block; width: 35px; margin: 5px; vertical-align: top;">
-					<input type="number" class="temp-box boxed" value="0" style="display: inline-block; width: 45px; vertical-align: top;  margin: 5px; margin-top: 5px;">
+					</span>
+					<input type="text" class="text-box boxed" style="width: 35px; margin: 5px; vertical-align: top;">
+					<input type="number" class="temp-box boxed" value="0" style="width: 45px; vertical-align: top;  margin: 5px; margin-top: 5px;">
 
 					<div class="conceal-grid-container roll-gc">
-						<div class="conceallabel">CONCEALMENT</div>
+						<div class="concealname">CONCEALMENT</div>
 						<input type="radio" class="conceal-20" id="conceal-20" name="conceal-type" required="required"/>
 						<label for="conceal-20" class="conceal-20-l">20%</label>
 						<input type="radio" class="conceal-50" id="conceal-50" name="conceal-type" required="required"/>
@@ -1120,16 +1122,21 @@
 						<input type="text" class="text-box boxed concealother">
 						<div class="buttonlabel"><em>Roll<br>It!&nbsp</em></div>
 						<div class="macrobutton">
-							<button type="roll" name="attr_concealmacro" title="concealroll" value="@{concealmacro}"></button>
+							<button type="roll" name="roll_concealmacro" title="conceal roll" value="@{concealmacro}"></button>
 						</div>
-						<div class="showconcealmacro">
+						<div class="toolicons">
+							<img src="help20x20.png" alt="show help"></img>
 							<img src="grey_wrench20x20.png" alt="show macro"></img>
 						</div>
 
-						<input type="checkbox" class="toggle showconcealmacrobox" unchecked/>
+						<input type="checkbox" class="toggle showmacrobox" unchecked/>
+						<input type="checkbox" class="toggle showhelpbox" unchecked/>
 
-						<div class="concealmacro">
-							<textarea name="concealmacro">roll for concealment macro</textarea>
+						<div class="help">
+							<textarea name="conceal help">help for concealment</textarea>
+						</div>
+						<div class="macro">
+							<textarea name="conceal macro">roll for concealment macro</textarea>
 						</div>
 					</div>
 
@@ -1137,7 +1144,7 @@
 
 				<section class="combat" style="text-align: left;">
 					<div class="init-grid-container roll-gc">
-						<h2 style="text-align: left;">ATTACKS</h2>
+						<h2 style="margin-top: 10px;">ATTACKS</h2>
 						<em>Roll It!</em>
 						<p>CHECK<br>MODIFIER</p>
 						<p>TEMP<br>MODIFIER</p>
