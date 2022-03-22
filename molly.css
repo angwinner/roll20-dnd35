@@ -698,6 +698,7 @@ input.tbhat[value="overrun"]:checked ~ .check-atk-gc .overrun-atk {display: cont
 		'dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro';
 }
 .turnlevel {grid-area: turnlevel;}
+.turn-atk-gc > div {margin-bottom: -12px;}
 
 .turncheckdetail {grid-area: turncheckdetail; display: block;}
 .turndmgdetail {grid-area: turndmgdetail; display: block;}
@@ -720,12 +721,12 @@ input.tbhat[value="overrun"]:checked ~ .check-atk-gc .overrun-atk {display: cont
 .turnlvldetail {grid-area: turnlvldetail; display: none;}
 
 .showturnlvldetailbox {grid-row: 1; grid-column: 2;}
-.arrowcollapsed-turn {grid-area: turnlvlvalue; left: 5px;}
+.arrowcollapsed-turn {grid-area: turnlvlvalue; left: 8px;}
 .arrowexpanded-turn {grid-area: turnlvlvalue; display: none;}
 
 .showturnlvldetailbox:checked ~ div.turnlvldetail {display: block;}
 .showturnlvldetailbox:checked ~ img.arrowcollapsed-turn {display: none;}
-.showturnlvldetailbox:checked ~ img.arrowexpanded-turn {display: block; left: 5px;}
+.showturnlvldetailbox:checked ~ img.arrowexpanded-turn {display: block; left: 8px;}
 
 
 /* ----------------------------------------Tabs (reskinned radio button)---------------------------------- */
