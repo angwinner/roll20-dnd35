@@ -120,6 +120,25 @@ button[type="roll"]:active {
 	transform: rotate(360deg);
 }
 
+.toggle {  /*the hidden controls that toggles display of the adjustments, help, and macros*/
+	position: relative;  /* overridden in .tool for help and macros */
+	cursor: pointer;
+	margin: 0;
+	height: 100%;
+	opacity: 0;
+    z-index: 2;
+}
+
+.arrow {  	/* the visible carat that indicates a toggle details control */
+	position: absolute;
+	bottom: 3px;
+	left: 18px;
+	height: 18px;
+	width: 18px;
+	z-index: 1;
+}
+
+
 .hidden {background-color: yellow}  
 
 
@@ -205,22 +224,6 @@ div.pc-sheet, div.npc-sheet {display: none;}
 	grid-row-gap: 0px; /* grid-row-gap leaves blank gaps around display none areas */
 }
 
-.toggle {  /*the hidden controls that toggles display of the adjustments, help, and macros*/
-	opacity: 0.4;
-	cursor: pointer;
-	height: 100%;
-    z-index: 2;
-}
-
-.arrow {  	/* the visible carat that indicates a toggle details control */
-	z-index: 1;
-	position: absolute;
-	bottom: 3px;
-	left: 18px;
-	height: 18px;
-	width: 18px;
-}
-
 .plus {
 	font-size: 30px;
 	position: relative;
@@ -247,14 +250,15 @@ div.pc-sheet, div.npc-sheet {display: none;}
 .mod {grid-area: mod;}
 .hitmod {grid-area: hitmod;}
 .checkmod {grid-area: checkmod;}
-.dmgmod {grid-area: dmgmod;}
+.dmgmod{grid-area: dmgmod;}
 
 .temp {grid-area: temp;}
 .hittemp {grid-area: hittemp;}
 .checktemp {grid-area: checktemp;}
 .dmgtemp {grid-area: dmgtemp;}
 
-.detail {grid-area: detail; display: none;} /* detail blocks display adjustments */
+.detail {grid-area: detail; display: none;} /* detail blocks list the adjustments to a value or values */
+.atkdetail {grid-area: atkdetail; display: block;} /* not like normal .detail because always visible */
 .arrowcollapsed {grid-area: mod; display: block;}
 .arrowexpanded {grid-area: mod; display: none;}
 .showdetailbox {grid-area: mod;}
@@ -271,16 +275,77 @@ div.pc-sheet, div.npc-sheet {display: none;}
 }
 
 .toolicons {grid-area: toolicons;}
-.showhelpbox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px;}
-.showmacrobox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
+
+.tool {
+	width: 20px;
+	height:  20px;
+	position: absolute;
+}
+.helpicon {	   /* the visible image that indicates the help control */
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	grid-area: toolicons;
+	align-self: start;
+	justify-self: end;
+    background-image: url('help20x20.png');
+    background-position: 0px 0px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    opacity: 0.5;
+    z-index: 1;
+}
+.macroicon {	   /* the visible image that indicates the display macro control */
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	grid-area: toolicons;
+	align-self: end;
+	justify-self: end;
+    background-image: url('grey_wrench20x20.png');
+    background-position: 0px 0px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    opacity: 0.5;
+    z-index: 1;
+}
+input.tool:hover + span {
+  opacity: .8;
+}
+input.tool:checked + span {
+  opacity: 1;
+}
+
+.showhelpbox {grid-area: toolicons; align-self: start; justify-self: end;}
+.showmacrobox {grid-area: toolicons; align-self: end; justify-self: end;}
+.showatkhelpbox {grid-area: toolicons; align-self: start; justify-self: end;}
+.showatkmacrosbox {grid-area: toolicons; align-self: end; justify-self: end;}
+
 .help {grid-area: help; display: none;}
 .showhelpbox:checked ~ div.help {display: block;}
+.showatkhelpbox:checked ~ div.help {display: block;}
+
+.macro {grid-area: macro; display: none;}
+.hitmacro {grid-area: hitmacro; display: none;}
+.checkmacro {grid-area: checkmacro; display: none;}
+.dmgmacro {grid-area: dmgmacro; display: none;}
+input.showmacrobox:checked ~ div.macro {display: block;}
+input.showatkmacrosbox:checked ~ div.hitmacro {display: block;}
+input.showatkmacrosbox:checked ~ div.checkmacro {display: block;}
+input.showatkmacrosbox:checked ~ div.dmgmacro {display: block;}
 div.help textarea {font-family: arial, sans-serif; font-variant: normal; width: 100%;
 	background: url('help20x20.png') no-repeat right top; background-size: 20px 20px;}
-.macro {grid-area: macro; display: none;}
-.showmacrobox:checked ~ div.macro {display: block;}
 div.macro textarea {font-family: monospace; font-variant: normal; width: 100%;
 	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
+div.hitmacro textarea {font-family: monospace; font-variant: normal; width: 100%;
+	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
+div.checkmacro textarea {font-family: monospace; font-variant: normal; width: 100%;
+	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
+div.dmgmacro textarea {font-family: monospace; font-variant: normal; width: 100%;
+	background: url('grey_wrench20x20.png') no-repeat 97% 0%; background-size: 20px 20px;}
+
 
 
 section.HPandAC > h2, section.HPandAC > p, section.HPandAC > input, section.HPandAC > span
@@ -347,8 +412,6 @@ fieldset.adjst-grid span {position: relative; top: -2px; font-size: 20px;}
 		'help help help help help'
 		'macro macro macro macro macro';
 }
-.showhelpbox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px;}
-.showmacrobox {grid-area: toolicons; width: 20px; height: 20px; margin: 0px; position: relative; top: 20px;}
 
 .ac-grid-container-single {
 	grid-template-columns: 80px 50px 90px 50px 160px 50px;
@@ -470,73 +533,33 @@ input.tbhat[value="turn"]:checked ~ .turn-atk-gc {display: grid}
 
 /* The combat controls and details for melee, ranged, and sunder attacks. Incorporates critical hits */
 .meleeranged-atk-gc {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
 	display: none;
 	grid-template-columns: 50px 70px 55px 70px 50px 70px 55px 40px;
 	grid-template-rows: 36px 48px auto auto auto auto auto auto auto auto auto;
 	grid-template-areas:
-		'atkheader atkheader atkheader atkheader atkheader atkheader atkheader showatkbuttons'
-		'hitbutton hitmod hittemp critrange dmgbutton dmgmod dmgtemp showatkbuttons'
-		'atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp '
+		'atkheader atkheader atkheader atkheader atkheader atkheader atkheader criticon'
+		'hitbutton hitmod hittemp critrange dmgbutton dmgmod dmgtemp toolicons'
+		'help help help help help help help help'
 		'critgc critgc critgc critgc critgc critgc critgc critgc'
 		'atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail'
 		'hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro'
 		'dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro';
-		
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
-
-.hitbutton { grid-area: hitbutton; }
-.hitmod { grid-area: hitmod; }
-.hittemp { grid-area: hittemp; }
-.critrange { grid-area: critrange; }
+.critrange {grid-area: critrange;}
 .critrange > input {width: 80%; text-align: center; margin-top: 10px;}
-.dmgbutton { grid-area: dmgbutton; }
-.dmgmod { grid-area: dmgmod; }
-.dmgtemp { grid-area: dmgtemp; }
+.criticon {grid-area: criticon;}
 
-.showatkbuttons { grid-area: showatkbuttons; }
-
-.atkdetail { grid-area: atkdetail; display: block;}
-.hitmacro { grid-area: hitmacro; display: none; }
-.dmgmacro { grid-area: dmgmacro; display: none; }
-
-.showcritcontrolbox { grid-area: showatkbuttons; width: 25px; height: 20px ;position: relative; top: 0px;}
-.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
-.showatkmacrosbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 45px;}
+.showcritcontrolbox {grid-area: criticon;}
 
 .showcritcontrolbox:checked ~ div.meleeranged-crit-gc {display: grid;}
 
-.atkhelp, .sunderhelp
-	{grid-area: atkhelp; display: none;}
-.emptyhelp {grid-area: atkhelp; display: block;}
-input.tbhat[value="melee"]:checked ~ .meleeranged-atk-gc > .showatkhelpbox:checked ~ 
-	.atkhelp {display: grid}
-input.tbhat[value="ranged"]:checked ~ .meleeranged-atk-gc > .showatkhelpbox:checked ~ 
-	.atkhelp {display: grid} 
-input.tbhat[value="sunder"]:checked ~ .meleeranged-atk-gc > .showatkhelpbox:checked ~ 
-	.sunderhelp {display: grid}
-.showatkhelpbox:checked ~ .emptyhelp {display: none}
+.melee-atk {display: none;}
+.ranged-atk {display: none;}
+.sunder-atk {display: none;}
+input.tbhat[value="melee"]:checked ~ .meleeranged-atk-gc .melee-atk {display: contents}
+input.tbhat[value="ranged"]:checked ~ .meleeranged-atk-gc .ranged-atk {display: contents}
+input.tbhat[value="sunder"]:checked ~ .meleeranged-atk-gc .sunder-atk {display: contents}
 
-/*
-
-input.tbhat[value="bull"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
-	.bullrushhelp {display: grid}
-
-input.tbhat[value="feint"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
-	.feinthelp {display: grid}
-
-input.tbhat[value="overrun"]:checked ~ .attack-grid-container > .showatkhelpbox:checked ~ 
-	.overrunhelp {display: grid}
-
-*/
-
-.showatkmacrosbox:checked ~ div.hitmacro {display: block;}
-.showatkmacrosbox:checked ~ div.dmgmacro {display: block;}
 
 .attack-adjst-grid {
 	display: grid;
@@ -556,8 +579,8 @@ input.tbhat[value="overrun"]:checked ~ .attack-grid-container > .showatkhelpbox:
 	grid-template-columns: 50px 70px 55px 70px 50px 70px 55px 40px;
 	grid-template-rows: 36px 48px auto auto auto auto auto auto auto auto auto;
 	grid-template-areas:
-		'critheader critheader critheader critheader critheader critheader critheader showcritbuttons'
-		'confbutton hitbonuses confbonus dmgparens dmgparens critmult othercritdmg showcritbuttons'
+		'critheader critheader critheader critheader critheader critheader critheader .'
+		'confbutton hitmod confbonus dmgparens dmgparens critmult othercritdmg toolicons'
 		'critdetail critdetail critdetail critdetail critdetail critdetail critdetail critdetail'
 		'crithelp crithelp crithelp crithelp crithelp crithelp crithelp crithelp'
 		'critconfmacro critconfmacro critconfmacro critconfmacro critconfmacro critconfmacro critconfmacro critconfmacro'
@@ -567,9 +590,9 @@ input.tbhat[value="overrun"]:checked ~ .attack-grid-container > .showatkhelpbox:
 	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
 
-.confbutton { grid-area: confbutton; }
-.hitbonuses { grid-area: hitbonuses; }
-.confbonus { grid-area: confbonus; }
+.confbutton {grid-area: confbutton;}
+.hitmod {grid-area: hitmod;}
+.confbonus {grid-area: confbonus;}
 .dmgparens { grid-area: dmgparens; }
 .critmult { grid-area: critmult; }
 .othercritdmg { grid-area: othercritdmg; }
@@ -599,126 +622,58 @@ input.tbhat[value="overrun"]:checked ~ .attack-grid-container > .showatkhelpbox:
 	grid-row-gap: 0px;  /* grid-row-gap leaves blank gaps around display none areas */
 }
 
+
 /* The combat controls and details for aid another and disarm actions. To-hit roll only. */
 .aiddisarm-atk-gc {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
 	display: none;
 	grid-template-columns: 55px 70px 55px 240px 40px;
 	grid-template-rows: 36px 48px auto auto auto;
 	grid-template-areas:
-		'atkheader atkheader atkheader empty showatkbuttons'
-		'hitbutton hitmod hittemp empty showatkbuttons'
-		'atkhelp atkhelp atkhelp atkhelp atkhelp '
+		'atkheader atkheader atkheader . .'
+		'hitbutton hitmod hittemp . toolicons'
+		'help help help help help'
 		'atkdetail atkdetail atkdetail atkdetail atkdetail'
 		'hitmacro hitmacro hitmacro hitmacro hitmacro';
-		
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
 }
-.hitbutton { grid-area: hitbutton; }
-.hitmod { grid-area: hitmod; }
-.hittemp { grid-area: hittemp; }
-.atkhelp { grid-area: atkhelp; display: none;}
-
-.showatkbuttons { grid-area: showatkbuttons; }
-
-.atkdetail { grid-area: atkdetail; display: block;}
-.hitmacro { grid-area: hitmacro; display: none; }
-
-.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
-.showatkmacrosbox { grid-area: showatkbuttons; }
 
 .aid-atk {display: none;}
 .disarm-atk {display: none;}
 input.tbhat[value="aid"]:checked ~ .aiddisarm-atk-gc .aid-atk {display: contents}
 input.tbhat[value="disarm"]:checked ~ .aiddisarm-atk-gc .disarm-atk {display: contents}
 
-.showatkhelpbox:checked ~ div.atkhelp {display: block;}
-.showatkmacrosbox:checked ~ div.hitmacro {display: block;}
 
 /* The combat controls and details for grapple and trip actions. To-hit roll and strength check. */
 .grappletrip-atk-gc {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
 	display: none;
 	grid-template-columns: 55px 70px 55px 65px 50px 70px 55px 40px;
 	grid-template-rows: 36px 48px auto auto auto;
 	grid-template-areas:
-		'atkheader atkheader atkheader atkheader atkheader atkheader atkheader showatkbuttons'
-		'hitbutton hitmod hittemp checkname checkbutton checkmod checktemp showatkbuttons'
-		'atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp'
+		'atkheader atkheader atkheader atkheader atkheader atkheader atkheader .'
+		'hitbutton hitmod hittemp checkname checkbutton checkmod checktemp toolicons'
+		'help help help help help help help help'
 		'atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail'
 		'hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro hitmacro'
 		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro';
-		
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
 }
-.hitbutton { grid-area: hitbutton; }
-.hitmod { grid-area: hitmod; }
-.hittemp { grid-area: hittemp; }
-.checkname { grid-area: checkname; text-align: right;}
-.checkbutton { grid-area: checkbutton; }
-.checkmod { grid-area: checkmod; }
-.checktemp { grid-area: checktemp; }
-.atkhelp { grid-area: atkhelp; display: none;}
-
-.showatkbuttons { grid-area: showatkbuttons; }
-
-.atkdetail { grid-area: atkdetail; display: block;}
-.hitmacro { grid-area: hitmacro; display: none; }
-.checkmacro { grid-area: checkmacro; display: none; }
-
-.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
-.showatkmacrosbox { grid-area: showatkbuttons; }
 
 .grapple-atk {display: none;}
 .trip-atk {display: none;}
 input.tbhat[value="grapple"]:checked ~ .grappletrip-atk-gc .grapple-atk {display: contents}
 input.tbhat[value="trip"]:checked ~ .grappletrip-atk-gc .trip-atk {display: contents}
 
-.showatkhelpbox:checked ~ div.atkhelp {display: block;}
-.showatkmacrosbox:checked ~ div.hitmacro {display: block;}
-.showatkmacrosbox:checked ~ div.checkmacro {display: block;}
-
 
 /* The combat controls and details for bull rush, overrun, and feint actions. Strength or skill check only. */
 .check-atk-gc {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
 	display: none;
 	grid-template-columns: 65px 50px 70px 55px 180px 40px;
 	grid-template-rows: 36px 48px auto auto auto;
 	grid-template-areas:
-		'atkheader atkheader atkheader atkheader empty showatkbuttons'
-		'checkname checkbutton checkmod checktemp empty showatkbuttons'
-		'atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp '
+		'atkheader atkheader atkheader atkheader . .'
+		'checkname checkbutton checkmod checktemp . toolicons'
+		'help help help help help help'
 		'atkdetail atkdetail atkdetail atkdetail atkdetail atkdetail '
 		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro';
-		
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
 }
-.checkname { grid-area: checkname; text-align: right;}
-.checkbutton { grid-area: checkbutton; }
-.checkmod { grid-area: checkmod; }
-.checktemp { grid-area: checktemp; }
-.atkhelp { grid-area: atkhelp; display: none;}
-
-.showatkbuttons { grid-area: showatkbuttons; }
-
-.atkdetail { grid-area: atkdetail; display: block;}
-.checkmacro { grid-area: checkmacro; display: none; }
-
-.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
-.showatkmacrosbox { grid-area: showatkbuttons; }
 
 .bullrush-atk {display: none;}
 .overrun-atk {display: none;}
@@ -727,54 +682,25 @@ input.tbhat[value="bull"]:checked ~ .check-atk-gc .bullrush-atk {display: conten
 input.tbhat[value="feint"]:checked ~ .check-atk-gc .feint-atk {display: contents}
 input.tbhat[value="overrun"]:checked ~ .check-atk-gc .overrun-atk {display: contents}
 
-.showatkhelpbox:checked ~ div.atkhelp {display: block;}
-.showatkmacrosbox:checked ~ div.checkmacro {display: block;}
-
 
 /* The combat controls and details for turn undead. A check and a damage roll. */
-
 .turn-atk-gc {
-	position: relative;
-	padding: 0px; /* this is the padding outside the grid container*/
-	text-align: center;
-	font-size: 16px;
 	display: none;
 	grid-template-columns: 65px 50px 70px 55px 55px 70px 55px 40px;
 	grid-template-rows: auto 36px 48px auto auto auto;
 	grid-template-areas:
 		'turnlevel turnlevel turnlevel turnlevel turnlevel turnlevel turnlevel turnlevel'
-		'atkheader atkheader atkheader atkheader atkheader atkheader atkheader showatkbuttons'
-		'checkname checkbutton checkmod checktemp dmgbutton dmgmod dmgtemp showatkbuttons'
-		'atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp atkhelp'
+		'atkheader atkheader atkheader atkheader atkheader atkheader atkheader .'
+		'checkname checkbutton checkmod checktemp dmgbutton dmgmod dmgtemp toolicons'
+		'help help help help help help help help'
 		'turncheckdetail turncheckdetail turncheckdetail turncheckdetail turndmgdetail turndmgdetail turndmgdetail turndmgdetail'
 		'checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro checkmacro'
 		'dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro dmgmacro';
-		
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
 }
 .turnlevel {grid-area: turnlevel;}
-.checkname { grid-area: checkname; text-align: right;}
-.checkbutton { grid-area: checkbutton; }
-.checkmod { grid-area: checkmod; }
-.checktemp { grid-area: checktemp; }
-.dmgbutton { grid-area: dmgbutton; }
-.dmgmod { grid-area: dmgmod; }
-.dmgtemp { grid-area: dmgtemp; }
-.atkhelp { grid-area: atkhelp; display: none;}
 
-.showatkbuttons { grid-area: showatkbuttons; }
-
-.turncheckdetail { grid-area: turncheckdetail; display: block;}
-.turndmgdetail { grid-area: turndmgdetail; display: block;}
-.checkmacro { grid-area: checkmacro; display: none; }
-
-.showatkhelpbox { grid-area: showatkbuttons; width: 25px; height: 25px; position: relative; top: 20px;}
-.showatkmacrosbox { grid-area: showatkbuttons; }
-
-.showatkhelpbox:checked ~ div.atkhelp {display: block;}
-.showatkmacrosbox:checked ~ div.checkmacro {display: block;}
-.showatkmacrosbox:checked ~ div.dmgmacro {display: block;}
+.turncheckdetail {grid-area: turncheckdetail; display: block;}
+.turndmgdetail {grid-area: turndmgdetail; display: block;}
 
 .turn-lvl-gc{
 	grid-area: turnlevel;
